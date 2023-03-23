@@ -41,9 +41,8 @@ class HomeViewController: UITableViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         navigationItem.title = "DDPicEdit"
-        
-        self.tableView.register(UITableViewCell.self, forCellReuseIdentifier: UITableViewCell.reuseIdentifier)
-        
+
+        self.tableView.registerCellClasses(classes: [UITableViewCell.self])
     }
     
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
@@ -51,8 +50,9 @@ class HomeViewController: UITableViewController {
     }
 
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: UITableViewCell.reuseIdentifier, for: indexPath)
+        let cell: UITableViewCell = tableView.dequeueCell(indexPath: indexPath)
         cell.accessoryType = .disclosureIndicator
+        
         cell.textLabel?.text = HomeMenu.allCases[indexPath.row].title
         return cell
     }

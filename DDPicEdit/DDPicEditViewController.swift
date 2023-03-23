@@ -1,5 +1,5 @@
 //
-//  DDPicCaptureViewController.swift
+//  DDPicEditViewController.swift
 //  DDPicEdit
 //
 //  Created by LongDengYu on 2023/3/19.
@@ -7,9 +7,11 @@
 
 import UIKit
 
-class DDPicCaptureViewController: UITableViewController {
+class DDPicEditViewController: DDPicBaseTableViewController {
+
     override func viewDidLoad() {
         super.viewDidLoad()
-        self.title = "PicCapture"
+        self.title = "PicEdit"
     }
+
 }
