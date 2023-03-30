@@ -45,5 +45,5 @@ public class DDPicCaptureConfigCell: DDPicBaseTableViewCell {
         label.clipsToBounds = true
         return label
     }()
-    private lazy var contentLabel = UILabel(color: .textSubColor1(), textFont: .PingFang(size: 12))
+    public lazy var contentLabel = UILabel(color: .textSubColor1(), textFont: .PingFang(size: 12))
 }
