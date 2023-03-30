@@ -24,7 +24,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         } else {
             homeViewController = HomeViewController(style: .grouped)
         }
-        let navi = DDPicBaseNaviController(rootViewController: homeViewController)
+        let navi = UINavigationController(rootViewController: homeViewController)
         windows.rootViewController = navi
         windows.makeKeyAndVisible()
         self.window = windows

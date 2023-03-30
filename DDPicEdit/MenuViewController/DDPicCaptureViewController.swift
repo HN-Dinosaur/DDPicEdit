@@ -79,6 +79,17 @@ public class DDPicCaptureViewController: DDPicBaseTableViewController {
         
         self.title = "PicCapture"
         self.tableView.registerCellClasses(classes: [DDPicCaptureConfigCell.self])
+        self.setUpNavigationBar()
+    }
+    
+    private func setUpNavigationBar() {
+        let rightBtn = UIBarButtonItem(title: "Open Camera", style: .plain, target: self, action: #selector(openCamera))
+        self.navigationItem.rightBarButtonItem = rightBtn
+    }
+    
+    @objc
+    private func openCamera() {
+        
     }
     
     override public func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {

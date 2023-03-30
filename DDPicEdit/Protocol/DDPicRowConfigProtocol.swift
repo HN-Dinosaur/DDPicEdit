@@ -13,5 +13,5 @@ public protocol DDPicRowConfigProtocol {
     var subTitle: String { get }
     var defaultValue: String { get }
     
-    func getFunction<T: UIViewController>(_ controller: T) -> ((IndexPath) -> Void)
+    func getFunction<T: UIViewController>(_ controller: T) -> ClickCellBlock
 }

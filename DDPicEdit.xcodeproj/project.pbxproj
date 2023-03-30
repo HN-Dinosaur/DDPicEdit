@@ -8,6 +8,18 @@
 
 /* Begin PBXBuildFile section */
 		69E56A5C91553775668C794E /* Pods_DDPicEdit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9D281A844AE1E5C851466A0B /* Pods_DDPicEdit.framework */; };
+		9D4BADCF29D4520700CE3669 /* Extension+Thread.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9D4BADCE29D4520700CE3669 /* Extension+Thread.swift */; };
+		9D4BADD129D4526000CE3669 /* Constant.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9D4BADD029D4526000CE3669 /* Constant.swift */; };
+		9D4BADD529D4590200CE3669 /* Extension+UIAlertController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9D4BADD429D4590200CE3669 /* Extension+UIAlertController.swift */; };
+		9D4BADD729D45DCB00CE3669 /* CaptureOptionsInfo.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9D4BADD629D45DCB00CE3669 /* CaptureOptionsInfo.swift */; };
+		9D4BADDA29D45E8C00CE3669 /* ThemeConfigurable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9D4BADD929D45E8C00CE3669 /* ThemeConfigurable.swift */; };
+		9D4BADDD29D460BE00CE3669 /* StringConfigKey.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9D4BADDC29D460BE00CE3669 /* StringConfigKey.swift */; };
+		9D4BADDF29D4693E00CE3669 /* CaptureTheme.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9D4BADDE29D4693E00CE3669 /* CaptureTheme.swift */; };
+		9D4BADE129D49AF900CE3669 /* CaptionMediaOption.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9D4BADE029D49AF900CE3669 /* CaptionMediaOption.swift */; };
+		9D4BADE329D49F3700CE3669 /* CaptureAspectRatio.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9D4BADE229D49F3700CE3669 /* CaptureAspectRatio.swift */; };
+		9D4BADE529D4A0B700CE3669 /* CapturePosition.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9D4BADE429D4A0B700CE3669 /* CapturePosition.swift */; };
+		9D4BADE729D521BC00CE3669 /* CaptureFlashMode.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9D4BADE629D521BC00CE3669 /* CaptureFlashMode.swift */; };
+		9D4BADE929D5255000CE3669 /* CapturePreSet.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9D4BADE829D5255000CE3669 /* CapturePreSet.swift */; };
 		9DC3A1FF29C727A3009EBFB0 /* HomeMenuProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9DC3A1FE29C727A3009EBFB0 /* HomeMenuProtocol.swift */; };
 		9DC3A20229C728C7009EBFB0 /* DDPicCaptureViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9DC3A20129C728C7009EBFB0 /* DDPicCaptureViewController.swift */; };
 		9DC3A20429C74B1A009EBFB0 /* DDPicCaptureConfigCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9DC3A20329C74B1A009EBFB0 /* DDPicCaptureConfigCell.swift */; };
@@ -34,6 +46,18 @@
 
 /* Begin PBXFileReference section */
 		9D281A844AE1E5C851466A0B /* Pods_DDPicEdit.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_DDPicEdit.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		9D4BADCE29D4520700CE3669 /* Extension+Thread.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Extension+Thread.swift"; sourceTree = "<group>"; };
+		9D4BADD029D4526000CE3669 /* Constant.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constant.swift; sourceTree = "<group>"; };
+		9D4BADD429D4590200CE3669 /* Extension+UIAlertController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Extension+UIAlertController.swift"; sourceTree = "<group>"; };
+		9D4BADD629D45DCB00CE3669 /* CaptureOptionsInfo.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CaptureOptionsInfo.swift; sourceTree = "<group>"; };
+		9D4BADD929D45E8C00CE3669 /* ThemeConfigurable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ThemeConfigurable.swift; sourceTree = "<group>"; };
+		9D4BADDC29D460BE00CE3669 /* StringConfigKey.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StringConfigKey.swift; sourceTree = "<group>"; };
+		9D4BADDE29D4693E00CE3669 /* CaptureTheme.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CaptureTheme.swift; sourceTree = "<group>"; };
+		9D4BADE029D49AF900CE3669 /* CaptionMediaOption.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CaptionMediaOption.swift; sourceTree = "<group>"; };
+		9D4BADE229D49F3700CE3669 /* CaptureAspectRatio.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CaptureAspectRatio.swift; sourceTree = "<group>"; };
+		9D4BADE429D4A0B700CE3669 /* CapturePosition.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CapturePosition.swift; sourceTree = "<group>"; };
+		9D4BADE629D521BC00CE3669 /* CaptureFlashMode.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CaptureFlashMode.swift; sourceTree = "<group>"; };
+		9D4BADE829D5255000CE3669 /* CapturePreSet.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CapturePreSet.swift; sourceTree = "<group>"; };
 		9DC3A1FE29C727A3009EBFB0 /* HomeMenuProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeMenuProtocol.swift; sourceTree = "<group>"; };
 		9DC3A20129C728C7009EBFB0 /* DDPicCaptureViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DDPicCaptureViewController.swift; sourceTree = "<group>"; };
 		9DC3A20329C74B1A009EBFB0 /* DDPicCaptureConfigCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DDPicCaptureConfigCell.swift; sourceTree = "<group>"; };
@@ -91,6 +115,30 @@
 			path = Pods;
 			sourceTree = "<group>";
 		};
+		9D4BADD829D45DD300CE3669 /* CaptureModule */ = {
+			isa = PBXGroup;
+			children = (
+				9D4BADD629D45DCB00CE3669 /* CaptureOptionsInfo.swift */,
+				9D4BADDE29D4693E00CE3669 /* CaptureTheme.swift */,
+				9D4BADDB29D45E9700CE3669 /* Option */,
+			);
+			path = CaptureModule;
+			sourceTree = "<group>";
+		};
+		9D4BADDB29D45E9700CE3669 /* Option */ = {
+			isa = PBXGroup;
+			children = (
+				9D4BADD929D45E8C00CE3669 /* ThemeConfigurable.swift */,
+				9D4BADE229D49F3700CE3669 /* CaptureAspectRatio.swift */,
+				9D4BADE429D4A0B700CE3669 /* CapturePosition.swift */,
+				9D4BADE029D49AF900CE3669 /* CaptionMediaOption.swift */,
+				9D4BADE829D5255000CE3669 /* CapturePreSet.swift */,
+				9D4BADE629D521BC00CE3669 /* CaptureFlashMode.swift */,
+				9D4BADDC29D460BE00CE3669 /* StringConfigKey.swift */,
+			);
+			path = Option;
+			sourceTree = "<group>";
+		};
 		9DC3A20029C727DA009EBFB0 /* Protocol */ = {
 			isa = PBXGroup;
 			children = (
@@ -103,6 +151,7 @@
 		9DC3A20529C74B29009EBFB0 /* TableViewCell */ = {
 			isa = PBXGroup;
 			children = (
+				9DC3A20329C74B1A009EBFB0 /* DDPicCaptureConfigCell.swift */,
 			);
 			path = TableViewCell;
 			sourceTree = "<group>";
@@ -139,23 +188,16 @@
 				9DC4F85629C3360D00EAFDB5 /* AppDelegate.swift */,
 				9DC4F86A29C6CEFC00EAFDB5 /* HomeViewController.swift */,
 				9DC4F87529C6DAE700EAFDB5 /* MenuViewController */,
-				9DC4F87229C6CFC400EAFDB5 /* DDPicEditViewController.swift */,
-				9DC3A20129C728C7009EBFB0 /* DDPicCaptureViewController.swift */,
 				9DC3A20529C74B29009EBFB0 /* TableViewCell */,
-				9DC3A20329C74B1A009EBFB0 /* DDPicCaptureConfigCell.swift */,
 				9DC4F87129C6CF8C00EAFDB5 /* Base */,
-				9DC4F86C29C6CF6300EAFDB5 /* DDPicBaseNaviController.swift */,
-				9DC4F86E29C6CF7000EAFDB5 /* DDPicBaseViewController.swift */,
-				9DC3A20C29C80421009EBFB0 /* DDPicBaseTableViewController.swift */,
-				9DC3A20629C74B7A009EBFB0 /* DDPicBaseTableViewCell.swift */,
-				9DC4F87929C6DC3A00EAFDB5 /* DDPicBaseView.swift */,
-				9DC3A21929C95A81009EBFB0 /* DDPicBaseLabel.swift */,
 				9DC3A20029C727DA009EBFB0 /* Protocol */,
 				9DC3A21829C95A04009EBFB0 /* Component */,
 				9DC4F87829C6DB7900EAFDB5 /* Util */,
+				9D4BADD829D45DD300CE3669 /* CaptureModule */,
 				9DC4F85F29C3360E00EAFDB5 /* Assets.xcassets */,
 				9DC4F86129C3360E00EAFDB5 /* LaunchScreen.storyboard */,
 				9DC4F86429C3360E00EAFDB5 /* Info.plist */,
+				9D4BADD029D4526000CE3669 /* Constant.swift */,
 			);
 			path = DDPicEdit;
 			sourceTree = "<group>";
@@ -163,6 +205,12 @@
 		9DC4F87129C6CF8C00EAFDB5 /* Base */ = {
 			isa = PBXGroup;
 			children = (
+				9DC4F86C29C6CF6300EAFDB5 /* DDPicBaseNaviController.swift */,
+				9DC4F86E29C6CF7000EAFDB5 /* DDPicBaseViewController.swift */,
+				9DC3A20C29C80421009EBFB0 /* DDPicBaseTableViewController.swift */,
+				9DC3A20629C74B7A009EBFB0 /* DDPicBaseTableViewCell.swift */,
+				9DC4F87929C6DC3A00EAFDB5 /* DDPicBaseView.swift */,
+				9DC3A21929C95A81009EBFB0 /* DDPicBaseLabel.swift */,
 			);
 			path = Base;
 			sourceTree = "<group>";
@@ -170,6 +218,8 @@
 		9DC4F87529C6DAE700EAFDB5 /* MenuViewController */ = {
 			isa = PBXGroup;
 			children = (
+				9DC4F87229C6CFC400EAFDB5 /* DDPicEditViewController.swift */,
+				9DC3A20129C728C7009EBFB0 /* DDPicCaptureViewController.swift */,
 			);
 			path = MenuViewController;
 			sourceTree = "<group>";
@@ -180,9 +230,11 @@
 				9DC3A21429C893FB009EBFB0 /* Extension+UITableView.swift */,
 				9DC3A21029C8579C009EBFB0 /* Extension+UIColor.swift */,
 				9DC3A20E29C80C00009EBFB0 /* Extension+UIFont.swift */,
+				9D4BADD429D4590200CE3669 /* Extension+UIAlertController.swift */,
 				9DC3A20829C74C6A009EBFB0 /* Extention+UIView.swift */,
 				9DC3A21229C858DB009EBFB0 /* Extension+UILabel.swift */,
 				9DC3A21B29C9679E009EBFB0 /* Extension+UIEdgeInset.swift */,
+				9D4BADCE29D4520700CE3669 /* Extension+Thread.swift */,
 			);
 			path = Util;
 			sourceTree = "<group>";
@@ -301,26 +353,38 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				9D4BADDA29D45E8C00CE3669 /* ThemeConfigurable.swift in Sources */,
 				9DC4F87A29C6DC3A00EAFDB5 /* DDPicBaseView.swift in Sources */,
 				9DC3A20429C74B1A009EBFB0 /* DDPicCaptureConfigCell.swift in Sources */,
+				9D4BADE529D4A0B700CE3669 /* CapturePosition.swift in Sources */,
 				9DC3A20B29C751E2009EBFB0 /* DDPicRowConfigProtocol.swift in Sources */,
 				9DC4F85729C3360D00EAFDB5 /* AppDelegate.swift in Sources */,
 				9DC3A21C29C9679E009EBFB0 /* Extension+UIEdgeInset.swift in Sources */,
+				9D4BADE329D49F3700CE3669 /* CaptureAspectRatio.swift in Sources */,
 				9DC4F86D29C6CF6300EAFDB5 /* DDPicBaseNaviController.swift in Sources */,
 				9DC3A1FF29C727A3009EBFB0 /* HomeMenuProtocol.swift in Sources */,
 				9DC3A20729C74B7A009EBFB0 /* DDPicBaseTableViewCell.swift in Sources */,
 				9DC3A21529C893FB009EBFB0 /* Extension+UITableView.swift in Sources */,
+				9D4BADDF29D4693E00CE3669 /* CaptureTheme.swift in Sources */,
+				9D4BADCF29D4520700CE3669 /* Extension+Thread.swift in Sources */,
 				9DC3A21329C858DB009EBFB0 /* Extension+UILabel.swift in Sources */,
 				9DC3A21129C8579C009EBFB0 /* Extension+UIColor.swift in Sources */,
 				9DC3A21729C959FE009EBFB0 /* InsetLabel.swift in Sources */,
 				9DC4F86F29C6CF7000EAFDB5 /* DDPicBaseViewController.swift in Sources */,
+				9D4BADE729D521BC00CE3669 /* CaptureFlashMode.swift in Sources */,
 				9DC4F86B29C6CEFC00EAFDB5 /* HomeViewController.swift in Sources */,
 				9DC3A20F29C80C00009EBFB0 /* Extension+UIFont.swift in Sources */,
+				9D4BADE929D5255000CE3669 /* CapturePreSet.swift in Sources */,
+				9D4BADE129D49AF900CE3669 /* CaptionMediaOption.swift in Sources */,
 				9DC3A21A29C95A81009EBFB0 /* DDPicBaseLabel.swift in Sources */,
 				9DC4F87329C6CFC400EAFDB5 /* DDPicEditViewController.swift in Sources */,
+				9D4BADD529D4590200CE3669 /* Extension+UIAlertController.swift in Sources */,
 				9DC3A20229C728C7009EBFB0 /* DDPicCaptureViewController.swift in Sources */,
+				9D4BADD129D4526000CE3669 /* Constant.swift in Sources */,
+				9D4BADDD29D460BE00CE3669 /* StringConfigKey.swift in Sources */,
 				9DC3A20929C74C6A009EBFB0 /* Extention+UIView.swift in Sources */,
 				9DC3A20D29C80421009EBFB0 /* DDPicBaseTableViewController.swift in Sources */,
+				9D4BADD729D45DCB00CE3669 /* CaptureOptionsInfo.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
