@@ -9,12 +9,14 @@ import UIKit
 
 extension UIAlertController {
     
-    static func show(title: String? = nil, message: String? = nil, preferStyle: UIAlertController.Style = .alert, actions: [UIAlertAction]) -> UIAlertController {
+    static func show(title: String? = nil, message: String? = nil, preferStyle: UIAlertController.Style = .alert, actions: [UIAlertAction],isCustomCancelAction: Bool = false) -> UIAlertController {
         let alert = UIAlertController(title: title, message: message, preferredStyle: preferStyle)
         for action in actions {
             alert.addAction(action)
         }
-        alert.addAction(UIAlertAction(title: "Cancel", style: .cancel, handler: nil))
+        if !isCustomCancelAction {
+            alert.addAction(UIAlertAction(title: "Cancel", style: .cancel, handler: nil))
+        }
         return alert
     }
     

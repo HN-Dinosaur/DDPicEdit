@@ -20,6 +20,18 @@
 		9D4BADE529D4A0B700CE3669 /* CapturePosition.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9D4BADE429D4A0B700CE3669 /* CapturePosition.swift */; };
 		9D4BADE729D521BC00CE3669 /* CaptureFlashMode.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9D4BADE629D521BC00CE3669 /* CaptureFlashMode.swift */; };
 		9D4BADE929D5255000CE3669 /* CapturePreSet.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9D4BADE829D5255000CE3669 /* CapturePreSet.swift */; };
+		9D4BADEB29D5892F00CE3669 /* CaptureResult.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9D4BADEA29D5892F00CE3669 /* CaptureResult.swift */; };
+		9D4BADED29D58A5600CE3669 /* MediaType.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9D4BADEC29D58A5600CE3669 /* MediaType.swift */; };
+		9D4BADF129D5908800CE3669 /* ImageCaptureController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9D4BADF029D5908800CE3669 /* ImageCaptureController.swift */; };
+		9D4BADF329D5BC8300CE3669 /* ImageKitDataTrackDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9D4BADF229D5BC8300CE3669 /* ImageKitDataTrackDelegate.swift */; };
+		9D4BADF629D5CADB00CE3669 /* DataTrackObserver.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9D4BADF529D5CADB00CE3669 /* DataTrackObserver.swift */; };
+		9D4BADF829D5CAEF00CE3669 /* AnyImagePage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9D4BADF729D5CAEE00CE3669 /* AnyImagePage.swift */; };
+		9D4BADFA29D5CB0100CE3669 /* AnyImageEvent.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9D4BADF929D5CB0100CE3669 /* AnyImageEvent.swift */; };
+		9D4BADFC29D5CB6700CE3669 /* AnyImagePageState.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9D4BADFB29D5CB6600CE3669 /* AnyImagePageState.swift */; };
+		9D4BADFE29D5CB8100CE3669 /* AnyImageEventUserInfoKey.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9D4BADFD29D5CB8100CE3669 /* AnyImageEventUserInfoKey.swift */; };
+		9D4BAE0029D5D12800CE3669 /* DebugHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9D4BADFF29D5D12800CE3669 /* DebugHelper.swift */; };
+		9D4BAE0529D7C4C100CE3669 /* CaptureViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9D4BAE0429D7C4C100CE3669 /* CaptureViewController.swift */; };
+		9D4BAE0729D7E04B00CE3669 /* Permission.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9D4BAE0629D7E04B00CE3669 /* Permission.swift */; };
 		9DC3A1FF29C727A3009EBFB0 /* HomeMenuProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9DC3A1FE29C727A3009EBFB0 /* HomeMenuProtocol.swift */; };
 		9DC3A20229C728C7009EBFB0 /* DDPicCaptureViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9DC3A20129C728C7009EBFB0 /* DDPicCaptureViewController.swift */; };
 		9DC3A20429C74B1A009EBFB0 /* DDPicCaptureConfigCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9DC3A20329C74B1A009EBFB0 /* DDPicCaptureConfigCell.swift */; };
@@ -42,6 +54,11 @@
 		9DC4F86F29C6CF7000EAFDB5 /* DDPicBaseViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9DC4F86E29C6CF7000EAFDB5 /* DDPicBaseViewController.swift */; };
 		9DC4F87329C6CFC400EAFDB5 /* DDPicEditViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9DC4F87229C6CFC400EAFDB5 /* DDPicEditViewController.swift */; };
 		9DC4F87A29C6DC3A00EAFDB5 /* DDPicBaseView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9DC4F87929C6DC3A00EAFDB5 /* DDPicBaseView.swift */; };
+		9DD961D929D80859005FC488 /* Permission+Photos.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9DD961D829D80859005FC488 /* Permission+Photos.swift */; };
+		9DD961DB29D81213005FC488 /* Permission+Camera.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9DD961DA29D81213005FC488 /* Permission+Camera.swift */; };
+		9DD961DD29D81221005FC488 /* Permission+Microphone.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9DD961DC29D81221005FC488 /* Permission+Microphone.swift */; };
+		9DD961DF29D82BEE005FC488 /* BundleHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9DD961DE29D82BEE005FC488 /* BundleHelper.swift */; };
+		9DD961E129D967FF005FC488 /* DeviceOrientationUtil.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9DD961E029D967FF005FC488 /* DeviceOrientationUtil.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -58,6 +75,18 @@
 		9D4BADE429D4A0B700CE3669 /* CapturePosition.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CapturePosition.swift; sourceTree = "<group>"; };
 		9D4BADE629D521BC00CE3669 /* CaptureFlashMode.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CaptureFlashMode.swift; sourceTree = "<group>"; };
 		9D4BADE829D5255000CE3669 /* CapturePreSet.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CapturePreSet.swift; sourceTree = "<group>"; };
+		9D4BADEA29D5892F00CE3669 /* CaptureResult.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CaptureResult.swift; sourceTree = "<group>"; };
+		9D4BADEC29D58A5600CE3669 /* MediaType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MediaType.swift; sourceTree = "<group>"; };
+		9D4BADF029D5908800CE3669 /* ImageCaptureController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageCaptureController.swift; sourceTree = "<group>"; };
+		9D4BADF229D5BC8300CE3669 /* ImageKitDataTrackDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageKitDataTrackDelegate.swift; sourceTree = "<group>"; };
+		9D4BADF529D5CADB00CE3669 /* DataTrackObserver.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataTrackObserver.swift; sourceTree = "<group>"; };
+		9D4BADF729D5CAEE00CE3669 /* AnyImagePage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AnyImagePage.swift; sourceTree = "<group>"; };
+		9D4BADF929D5CB0100CE3669 /* AnyImageEvent.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AnyImageEvent.swift; sourceTree = "<group>"; };
+		9D4BADFB29D5CB6600CE3669 /* AnyImagePageState.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AnyImagePageState.swift; sourceTree = "<group>"; };
+		9D4BADFD29D5CB8100CE3669 /* AnyImageEventUserInfoKey.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AnyImageEventUserInfoKey.swift; sourceTree = "<group>"; };
+		9D4BADFF29D5D12800CE3669 /* DebugHelper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DebugHelper.swift; sourceTree = "<group>"; };
+		9D4BAE0429D7C4C100CE3669 /* CaptureViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CaptureViewController.swift; sourceTree = "<group>"; };
+		9D4BAE0629D7E04B00CE3669 /* Permission.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Permission.swift; sourceTree = "<group>"; };
 		9DC3A1FE29C727A3009EBFB0 /* HomeMenuProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeMenuProtocol.swift; sourceTree = "<group>"; };
 		9DC3A20129C728C7009EBFB0 /* DDPicCaptureViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DDPicCaptureViewController.swift; sourceTree = "<group>"; };
 		9DC3A20329C74B1A009EBFB0 /* DDPicCaptureConfigCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DDPicCaptureConfigCell.swift; sourceTree = "<group>"; };
@@ -82,6 +111,11 @@
 		9DC4F86E29C6CF7000EAFDB5 /* DDPicBaseViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DDPicBaseViewController.swift; sourceTree = "<group>"; };
 		9DC4F87229C6CFC400EAFDB5 /* DDPicEditViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DDPicEditViewController.swift; sourceTree = "<group>"; };
 		9DC4F87929C6DC3A00EAFDB5 /* DDPicBaseView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DDPicBaseView.swift; sourceTree = "<group>"; };
+		9DD961D829D80859005FC488 /* Permission+Photos.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Permission+Photos.swift"; sourceTree = "<group>"; };
+		9DD961DA29D81213005FC488 /* Permission+Camera.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Permission+Camera.swift"; sourceTree = "<group>"; };
+		9DD961DC29D81221005FC488 /* Permission+Microphone.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Permission+Microphone.swift"; sourceTree = "<group>"; };
+		9DD961DE29D82BEE005FC488 /* BundleHelper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BundleHelper.swift; sourceTree = "<group>"; };
+		9DD961E029D967FF005FC488 /* DeviceOrientationUtil.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DeviceOrientationUtil.swift; sourceTree = "<group>"; };
 		C874753863D1BCF69DB75918 /* Pods-DDPicEdit.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-DDPicEdit.release.xcconfig"; path = "Target Support Files/Pods-DDPicEdit/Pods-DDPicEdit.release.xcconfig"; sourceTree = "<group>"; };
 		E329401B19A674946A993C90 /* Pods-DDPicEdit.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-DDPicEdit.debug.xcconfig"; path = "Target Support Files/Pods-DDPicEdit/Pods-DDPicEdit.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -118,9 +152,11 @@
 		9D4BADD829D45DD300CE3669 /* CaptureModule */ = {
 			isa = PBXGroup;
 			children = (
-				9D4BADD629D45DCB00CE3669 /* CaptureOptionsInfo.swift */,
-				9D4BADDE29D4693E00CE3669 /* CaptureTheme.swift */,
-				9D4BADDB29D45E9700CE3669 /* Option */,
+				9D4BAE0329D7C4AF00CE3669 /* ViewController */,
+				9D4BAE0129D7C28C00CE3669 /* Common */,
+				9D4BADEE29D58A6900CE3669 /* OptionInfo */,
+				9D4BADEF29D58A7200CE3669 /* Model */,
+				9D4BADF429D5BC8900CE3669 /* DataTrack */,
 			);
 			path = CaptureModule;
 			sourceTree = "<group>";
@@ -137,6 +173,88 @@
 				9D4BADDC29D460BE00CE3669 /* StringConfigKey.swift */,
 			);
 			path = Option;
+			sourceTree = "<group>";
+		};
+		9D4BADEE29D58A6900CE3669 /* OptionInfo */ = {
+			isa = PBXGroup;
+			children = (
+				9D4BADD629D45DCB00CE3669 /* CaptureOptionsInfo.swift */,
+				9D4BADDE29D4693E00CE3669 /* CaptureTheme.swift */,
+				9D4BADEA29D5892F00CE3669 /* CaptureResult.swift */,
+				9D4BADDB29D45E9700CE3669 /* Option */,
+			);
+			path = OptionInfo;
+			sourceTree = "<group>";
+		};
+		9D4BADEF29D58A7200CE3669 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				9D4BADEC29D58A5600CE3669 /* MediaType.swift */,
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		9D4BADF429D5BC8900CE3669 /* DataTrack */ = {
+			isa = PBXGroup;
+			children = (
+				9D4BADF229D5BC8300CE3669 /* ImageKitDataTrackDelegate.swift */,
+				9D4BADF529D5CADB00CE3669 /* DataTrackObserver.swift */,
+				9D4BADF729D5CAEE00CE3669 /* AnyImagePage.swift */,
+				9D4BADFB29D5CB6600CE3669 /* AnyImagePageState.swift */,
+				9D4BADF929D5CB0100CE3669 /* AnyImageEvent.swift */,
+				9D4BADFD29D5CB8100CE3669 /* AnyImageEventUserInfoKey.swift */,
+			);
+			path = DataTrack;
+			sourceTree = "<group>";
+		};
+		9D4BAE0129D7C28C00CE3669 /* Common */ = {
+			isa = PBXGroup;
+			children = (
+				9D4BADFF29D5D12800CE3669 /* DebugHelper.swift */,
+				9DD961DE29D82BEE005FC488 /* BundleHelper.swift */,
+			);
+			path = Common;
+			sourceTree = "<group>";
+		};
+		9D4BAE0229D7C2BD00CE3669 /* BaseModule */ = {
+			isa = PBXGroup;
+			children = (
+				9DC4F87129C6CF8C00EAFDB5 /* Base */,
+				9DC3A21829C95A04009EBFB0 /* Component */,
+				9DC4F87829C6DB7900EAFDB5 /* Extension */,
+				9D4BAE0829D7E05500CE3669 /* Util */,
+			);
+			path = BaseModule;
+			sourceTree = "<group>";
+		};
+		9D4BAE0329D7C4AF00CE3669 /* ViewController */ = {
+			isa = PBXGroup;
+			children = (
+				9D4BADF029D5908800CE3669 /* ImageCaptureController.swift */,
+				9D4BAE0429D7C4C100CE3669 /* CaptureViewController.swift */,
+			);
+			path = ViewController;
+			sourceTree = "<group>";
+		};
+		9D4BAE0829D7E05500CE3669 /* Util */ = {
+			isa = PBXGroup;
+			children = (
+				9D4BAE0929D7E95A00CE3669 /* Permission */,
+				9D4BADD029D4526000CE3669 /* Constant.swift */,
+				9DD961E029D967FF005FC488 /* DeviceOrientationUtil.swift */,
+			);
+			path = Util;
+			sourceTree = "<group>";
+		};
+		9D4BAE0929D7E95A00CE3669 /* Permission */ = {
+			isa = PBXGroup;
+			children = (
+				9D4BAE0629D7E04B00CE3669 /* Permission.swift */,
+				9DD961D829D80859005FC488 /* Permission+Photos.swift */,
+				9DD961DA29D81213005FC488 /* Permission+Camera.swift */,
+				9DD961DC29D81221005FC488 /* Permission+Microphone.swift */,
+			);
+			path = Permission;
 			sourceTree = "<group>";
 		};
 		9DC3A20029C727DA009EBFB0 /* Protocol */ = {
@@ -160,6 +278,7 @@
 			isa = PBXGroup;
 			children = (
 				9DC3A21629C959FE009EBFB0 /* InsetLabel.swift */,
+				9DC3A20529C74B29009EBFB0 /* TableViewCell */,
 			);
 			path = Component;
 			sourceTree = "<group>";
@@ -188,16 +307,12 @@
 				9DC4F85629C3360D00EAFDB5 /* AppDelegate.swift */,
 				9DC4F86A29C6CEFC00EAFDB5 /* HomeViewController.swift */,
 				9DC4F87529C6DAE700EAFDB5 /* MenuViewController */,
-				9DC3A20529C74B29009EBFB0 /* TableViewCell */,
-				9DC4F87129C6CF8C00EAFDB5 /* Base */,
 				9DC3A20029C727DA009EBFB0 /* Protocol */,
-				9DC3A21829C95A04009EBFB0 /* Component */,
-				9DC4F87829C6DB7900EAFDB5 /* Util */,
+				9D4BAE0229D7C2BD00CE3669 /* BaseModule */,
 				9D4BADD829D45DD300CE3669 /* CaptureModule */,
 				9DC4F85F29C3360E00EAFDB5 /* Assets.xcassets */,
 				9DC4F86129C3360E00EAFDB5 /* LaunchScreen.storyboard */,
 				9DC4F86429C3360E00EAFDB5 /* Info.plist */,
-				9D4BADD029D4526000CE3669 /* Constant.swift */,
 			);
 			path = DDPicEdit;
 			sourceTree = "<group>";
@@ -224,7 +339,7 @@
 			path = MenuViewController;
 			sourceTree = "<group>";
 		};
-		9DC4F87829C6DB7900EAFDB5 /* Util */ = {
+		9DC4F87829C6DB7900EAFDB5 /* Extension */ = {
 			isa = PBXGroup;
 			children = (
 				9DC3A21429C893FB009EBFB0 /* Extension+UITableView.swift */,
@@ -236,7 +351,7 @@
 				9DC3A21B29C9679E009EBFB0 /* Extension+UIEdgeInset.swift */,
 				9D4BADCE29D4520700CE3669 /* Extension+Thread.swift */,
 			);
-			path = Util;
+			path = Extension;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -354,19 +469,29 @@
 			buildActionMask = 2147483647;
 			files = (
 				9D4BADDA29D45E8C00CE3669 /* ThemeConfigurable.swift in Sources */,
+				9DD961DB29D81213005FC488 /* Permission+Camera.swift in Sources */,
 				9DC4F87A29C6DC3A00EAFDB5 /* DDPicBaseView.swift in Sources */,
+				9D4BADFE29D5CB8100CE3669 /* AnyImageEventUserInfoKey.swift in Sources */,
 				9DC3A20429C74B1A009EBFB0 /* DDPicCaptureConfigCell.swift in Sources */,
+				9DD961DD29D81221005FC488 /* Permission+Microphone.swift in Sources */,
+				9D4BADFC29D5CB6700CE3669 /* AnyImagePageState.swift in Sources */,
+				9DD961DF29D82BEE005FC488 /* BundleHelper.swift in Sources */,
+				9D4BADF329D5BC8300CE3669 /* ImageKitDataTrackDelegate.swift in Sources */,
+				9D4BAE0529D7C4C100CE3669 /* CaptureViewController.swift in Sources */,
 				9D4BADE529D4A0B700CE3669 /* CapturePosition.swift in Sources */,
 				9DC3A20B29C751E2009EBFB0 /* DDPicRowConfigProtocol.swift in Sources */,
 				9DC4F85729C3360D00EAFDB5 /* AppDelegate.swift in Sources */,
+				9D4BADF129D5908800CE3669 /* ImageCaptureController.swift in Sources */,
 				9DC3A21C29C9679E009EBFB0 /* Extension+UIEdgeInset.swift in Sources */,
 				9D4BADE329D49F3700CE3669 /* CaptureAspectRatio.swift in Sources */,
 				9DC4F86D29C6CF6300EAFDB5 /* DDPicBaseNaviController.swift in Sources */,
+				9D4BADF629D5CADB00CE3669 /* DataTrackObserver.swift in Sources */,
 				9DC3A1FF29C727A3009EBFB0 /* HomeMenuProtocol.swift in Sources */,
 				9DC3A20729C74B7A009EBFB0 /* DDPicBaseTableViewCell.swift in Sources */,
 				9DC3A21529C893FB009EBFB0 /* Extension+UITableView.swift in Sources */,
 				9D4BADDF29D4693E00CE3669 /* CaptureTheme.swift in Sources */,
 				9D4BADCF29D4520700CE3669 /* Extension+Thread.swift in Sources */,
+				9D4BADEB29D5892F00CE3669 /* CaptureResult.swift in Sources */,
 				9DC3A21329C858DB009EBFB0 /* Extension+UILabel.swift in Sources */,
 				9DC3A21129C8579C009EBFB0 /* Extension+UIColor.swift in Sources */,
 				9DC3A21729C959FE009EBFB0 /* InsetLabel.swift in Sources */,
@@ -376,15 +501,22 @@
 				9DC3A20F29C80C00009EBFB0 /* Extension+UIFont.swift in Sources */,
 				9D4BADE929D5255000CE3669 /* CapturePreSet.swift in Sources */,
 				9D4BADE129D49AF900CE3669 /* CaptionMediaOption.swift in Sources */,
+				9D4BADFA29D5CB0100CE3669 /* AnyImageEvent.swift in Sources */,
+				9DD961E129D967FF005FC488 /* DeviceOrientationUtil.swift in Sources */,
 				9DC3A21A29C95A81009EBFB0 /* DDPicBaseLabel.swift in Sources */,
+				9DD961D929D80859005FC488 /* Permission+Photos.swift in Sources */,
+				9D4BAE0729D7E04B00CE3669 /* Permission.swift in Sources */,
 				9DC4F87329C6CFC400EAFDB5 /* DDPicEditViewController.swift in Sources */,
+				9D4BADED29D58A5600CE3669 /* MediaType.swift in Sources */,
 				9D4BADD529D4590200CE3669 /* Extension+UIAlertController.swift in Sources */,
 				9DC3A20229C728C7009EBFB0 /* DDPicCaptureViewController.swift in Sources */,
 				9D4BADD129D4526000CE3669 /* Constant.swift in Sources */,
 				9D4BADDD29D460BE00CE3669 /* StringConfigKey.swift in Sources */,
 				9DC3A20929C74C6A009EBFB0 /* Extention+UIView.swift in Sources */,
+				9D4BADF829D5CAEF00CE3669 /* AnyImagePage.swift in Sources */,
 				9DC3A20D29C80421009EBFB0 /* DDPicBaseTableViewController.swift in Sources */,
 				9D4BADD729D45DCB00CE3669 /* CaptureOptionsInfo.swift in Sources */,
+				9D4BAE0029D5D12800CE3669 /* DebugHelper.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
