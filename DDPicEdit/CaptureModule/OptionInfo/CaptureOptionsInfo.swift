@@ -11,7 +11,7 @@ public struct CaptureOptionsInfo {
 
     public var theme: CaptureTheme = .init()
     // default is photo, conform OptionSet protocol
-    public var mediaOption: CaptionMediaOption = [.photo]
+    public var mediaOptions: CaptionMediaOption = [.photo]
     // default is 4x3
     public var photoAspectRatio: CaptureAspectRatio = .ratio4x3
     // default is back and front, comform RawRepresentable and Equatable protocol

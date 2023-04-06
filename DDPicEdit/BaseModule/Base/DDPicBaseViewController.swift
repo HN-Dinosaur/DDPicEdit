@@ -26,7 +26,16 @@ open class DDPicBaseViewController: UIViewController {
     }
 
     open override var prefersStatusBarHidden: Bool { isStatusBarHidden }
-
+    
+    public override init(nibName nibNameOrNil: String?, bundle nibBundleOrNil: Bundle?) {
+        super.init(nibName: nibNameOrNil, bundle: nibBundleOrNil)
+    }
+    
+    @available(*, unavailable, message: "Unsupported init(coder:)")
+    required public init?(coder: NSCoder) {
+        fatalError("init(coder:) has not been implemented")
+    }
+    
     open override func viewDidLoad() {
         super.viewDidLoad()
         self.setTrack()
@@ -61,11 +70,18 @@ open class DDPicBaseViewController: UIViewController {
     }
     
     private func setTrackObserverOrDelegate(_ viewControllerToPresent: UIViewController) {
+        // 当下一个present的是DDPicBaseViewController, 把当前DDPicBaseViewController的trackObserver给他
         if let vc = viewControllerToPresent as? DDPicBaseViewController {
-            vc.trackObserver = self.trackObserver
-        } else if let navi = viewControllerToPresent as? DDPicBaseNaviController,
-                  let currNavi = navigationController as? DDPicBaseNaviController  {
-                      navi.trackDelegate = currNavi.trackDelegate
+            vc.trackObserver = trackObserver
+            // 当下一个present的是DDPicBaseNaviController
+        } else if let newNavi = viewControllerToPresent as? DDPicBaseNaviController {
+            // 当前vc的navi / vc的某个祖先的vavi
+            if let currentNavi = navigationController as? DDPicBaseNaviController {
+                newNavi.trackDelegate = currentNavi.trackDelegate
+            // present当前vc的是navi / 当前vc的某个祖先navi给present的
+            } else if let currentNavi = presentingViewController as? DDPicBaseNaviController {
+                newNavi.trackDelegate = currentNavi.trackDelegate
+            }
         }
     }
 }

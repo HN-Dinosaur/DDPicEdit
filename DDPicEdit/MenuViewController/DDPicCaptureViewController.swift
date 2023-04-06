@@ -96,7 +96,10 @@ public class DDPicCaptureViewController: DDPicBaseTableViewController {
     
     @objc
     private func openCamera() {
-        
+        options.enableDebugLog = true
+        let controller = ImageCaptureController(options: options, delegate: self)
+        controller.trackDelegate = self
+        present(controller, animated: true, completion: nil)
     }
     
     override public func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
@@ -202,5 +205,28 @@ extension DDPicCaptureViewController {
             (self?.tableView.cellForRow(at: indexPath) as? DDPicCaptureConfigCell)?.contentLabel.text = action.title
         }
         present(UIAlertController.show(title: "Preferred Positions", actions: [action1, action2, action3]), animated: true)
+    }
+}
+
+extension DDPicCaptureViewController: ImageCaptureControllerDelegate {
+    public func imageCapture(_ capture: ImageCaptureController, didFinishCapturing result: CaptureResult) {
+        
+    }
+}
+
+// MARK: - ImageKitDataTrackDelegate
+extension DDPicCaptureViewController: ImageKitDataTrackDelegate {
+    
+    public func dataTrack(page: AnyImagePage, state: AnyImagePageState) {
+        switch state {
+        case .enter:
+            print("[Data Track] ENTER Page: \(page.rawValue)")
+        case .leave:
+            print("[Data Track] LEAVE Page: \(page.rawValue)")
+        }
+    }
+    
+    public func dataTrack(event: AnyImageEvent, userInfo: [AnyImageEventUserInfoKey: Any]) {
+        print("[Data Track] EVENT: \(event.rawValue), userInfo: \(userInfo)")
     }
 }

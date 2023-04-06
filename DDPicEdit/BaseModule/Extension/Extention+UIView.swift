@@ -10,9 +10,11 @@ import UIKit
 extension UIView {
 
     func recursiveAddSubView(views: [UIView]) {
-        for view in views {
-            self.addSubview(view)
-        }
+        views.forEach { self.addSubview($0) }
+    }
+    
+    func recursiveAddLayoutGuide(guides: [UILayoutGuide]) {
+        guides.forEach { self.addLayoutGuide($0) }
     }
 
 }

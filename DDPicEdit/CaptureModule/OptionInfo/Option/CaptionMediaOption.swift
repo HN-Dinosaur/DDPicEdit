@@ -23,6 +23,7 @@ public struct CaptionMediaOption: OptionSet {
 extension CaptionMediaOption {
     
     var localizedTipsKey: StringConfigKey {
+        // 后续增加视频 switch
         return .captureTapForPhoto
     }
     

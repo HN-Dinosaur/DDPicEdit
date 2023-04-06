@@ -40,3 +40,15 @@ open class DDPicBaseNaviController: UINavigationController {
         fatalError("init(coder:) has not been implemented")
     }
 }
+
+// MARK: - DataTrackObserver
+extension DDPicBaseNaviController: DataTrackObserver {
+    
+    func track(page: AnyImagePage, state: AnyImagePageState) {
+        trackDelegate?.dataTrack(page: page, state: state)
+    }
+    
+    func track(event: AnyImageEvent, userInfo: [AnyImageEventUserInfoKey: Any]) {
+        trackDelegate?.dataTrack(event: event, userInfo: userInfo)
+    }
+}

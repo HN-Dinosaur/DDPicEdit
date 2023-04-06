@@ -32,6 +32,12 @@
 		9D4BAE0029D5D12800CE3669 /* DebugHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9D4BADFF29D5D12800CE3669 /* DebugHelper.swift */; };
 		9D4BAE0529D7C4C100CE3669 /* CaptureViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9D4BAE0429D7C4C100CE3669 /* CaptureViewController.swift */; };
 		9D4BAE0729D7E04B00CE3669 /* Permission.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9D4BAE0629D7E04B00CE3669 /* Permission.swift */; };
+		9D928FAE29DD1ADE0008BBCE /* CaptureWhiteBalance.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9D928FAD29DD1ADE0008BBCE /* CaptureWhiteBalance.swift */; };
+		9D928FB029DD336D0008BBCE /* Capture+AVCaptureDevice.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9D928FAF29DD336D0008BBCE /* Capture+AVCaptureDevice.swift */; };
+		9D928FB229DD5F6D0008BBCE /* Capture+CMVideoFormatDescription.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9D928FB129DD5F6D0008BBCE /* Capture+CMVideoFormatDescription.swift */; };
+		9D928FB429DD77250008BBCE /* Capture+CGImage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9D928FB329DD77250008BBCE /* Capture+CGImage.swift */; };
+		9D928FB629DE7DED0008BBCE /* CaptureResultViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9D928FB529DE7DED0008BBCE /* CaptureResultViewController.swift */; };
+		9D928FB829DF08C70008BBCE /* CaptureBufferType.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9D928FB729DF08C70008BBCE /* CaptureBufferType.swift */; };
 		9DC3A1FF29C727A3009EBFB0 /* HomeMenuProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9DC3A1FE29C727A3009EBFB0 /* HomeMenuProtocol.swift */; };
 		9DC3A20229C728C7009EBFB0 /* DDPicCaptureViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9DC3A20129C728C7009EBFB0 /* DDPicCaptureViewController.swift */; };
 		9DC3A20429C74B1A009EBFB0 /* DDPicCaptureConfigCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9DC3A20329C74B1A009EBFB0 /* DDPicCaptureConfigCell.swift */; };
@@ -59,6 +65,23 @@
 		9DD961DD29D81221005FC488 /* Permission+Microphone.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9DD961DC29D81221005FC488 /* Permission+Microphone.swift */; };
 		9DD961DF29D82BEE005FC488 /* BundleHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9DD961DE29D82BEE005FC488 /* BundleHelper.swift */; };
 		9DD961E129D967FF005FC488 /* DeviceOrientationUtil.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9DD961E029D967FF005FC488 /* DeviceOrientationUtil.swift */; };
+		9DD961E429D968C4005FC488 /* DeviceOrientation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9DD961E329D968C4005FC488 /* DeviceOrientation.swift */; };
+		9DD961E629D978D5005FC488 /* CapturePreviewView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9DD961E529D978D5005FC488 /* CapturePreviewView.swift */; };
+		9DD961E929D97B27005FC488 /* CaptureFocusView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9DD961E829D97B27005FC488 /* CaptureFocusView.swift */; };
+		9DD961EB29D9AF7E005FC488 /* Extension+Array.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9DD961EA29D9AF7E005FC488 /* Extension+Array.swift */; };
+		9DD961ED29DAB840005FC488 /* CapturePreviewMaskView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9DD961EC29DAB840005FC488 /* CapturePreviewMaskView.swift */; };
+		9DD961EF29DABF53005FC488 /* CapturePreviewContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9DD961EE29DABF53005FC488 /* CapturePreviewContentView.swift */; };
+		9DD961F129DBD978005FC488 /* CaptureTipsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9DD961F029DBD978005FC488 /* CaptureTipsView.swift */; };
+		9DD961F329DBDDDD005FC488 /* CaptureButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9DD961F229DBDDDD005FC488 /* CaptureButton.swift */; };
+		9DD961F529DBDE15005FC488 /* CaptureCircleView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9DD961F429DBDE15005FC488 /* CaptureCircleView.swift */; };
+		9DD961F729DC13E3005FC488 /* CaptureRecordView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9DD961F629DC13E3005FC488 /* CaptureRecordView.swift */; };
+		9DD961F929DC1CB9005FC488 /* DDPicBaseUIControl.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9DD961F829DC1CB9005FC488 /* DDPicBaseUIControl.swift */; };
+		9DD961FB29DC2045005FC488 /* CaptureToolView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9DD961FA29DC2045005FC488 /* CaptureToolView.swift */; };
+		9DD961FD29DC3651005FC488 /* Extension+UIButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9DD961FC29DC3651005FC488 /* Extension+UIButton.swift */; };
+		9DD961FF29DC3D27005FC488 /* Capture.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9DD961FE29DC3D27005FC488 /* Capture.swift */; };
+		9DD9620229DC3F07005FC488 /* FileType.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9DD9620129DC3F07005FC488 /* FileType.swift */; };
+		9DD9620629DC48CB005FC488 /* DeviceIOComponent.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9DD9620529DC48CB005FC488 /* DeviceIOComponent.swift */; };
+		9DD9620829DC4D5E005FC488 /* VideoIOComponent.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9DD9620729DC4D5E005FC488 /* VideoIOComponent.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -87,6 +110,12 @@
 		9D4BADFF29D5D12800CE3669 /* DebugHelper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DebugHelper.swift; sourceTree = "<group>"; };
 		9D4BAE0429D7C4C100CE3669 /* CaptureViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CaptureViewController.swift; sourceTree = "<group>"; };
 		9D4BAE0629D7E04B00CE3669 /* Permission.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Permission.swift; sourceTree = "<group>"; };
+		9D928FAD29DD1ADE0008BBCE /* CaptureWhiteBalance.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CaptureWhiteBalance.swift; sourceTree = "<group>"; };
+		9D928FAF29DD336D0008BBCE /* Capture+AVCaptureDevice.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Capture+AVCaptureDevice.swift"; sourceTree = "<group>"; };
+		9D928FB129DD5F6D0008BBCE /* Capture+CMVideoFormatDescription.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Capture+CMVideoFormatDescription.swift"; sourceTree = "<group>"; };
+		9D928FB329DD77250008BBCE /* Capture+CGImage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Capture+CGImage.swift"; sourceTree = "<group>"; };
+		9D928FB529DE7DED0008BBCE /* CaptureResultViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CaptureResultViewController.swift; sourceTree = "<group>"; };
+		9D928FB729DF08C70008BBCE /* CaptureBufferType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CaptureBufferType.swift; sourceTree = "<group>"; };
 		9DC3A1FE29C727A3009EBFB0 /* HomeMenuProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeMenuProtocol.swift; sourceTree = "<group>"; };
 		9DC3A20129C728C7009EBFB0 /* DDPicCaptureViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DDPicCaptureViewController.swift; sourceTree = "<group>"; };
 		9DC3A20329C74B1A009EBFB0 /* DDPicCaptureConfigCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DDPicCaptureConfigCell.swift; sourceTree = "<group>"; };
@@ -116,6 +145,23 @@
 		9DD961DC29D81221005FC488 /* Permission+Microphone.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Permission+Microphone.swift"; sourceTree = "<group>"; };
 		9DD961DE29D82BEE005FC488 /* BundleHelper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BundleHelper.swift; sourceTree = "<group>"; };
 		9DD961E029D967FF005FC488 /* DeviceOrientationUtil.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DeviceOrientationUtil.swift; sourceTree = "<group>"; };
+		9DD961E329D968C4005FC488 /* DeviceOrientation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DeviceOrientation.swift; sourceTree = "<group>"; };
+		9DD961E529D978D5005FC488 /* CapturePreviewView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CapturePreviewView.swift; sourceTree = "<group>"; };
+		9DD961E829D97B27005FC488 /* CaptureFocusView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CaptureFocusView.swift; sourceTree = "<group>"; };
+		9DD961EA29D9AF7E005FC488 /* Extension+Array.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Extension+Array.swift"; sourceTree = "<group>"; };
+		9DD961EC29DAB840005FC488 /* CapturePreviewMaskView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CapturePreviewMaskView.swift; sourceTree = "<group>"; };
+		9DD961EE29DABF53005FC488 /* CapturePreviewContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CapturePreviewContentView.swift; sourceTree = "<group>"; };
+		9DD961F029DBD978005FC488 /* CaptureTipsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CaptureTipsView.swift; sourceTree = "<group>"; };
+		9DD961F229DBDDDD005FC488 /* CaptureButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CaptureButton.swift; sourceTree = "<group>"; };
+		9DD961F429DBDE15005FC488 /* CaptureCircleView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CaptureCircleView.swift; sourceTree = "<group>"; };
+		9DD961F629DC13E3005FC488 /* CaptureRecordView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CaptureRecordView.swift; sourceTree = "<group>"; };
+		9DD961F829DC1CB9005FC488 /* DDPicBaseUIControl.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DDPicBaseUIControl.swift; sourceTree = "<group>"; };
+		9DD961FA29DC2045005FC488 /* CaptureToolView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CaptureToolView.swift; sourceTree = "<group>"; };
+		9DD961FC29DC3651005FC488 /* Extension+UIButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Extension+UIButton.swift"; sourceTree = "<group>"; };
+		9DD961FE29DC3D27005FC488 /* Capture.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Capture.swift; sourceTree = "<group>"; };
+		9DD9620129DC3F07005FC488 /* FileType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FileType.swift; sourceTree = "<group>"; };
+		9DD9620529DC48CB005FC488 /* DeviceIOComponent.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DeviceIOComponent.swift; sourceTree = "<group>"; };
+		9DD9620729DC4D5E005FC488 /* VideoIOComponent.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VideoIOComponent.swift; sourceTree = "<group>"; };
 		C874753863D1BCF69DB75918 /* Pods-DDPicEdit.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-DDPicEdit.release.xcconfig"; path = "Target Support Files/Pods-DDPicEdit/Pods-DDPicEdit.release.xcconfig"; sourceTree = "<group>"; };
 		E329401B19A674946A993C90 /* Pods-DDPicEdit.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-DDPicEdit.debug.xcconfig"; path = "Target Support Files/Pods-DDPicEdit/Pods-DDPicEdit.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -152,6 +198,7 @@
 		9D4BADD829D45DD300CE3669 /* CaptureModule */ = {
 			isa = PBXGroup;
 			children = (
+				9DD961E729D978DE005FC488 /* Component */,
 				9D4BAE0329D7C4AF00CE3669 /* ViewController */,
 				9D4BAE0129D7C28C00CE3669 /* Common */,
 				9D4BADEE29D58A6900CE3669 /* OptionInfo */,
@@ -190,6 +237,9 @@
 			isa = PBXGroup;
 			children = (
 				9D4BADEC29D58A5600CE3669 /* MediaType.swift */,
+				9DD9620129DC3F07005FC488 /* FileType.swift */,
+				9D928FB729DF08C70008BBCE /* CaptureBufferType.swift */,
+				9D928FAD29DD1ADE0008BBCE /* CaptureWhiteBalance.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -232,6 +282,7 @@
 			children = (
 				9D4BADF029D5908800CE3669 /* ImageCaptureController.swift */,
 				9D4BAE0429D7C4C100CE3669 /* CaptureViewController.swift */,
+				9D928FB529DE7DED0008BBCE /* CaptureResultViewController.swift */,
 			);
 			path = ViewController;
 			sourceTree = "<group>";
@@ -239,9 +290,9 @@
 		9D4BAE0829D7E05500CE3669 /* Util */ = {
 			isa = PBXGroup;
 			children = (
+				9DD961E229D968A9005FC488 /* DeviceOrientation */,
 				9D4BAE0929D7E95A00CE3669 /* Permission */,
 				9D4BADD029D4526000CE3669 /* Constant.swift */,
-				9DD961E029D967FF005FC488 /* DeviceOrientationUtil.swift */,
 			);
 			path = Util;
 			sourceTree = "<group>";
@@ -324,6 +375,7 @@
 				9DC4F86E29C6CF7000EAFDB5 /* DDPicBaseViewController.swift */,
 				9DC3A20C29C80421009EBFB0 /* DDPicBaseTableViewController.swift */,
 				9DC3A20629C74B7A009EBFB0 /* DDPicBaseTableViewCell.swift */,
+				9DD961F829DC1CB9005FC488 /* DDPicBaseUIControl.swift */,
 				9DC4F87929C6DC3A00EAFDB5 /* DDPicBaseView.swift */,
 				9DC3A21929C95A81009EBFB0 /* DDPicBaseLabel.swift */,
 			);
@@ -343,6 +395,8 @@
 			isa = PBXGroup;
 			children = (
 				9DC3A21429C893FB009EBFB0 /* Extension+UITableView.swift */,
+				9DD961FC29DC3651005FC488 /* Extension+UIButton.swift */,
+				9DD961EA29D9AF7E005FC488 /* Extension+Array.swift */,
 				9DC3A21029C8579C009EBFB0 /* Extension+UIColor.swift */,
 				9DC3A20E29C80C00009EBFB0 /* Extension+UIFont.swift */,
 				9D4BADD429D4590200CE3669 /* Extension+UIAlertController.swift */,
@@ -352,6 +406,45 @@
 				9D4BADCE29D4520700CE3669 /* Extension+Thread.swift */,
 			);
 			path = Extension;
+			sourceTree = "<group>";
+		};
+		9DD961E229D968A9005FC488 /* DeviceOrientation */ = {
+			isa = PBXGroup;
+			children = (
+				9DD961E029D967FF005FC488 /* DeviceOrientationUtil.swift */,
+				9DD961E329D968C4005FC488 /* DeviceOrientation.swift */,
+			);
+			path = DeviceOrientation;
+			sourceTree = "<group>";
+		};
+		9DD961E729D978DE005FC488 /* Component */ = {
+			isa = PBXGroup;
+			children = (
+				9DD9620029DC3D2D005FC488 /* Capture */,
+				9DD961E529D978D5005FC488 /* CapturePreviewView.swift */,
+				9DD961EE29DABF53005FC488 /* CapturePreviewContentView.swift */,
+				9DD961EC29DAB840005FC488 /* CapturePreviewMaskView.swift */,
+				9DD961E829D97B27005FC488 /* CaptureFocusView.swift */,
+				9DD961F229DBDDDD005FC488 /* CaptureButton.swift */,
+				9DD961FA29DC2045005FC488 /* CaptureToolView.swift */,
+				9DD961F629DC13E3005FC488 /* CaptureRecordView.swift */,
+				9DD961F429DBDE15005FC488 /* CaptureCircleView.swift */,
+				9DD961F029DBD978005FC488 /* CaptureTipsView.swift */,
+			);
+			path = Component;
+			sourceTree = "<group>";
+		};
+		9DD9620029DC3D2D005FC488 /* Capture */ = {
+			isa = PBXGroup;
+			children = (
+				9DD961FE29DC3D27005FC488 /* Capture.swift */,
+				9D928FAF29DD336D0008BBCE /* Capture+AVCaptureDevice.swift */,
+				9D928FB129DD5F6D0008BBCE /* Capture+CMVideoFormatDescription.swift */,
+				9D928FB329DD77250008BBCE /* Capture+CGImage.swift */,
+				9DD9620729DC4D5E005FC488 /* VideoIOComponent.swift */,
+				9DD9620529DC48CB005FC488 /* DeviceIOComponent.swift */,
+			);
+			path = Capture;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -470,6 +563,8 @@
 			files = (
 				9D4BADDA29D45E8C00CE3669 /* ThemeConfigurable.swift in Sources */,
 				9DD961DB29D81213005FC488 /* Permission+Camera.swift in Sources */,
+				9DD961EF29DABF53005FC488 /* CapturePreviewContentView.swift in Sources */,
+				9DD961ED29DAB840005FC488 /* CapturePreviewMaskView.swift in Sources */,
 				9DC4F87A29C6DC3A00EAFDB5 /* DDPicBaseView.swift in Sources */,
 				9D4BADFE29D5CB8100CE3669 /* AnyImageEventUserInfoKey.swift in Sources */,
 				9DC3A20429C74B1A009EBFB0 /* DDPicCaptureConfigCell.swift in Sources */,
@@ -477,42 +572,63 @@
 				9D4BADFC29D5CB6700CE3669 /* AnyImagePageState.swift in Sources */,
 				9DD961DF29D82BEE005FC488 /* BundleHelper.swift in Sources */,
 				9D4BADF329D5BC8300CE3669 /* ImageKitDataTrackDelegate.swift in Sources */,
+				9DD9620229DC3F07005FC488 /* FileType.swift in Sources */,
+				9DD961E629D978D5005FC488 /* CapturePreviewView.swift in Sources */,
 				9D4BAE0529D7C4C100CE3669 /* CaptureViewController.swift in Sources */,
 				9D4BADE529D4A0B700CE3669 /* CapturePosition.swift in Sources */,
 				9DC3A20B29C751E2009EBFB0 /* DDPicRowConfigProtocol.swift in Sources */,
 				9DC4F85729C3360D00EAFDB5 /* AppDelegate.swift in Sources */,
+				9D928FB029DD336D0008BBCE /* Capture+AVCaptureDevice.swift in Sources */,
+				9DD9620829DC4D5E005FC488 /* VideoIOComponent.swift in Sources */,
+				9DD961F329DBDDDD005FC488 /* CaptureButton.swift in Sources */,
 				9D4BADF129D5908800CE3669 /* ImageCaptureController.swift in Sources */,
 				9DC3A21C29C9679E009EBFB0 /* Extension+UIEdgeInset.swift in Sources */,
+				9D928FB229DD5F6D0008BBCE /* Capture+CMVideoFormatDescription.swift in Sources */,
 				9D4BADE329D49F3700CE3669 /* CaptureAspectRatio.swift in Sources */,
+				9DD9620629DC48CB005FC488 /* DeviceIOComponent.swift in Sources */,
 				9DC4F86D29C6CF6300EAFDB5 /* DDPicBaseNaviController.swift in Sources */,
+				9D928FB829DF08C70008BBCE /* CaptureBufferType.swift in Sources */,
+				9D928FB429DD77250008BBCE /* Capture+CGImage.swift in Sources */,
 				9D4BADF629D5CADB00CE3669 /* DataTrackObserver.swift in Sources */,
 				9DC3A1FF29C727A3009EBFB0 /* HomeMenuProtocol.swift in Sources */,
+				9D928FAE29DD1ADE0008BBCE /* CaptureWhiteBalance.swift in Sources */,
 				9DC3A20729C74B7A009EBFB0 /* DDPicBaseTableViewCell.swift in Sources */,
+				9DD961F129DBD978005FC488 /* CaptureTipsView.swift in Sources */,
+				9DD961FB29DC2045005FC488 /* CaptureToolView.swift in Sources */,
 				9DC3A21529C893FB009EBFB0 /* Extension+UITableView.swift in Sources */,
 				9D4BADDF29D4693E00CE3669 /* CaptureTheme.swift in Sources */,
 				9D4BADCF29D4520700CE3669 /* Extension+Thread.swift in Sources */,
 				9D4BADEB29D5892F00CE3669 /* CaptureResult.swift in Sources */,
+				9DD961F929DC1CB9005FC488 /* DDPicBaseUIControl.swift in Sources */,
 				9DC3A21329C858DB009EBFB0 /* Extension+UILabel.swift in Sources */,
 				9DC3A21129C8579C009EBFB0 /* Extension+UIColor.swift in Sources */,
 				9DC3A21729C959FE009EBFB0 /* InsetLabel.swift in Sources */,
 				9DC4F86F29C6CF7000EAFDB5 /* DDPicBaseViewController.swift in Sources */,
 				9D4BADE729D521BC00CE3669 /* CaptureFlashMode.swift in Sources */,
 				9DC4F86B29C6CEFC00EAFDB5 /* HomeViewController.swift in Sources */,
+				9DD961E429D968C4005FC488 /* DeviceOrientation.swift in Sources */,
 				9DC3A20F29C80C00009EBFB0 /* Extension+UIFont.swift in Sources */,
+				9DD961FF29DC3D27005FC488 /* Capture.swift in Sources */,
 				9D4BADE929D5255000CE3669 /* CapturePreSet.swift in Sources */,
 				9D4BADE129D49AF900CE3669 /* CaptionMediaOption.swift in Sources */,
+				9D928FB629DE7DED0008BBCE /* CaptureResultViewController.swift in Sources */,
 				9D4BADFA29D5CB0100CE3669 /* AnyImageEvent.swift in Sources */,
+				9DD961E929D97B27005FC488 /* CaptureFocusView.swift in Sources */,
 				9DD961E129D967FF005FC488 /* DeviceOrientationUtil.swift in Sources */,
 				9DC3A21A29C95A81009EBFB0 /* DDPicBaseLabel.swift in Sources */,
+				9DD961F529DBDE15005FC488 /* CaptureCircleView.swift in Sources */,
 				9DD961D929D80859005FC488 /* Permission+Photos.swift in Sources */,
+				9DD961FD29DC3651005FC488 /* Extension+UIButton.swift in Sources */,
 				9D4BAE0729D7E04B00CE3669 /* Permission.swift in Sources */,
 				9DC4F87329C6CFC400EAFDB5 /* DDPicEditViewController.swift in Sources */,
 				9D4BADED29D58A5600CE3669 /* MediaType.swift in Sources */,
 				9D4BADD529D4590200CE3669 /* Extension+UIAlertController.swift in Sources */,
 				9DC3A20229C728C7009EBFB0 /* DDPicCaptureViewController.swift in Sources */,
+				9DD961F729DC13E3005FC488 /* CaptureRecordView.swift in Sources */,
 				9D4BADD129D4526000CE3669 /* Constant.swift in Sources */,
 				9D4BADDD29D460BE00CE3669 /* StringConfigKey.swift in Sources */,
 				9DC3A20929C74C6A009EBFB0 /* Extention+UIView.swift in Sources */,
+				9DD961EB29D9AF7E005FC488 /* Extension+Array.swift in Sources */,
 				9D4BADF829D5CAEF00CE3669 /* AnyImagePage.swift in Sources */,
 				9DC3A20D29C80421009EBFB0 /* DDPicBaseTableViewController.swift in Sources */,
 				9D4BADD729D45DCB00CE3669 /* CaptureOptionsInfo.swift in Sources */,

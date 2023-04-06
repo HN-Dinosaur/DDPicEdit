@@ -28,15 +28,16 @@ open class ImageCaptureController: DDPicBaseNaviController {
         super.init(nibName: nil, bundle: nil)
         self.modalPresentationStyle = .fullScreen
         self.captureDelegate = delegate
+        self.update(options: options)
     }
     
     open func update(options: CaptureOptionsInfo) {
         guard viewControllers.isEmpty else { return }
         enableDebugLog = options.enableDebugLog
-//        let rootViewController = CaptureViewController(options: options)
-//        rootViewController.delegate = self
-//        rootViewController.trackObserver = self
-//        viewControllers = [rootViewController]
+        let rootViewController = CaptureViewController(options: options)
+        rootViewController.delegate = self
+        rootViewController.trackObserver = self
+        viewControllers = [rootViewController]
     }
     
     open override func dismiss(animated flag: Bool, completion: (() -> Void)? = nil) {

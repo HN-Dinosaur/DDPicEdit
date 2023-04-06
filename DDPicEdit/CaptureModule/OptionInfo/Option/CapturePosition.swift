@@ -49,8 +49,4 @@ public enum CapturePosition: RawRepresentable, Equatable {
             return .captureSwitchToBackCamera
         }
     }
-    
-    
-    
-    
 }
