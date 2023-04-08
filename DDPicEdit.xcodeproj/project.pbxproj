@@ -60,6 +60,18 @@
 		9DC4F86F29C6CF7000EAFDB5 /* DDPicBaseViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9DC4F86E29C6CF7000EAFDB5 /* DDPicBaseViewController.swift */; };
 		9DC4F87329C6CFC400EAFDB5 /* DDPicEditViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9DC4F87229C6CFC400EAFDB5 /* DDPicEditViewController.swift */; };
 		9DC4F87A29C6DC3A00EAFDB5 /* DDPicBaseView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9DC4F87929C6DC3A00EAFDB5 /* DDPicBaseView.swift */; };
+		9DC6045429DFB29B000F90A8 /* ScreenHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9DC6045329DFB29B000F90A8 /* ScreenHelper.swift */; };
+		9DC6045629DFC1FB000F90A8 /* Extension+UIViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9DC6045529DFC1FB000F90A8 /* Extension+UIViewController.swift */; };
+		9DC6045B29E005F5000F90A8 /* EditorPhotoToolOption.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9DC6045A29E005F5000F90A8 /* EditorPhotoToolOption.swift */; };
+		9DC6045E29E00A5A000F90A8 /* EditPhotoOptionsInfo.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9DC6045D29E00A5A000F90A8 /* EditPhotoOptionsInfo.swift */; };
+		9DC6046029E02D43000F90A8 /* EditorCropOption.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9DC6045F29E02D43000F90A8 /* EditorCropOption.swift */; };
+		9DC6046229E02F14000F90A8 /* EditorTheme.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9DC6046129E02F14000F90A8 /* EditorTheme.swift */; };
+		9DC6046429E10DE8000F90A8 /* Palette.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9DC6046329E10DE8000F90A8 /* Palette.swift */; };
+		9DC6046729E11017000F90A8 /* EditorTextColor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9DC6046629E11017000F90A8 /* EditorTextColor.swift */; };
+		9DC6046A29E11087000F90A8 /* Shadow.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9DC6046929E11087000F90A8 /* Shadow.swift */; };
+		9DC6046D29E11506000F90A8 /* EditorRotationDirection.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9DC6046C29E11506000F90A8 /* EditorRotationDirection.swift */; };
+		9DC6046F29E11A27000F90A8 /* EditorMosaicOption.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9DC6046E29E11A27000F90A8 /* EditorMosaicOption.swift */; };
+		9DC6047129E11BC6000F90A8 /* EditorBrushColorOption.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9DC6047029E11BC6000F90A8 /* EditorBrushColorOption.swift */; };
 		9DD961D929D80859005FC488 /* Permission+Photos.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9DD961D829D80859005FC488 /* Permission+Photos.swift */; };
 		9DD961DB29D81213005FC488 /* Permission+Camera.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9DD961DA29D81213005FC488 /* Permission+Camera.swift */; };
 		9DD961DD29D81221005FC488 /* Permission+Microphone.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9DD961DC29D81221005FC488 /* Permission+Microphone.swift */; };
@@ -140,6 +152,18 @@
 		9DC4F86E29C6CF7000EAFDB5 /* DDPicBaseViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DDPicBaseViewController.swift; sourceTree = "<group>"; };
 		9DC4F87229C6CFC400EAFDB5 /* DDPicEditViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DDPicEditViewController.swift; sourceTree = "<group>"; };
 		9DC4F87929C6DC3A00EAFDB5 /* DDPicBaseView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DDPicBaseView.swift; sourceTree = "<group>"; };
+		9DC6045329DFB29B000F90A8 /* ScreenHelper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScreenHelper.swift; sourceTree = "<group>"; };
+		9DC6045529DFC1FB000F90A8 /* Extension+UIViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Extension+UIViewController.swift"; sourceTree = "<group>"; };
+		9DC6045A29E005F5000F90A8 /* EditorPhotoToolOption.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditorPhotoToolOption.swift; sourceTree = "<group>"; };
+		9DC6045D29E00A5A000F90A8 /* EditPhotoOptionsInfo.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditPhotoOptionsInfo.swift; sourceTree = "<group>"; };
+		9DC6045F29E02D43000F90A8 /* EditorCropOption.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditorCropOption.swift; sourceTree = "<group>"; };
+		9DC6046129E02F14000F90A8 /* EditorTheme.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditorTheme.swift; sourceTree = "<group>"; };
+		9DC6046329E10DE8000F90A8 /* Palette.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Palette.swift; sourceTree = "<group>"; };
+		9DC6046629E11017000F90A8 /* EditorTextColor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditorTextColor.swift; sourceTree = "<group>"; };
+		9DC6046929E11087000F90A8 /* Shadow.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Shadow.swift; sourceTree = "<group>"; };
+		9DC6046C29E11506000F90A8 /* EditorRotationDirection.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditorRotationDirection.swift; sourceTree = "<group>"; };
+		9DC6046E29E11A27000F90A8 /* EditorMosaicOption.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditorMosaicOption.swift; sourceTree = "<group>"; };
+		9DC6047029E11BC6000F90A8 /* EditorBrushColorOption.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditorBrushColorOption.swift; sourceTree = "<group>"; };
 		9DD961D829D80859005FC488 /* Permission+Photos.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Permission+Photos.swift"; sourceTree = "<group>"; };
 		9DD961DA29D81213005FC488 /* Permission+Camera.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Permission+Camera.swift"; sourceTree = "<group>"; };
 		9DD961DC29D81221005FC488 /* Permission+Microphone.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Permission+Microphone.swift"; sourceTree = "<group>"; };
@@ -261,6 +285,7 @@
 			isa = PBXGroup;
 			children = (
 				9D4BADFF29D5D12800CE3669 /* DebugHelper.swift */,
+				9DC6045329DFB29B000F90A8 /* ScreenHelper.swift */,
 				9DD961DE29D82BEE005FC488 /* BundleHelper.swift */,
 			);
 			path = Common;
@@ -273,6 +298,7 @@
 				9DC3A21829C95A04009EBFB0 /* Component */,
 				9DC4F87829C6DB7900EAFDB5 /* Extension */,
 				9D4BAE0829D7E05500CE3669 /* Util */,
+				9DC6046B29E1108B000F90A8 /* Model */,
 			);
 			path = BaseModule;
 			sourceTree = "<group>";
@@ -328,7 +354,7 @@
 		9DC3A21829C95A04009EBFB0 /* Component */ = {
 			isa = PBXGroup;
 			children = (
-				9DC3A21629C959FE009EBFB0 /* InsetLabel.swift */,
+				9DC6046829E11055000F90A8 /* UILabel */,
 				9DC3A20529C74B29009EBFB0 /* TableViewCell */,
 			);
 			path = Component;
@@ -361,6 +387,7 @@
 				9DC3A20029C727DA009EBFB0 /* Protocol */,
 				9D4BAE0229D7C2BD00CE3669 /* BaseModule */,
 				9D4BADD829D45DD300CE3669 /* CaptureModule */,
+				9DC6045929E00574000F90A8 /* EditModule */,
 				9DC4F85F29C3360E00EAFDB5 /* Assets.xcassets */,
 				9DC4F86129C3360E00EAFDB5 /* LaunchScreen.storyboard */,
 				9DC4F86429C3360E00EAFDB5 /* Info.plist */,
@@ -404,8 +431,57 @@
 				9DC3A21229C858DB009EBFB0 /* Extension+UILabel.swift */,
 				9DC3A21B29C9679E009EBFB0 /* Extension+UIEdgeInset.swift */,
 				9D4BADCE29D4520700CE3669 /* Extension+Thread.swift */,
+				9DC6045529DFC1FB000F90A8 /* Extension+UIViewController.swift */,
 			);
 			path = Extension;
+			sourceTree = "<group>";
+		};
+		9DC6045929E00574000F90A8 /* EditModule */ = {
+			isa = PBXGroup;
+			children = (
+				9DC6045C29E00A40000F90A8 /* EditOptions */,
+				9DC6046529E10DEE000F90A8 /* Model */,
+			);
+			path = EditModule;
+			sourceTree = "<group>";
+		};
+		9DC6045C29E00A40000F90A8 /* EditOptions */ = {
+			isa = PBXGroup;
+			children = (
+				9DC6045A29E005F5000F90A8 /* EditorPhotoToolOption.swift */,
+				9DC6045F29E02D43000F90A8 /* EditorCropOption.swift */,
+				9DC6046129E02F14000F90A8 /* EditorTheme.swift */,
+				9DC6046629E11017000F90A8 /* EditorTextColor.swift */,
+				9DC6046C29E11506000F90A8 /* EditorRotationDirection.swift */,
+				9DC6045D29E00A5A000F90A8 /* EditPhotoOptionsInfo.swift */,
+				9DC6047029E11BC6000F90A8 /* EditorBrushColorOption.swift */,
+				9DC6046E29E11A27000F90A8 /* EditorMosaicOption.swift */,
+			);
+			path = EditOptions;
+			sourceTree = "<group>";
+		};
+		9DC6046529E10DEE000F90A8 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				9DC6046329E10DE8000F90A8 /* Palette.swift */,
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		9DC6046829E11055000F90A8 /* UILabel */ = {
+			isa = PBXGroup;
+			children = (
+				9DC3A21629C959FE009EBFB0 /* InsetLabel.swift */,
+			);
+			path = UILabel;
+			sourceTree = "<group>";
+		};
+		9DC6046B29E1108B000F90A8 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				9DC6046929E11087000F90A8 /* Shadow.swift */,
+			);
+			path = Model;
 			sourceTree = "<group>";
 		};
 		9DD961E229D968A9005FC488 /* DeviceOrientation */ = {
@@ -572,6 +648,7 @@
 				9D4BADFC29D5CB6700CE3669 /* AnyImagePageState.swift in Sources */,
 				9DD961DF29D82BEE005FC488 /* BundleHelper.swift in Sources */,
 				9D4BADF329D5BC8300CE3669 /* ImageKitDataTrackDelegate.swift in Sources */,
+				9DC6046729E11017000F90A8 /* EditorTextColor.swift in Sources */,
 				9DD9620229DC3F07005FC488 /* FileType.swift in Sources */,
 				9DD961E629D978D5005FC488 /* CapturePreviewView.swift in Sources */,
 				9D4BAE0529D7C4C100CE3669 /* CaptureViewController.swift in Sources */,
@@ -599,38 +676,49 @@
 				9D4BADDF29D4693E00CE3669 /* CaptureTheme.swift in Sources */,
 				9D4BADCF29D4520700CE3669 /* Extension+Thread.swift in Sources */,
 				9D4BADEB29D5892F00CE3669 /* CaptureResult.swift in Sources */,
+				9DC6045629DFC1FB000F90A8 /* Extension+UIViewController.swift in Sources */,
 				9DD961F929DC1CB9005FC488 /* DDPicBaseUIControl.swift in Sources */,
 				9DC3A21329C858DB009EBFB0 /* Extension+UILabel.swift in Sources */,
 				9DC3A21129C8579C009EBFB0 /* Extension+UIColor.swift in Sources */,
 				9DC3A21729C959FE009EBFB0 /* InsetLabel.swift in Sources */,
+				9DC6045B29E005F5000F90A8 /* EditorPhotoToolOption.swift in Sources */,
 				9DC4F86F29C6CF7000EAFDB5 /* DDPicBaseViewController.swift in Sources */,
+				9DC6047129E11BC6000F90A8 /* EditorBrushColorOption.swift in Sources */,
 				9D4BADE729D521BC00CE3669 /* CaptureFlashMode.swift in Sources */,
 				9DC4F86B29C6CEFC00EAFDB5 /* HomeViewController.swift in Sources */,
 				9DD961E429D968C4005FC488 /* DeviceOrientation.swift in Sources */,
 				9DC3A20F29C80C00009EBFB0 /* Extension+UIFont.swift in Sources */,
 				9DD961FF29DC3D27005FC488 /* Capture.swift in Sources */,
 				9D4BADE929D5255000CE3669 /* CapturePreSet.swift in Sources */,
+				9DC6046D29E11506000F90A8 /* EditorRotationDirection.swift in Sources */,
 				9D4BADE129D49AF900CE3669 /* CaptionMediaOption.swift in Sources */,
 				9D928FB629DE7DED0008BBCE /* CaptureResultViewController.swift in Sources */,
+				9DC6046F29E11A27000F90A8 /* EditorMosaicOption.swift in Sources */,
+				9DC6046A29E11087000F90A8 /* Shadow.swift in Sources */,
 				9D4BADFA29D5CB0100CE3669 /* AnyImageEvent.swift in Sources */,
 				9DD961E929D97B27005FC488 /* CaptureFocusView.swift in Sources */,
 				9DD961E129D967FF005FC488 /* DeviceOrientationUtil.swift in Sources */,
 				9DC3A21A29C95A81009EBFB0 /* DDPicBaseLabel.swift in Sources */,
 				9DD961F529DBDE15005FC488 /* CaptureCircleView.swift in Sources */,
+				9DC6045429DFB29B000F90A8 /* ScreenHelper.swift in Sources */,
 				9DD961D929D80859005FC488 /* Permission+Photos.swift in Sources */,
 				9DD961FD29DC3651005FC488 /* Extension+UIButton.swift in Sources */,
 				9D4BAE0729D7E04B00CE3669 /* Permission.swift in Sources */,
 				9DC4F87329C6CFC400EAFDB5 /* DDPicEditViewController.swift in Sources */,
 				9D4BADED29D58A5600CE3669 /* MediaType.swift in Sources */,
+				9DC6046029E02D43000F90A8 /* EditorCropOption.swift in Sources */,
 				9D4BADD529D4590200CE3669 /* Extension+UIAlertController.swift in Sources */,
 				9DC3A20229C728C7009EBFB0 /* DDPicCaptureViewController.swift in Sources */,
 				9DD961F729DC13E3005FC488 /* CaptureRecordView.swift in Sources */,
 				9D4BADD129D4526000CE3669 /* Constant.swift in Sources */,
+				9DC6046429E10DE8000F90A8 /* Palette.swift in Sources */,
 				9D4BADDD29D460BE00CE3669 /* StringConfigKey.swift in Sources */,
 				9DC3A20929C74C6A009EBFB0 /* Extention+UIView.swift in Sources */,
 				9DD961EB29D9AF7E005FC488 /* Extension+Array.swift in Sources */,
+				9DC6046229E02F14000F90A8 /* EditorTheme.swift in Sources */,
 				9D4BADF829D5CAEF00CE3669 /* AnyImagePage.swift in Sources */,
 				9DC3A20D29C80421009EBFB0 /* DDPicBaseTableViewController.swift in Sources */,
+				9DC6045E29E00A5A000F90A8 /* EditPhotoOptionsInfo.swift in Sources */,
 				9D4BADD729D45DCB00CE3669 /* CaptureOptionsInfo.swift in Sources */,
 				9D4BAE0029D5D12800CE3669 /* DebugHelper.swift in Sources */,
 			);
