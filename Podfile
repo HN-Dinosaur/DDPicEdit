@@ -6,6 +6,7 @@ target 'DDPicEdit' do
   use_frameworks!
 
   pod 'Anchorage'
+  pod 'LookinServer', :configurations => ['Debug']
 
   # Pods for DDPicEdit
 end
