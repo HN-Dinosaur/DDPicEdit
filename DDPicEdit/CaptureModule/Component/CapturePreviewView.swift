@@ -32,6 +32,7 @@ final class CapturePreviewView: DDPicBaseView {
     private func setupUI() {
         let viewArray = [self.previewContentView, self.focusView, self.previewMaskView]
         self.previewContentView.addSubview(self.blurView)
+        self.blurView.edgeAnchors == self.previewContentView.edgeAnchors
         self.recursiveAddSubView(views: viewArray)
         viewArray.forEach { $0.edgeAnchors == self.edgeAnchors }
     }

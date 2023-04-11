@@ -224,7 +224,6 @@
 			children = (
 				9DD961E729D978DE005FC488 /* Component */,
 				9D4BAE0329D7C4AF00CE3669 /* ViewController */,
-				9D4BAE0129D7C28C00CE3669 /* Common */,
 				9D4BADEE29D58A6900CE3669 /* OptionInfo */,
 				9D4BADEF29D58A7200CE3669 /* Model */,
 				9D4BADF429D5BC8900CE3669 /* DataTrack */,
@@ -318,6 +317,7 @@
 			children = (
 				9DD961E229D968A9005FC488 /* DeviceOrientation */,
 				9D4BAE0929D7E95A00CE3669 /* Permission */,
+				9D4BAE0129D7C28C00CE3669 /* Common */,
 				9D4BADD029D4526000CE3669 /* Constant.swift */,
 			);
 			path = Util;
