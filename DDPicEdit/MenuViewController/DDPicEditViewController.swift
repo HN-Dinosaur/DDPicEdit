@@ -9,7 +9,7 @@ import UIKit
 
 class DDPicEditViewController: DDPicBaseTableViewController {
     
-    var options = EditPhotoOptionsInfo()
+    var options = EditorPhotoOptionsInfo()
     
     private enum RowType: Int, CaseIterable, DDPicRowConfigProtocol {
         

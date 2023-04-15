@@ -8,7 +8,7 @@
 import UIKit
 
 struct ScreenHelper {
-    static var keyWindows: UIWindow? {
+    static var keyWindow: UIWindow? {
         return UIApplication.shared.keyWindow
     }
     
@@ -18,6 +18,10 @@ struct ScreenHelper {
     
     static var mainBounds: CGRect {
         return UIApplication.shared.windows[0].bounds
+    }
+    
+    static var rootViewController: UIViewController? {
+        return UIApplication.shared.windows.first?.rootViewController
     }
 }
 

@@ -1,5 +1,5 @@
 //
-//  EditPhotoOptionsInfo.swift
+//  EditorPhotoOptionsInfo.swift
 //  DDPicEdit
 //
 //  Created by LongDengYu on 2023/4/7.
@@ -7,7 +7,7 @@
 
 import UIKit
 
-struct EditPhotoOptionsInfo {
+public struct EditorPhotoOptionsInfo {
     
     /// Theme
     public var theme: EditorTheme = .init()

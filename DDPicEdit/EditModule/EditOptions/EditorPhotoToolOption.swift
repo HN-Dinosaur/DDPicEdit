@@ -14,6 +14,22 @@ public enum EditorPhotoToolOption: Equatable, CaseIterable {
     case mosaic
 }
 
+extension EditorPhotoToolOption {
+    
+    var iconKey: EditorTheme.IconConfigKey {
+        switch self {
+        case .brush:
+            return .photoToolBrush
+        case .text:
+            return .photoToolText
+        case .crop:
+            return .photoToolCrop
+        case .mosaic:
+            return .photoToolMosaic
+        }
+    }
+}
+
 extension EditorPhotoToolOption: CustomStringConvertible {
     public var description: String {
         switch self {

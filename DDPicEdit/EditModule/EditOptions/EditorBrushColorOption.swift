@@ -14,19 +14,20 @@ public enum EditorBrushColorOption: Equatable, Hashable {
     case custom(color: UIColor)
     
     /// Dynamic color (UIColorWell).
-    case colorWell(color: UIColor)
+//    case colorWell(color: UIColor)
 }
 
 extension EditorBrushColorOption: CaseIterable {
     
     public static var allCases: [EditorBrushColorOption] {
-        var cases: [EditorBrushColorOption] = Palette.brushColors.map { .custom(color: $0) }
-        if #available(iOS 14.0, *) {
-            cases[cases.count-1] = .colorWell(color: Palette.brushColors.last!)
-            return cases
-        } else {
-            return cases
-        }
+//        var cases: [EditorBrushColorOption] = Palette.brushColors.map { .custom(color: $0) }
+//        if #available(iOS 14.0, *) {
+//            cases[cases.count-1] = .colorWell(color: Palette.brushColors.last!)
+//            return cases
+//        } else {
+//            return cases
+//        }
+        return Palette.brushColors.map { .custom(color: $0) }
     }
 }
 
@@ -36,8 +37,8 @@ extension EditorBrushColorOption {
         switch self {
         case .custom(let color):
             return color
-        case .colorWell(let color):
-            return color
+//        case .colorWell(let color):
+//            return color
         }
     }
 }

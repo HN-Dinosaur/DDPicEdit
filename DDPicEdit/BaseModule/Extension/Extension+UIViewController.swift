@@ -25,7 +25,7 @@ extension UIViewController {
             }
         }
         
-        guard let rootVc = ScreenHelper.keyWindows?.rootViewController else { return nil }
+        guard let rootVc = ScreenHelper.keyWindow?.rootViewController else { return nil }
         
         return findVC(rawVc: rootVc)
     }

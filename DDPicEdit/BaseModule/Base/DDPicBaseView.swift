@@ -7,7 +7,7 @@
 
 import UIKit
 
-class DDPicBaseView: UIView {
+public class DDPicBaseView: UIView {
 
     override init(frame: CGRect) {
         super.init(frame: frame)
