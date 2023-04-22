@@ -111,7 +111,7 @@ extension EditorCropOptionCell {
         self.shapeLayer = shapeLayer
         
         self.contentLabelConstraint.rebatch {
-            self.contentLabel.horizontalAnchors == self.contentView.horizontalAnchors
+            self.contentLabel.verticalAnchors == self.contentView.verticalAnchors
             self.contentLabel.centerXAnchor == self.contentView.centerXAnchor
             self.contentLabel.widthAnchor == labelWidth - 2
         }

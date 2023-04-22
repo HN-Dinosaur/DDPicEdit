@@ -29,6 +29,7 @@ open class DDPicBaseViewController: UIViewController {
     
     public override init(nibName nibNameOrNil: String?, bundle nibBundleOrNil: Bundle?) {
         super.init(nibName: nibNameOrNil, bundle: nibBundleOrNil)
+        self.modalPresentationStyle = .fullScreen
     }
     
     @available(*, unavailable, message: "Unsupported init(coder:)")

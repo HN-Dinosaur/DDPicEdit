@@ -69,7 +69,7 @@ final class VideoIOComponent: DeviceIOComponent {
     
     private lazy var photoOutput: AVCapturePhotoOutput = AVCapturePhotoOutput()
     private lazy var videoOutput: AVCaptureVideoDataOutput = AVCaptureVideoDataOutput()
-    private let workQueue = DispatchQueue(label: "org.AnyImageKit.DispatchQueue.VideoCapture")
+    private let workQueue = DispatchQueue(label: "org.DDPICEDIT.DispatchQueue.VideoCapture")
     private let options: CaptureOptionsInfo
     
     init(session: AVCaptureSession, options: CaptureOptionsInfo) {

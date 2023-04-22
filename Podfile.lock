@@ -3,20 +3,24 @@ PODS:
   - LookinServer (1.1.5):
     - LookinServer/Core (= 1.1.5)
   - LookinServer/Core (1.1.5)
+  - MBProgressHUD (1.2.0)
 
 DEPENDENCIES:
   - Anchorage
   - LookinServer
+  - MBProgressHUD (~> 1.2.0)
 
 SPEC REPOS:
   trunk:
     - Anchorage
     - LookinServer
+    - MBProgressHUD
 
 SPEC CHECKSUMS:
   Anchorage: 1961bc81c84aeed54ad7ffc697c50cd9de748ba6
   LookinServer: 2893f2bae53cbf3fd49bbe1a8ea1745582ef1317
+  MBProgressHUD: 3ee5efcc380f6a79a7cc9b363dd669c5e1ae7406
 
-PODFILE CHECKSUM: ff93403d3c540ddcd8bf0d74896f5d879555672b
+PODFILE CHECKSUM: e7e0a132a69f6ca46a178a23592b815525bbbed5
 
 COCOAPODS: 1.11.2

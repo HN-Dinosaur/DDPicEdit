@@ -9,7 +9,9 @@ import UIKit
 
 open class DDPicBaseNaviController: UINavigationController {
     
+    private var hasOverrideGeneratingDeviceOrientation: Bool = false
     open weak var trackDelegate: ImageKitDataTrackDelegate?
+    open var enableForceUpdate: Bool = false
     
     open override var childForStatusBarStyle: UIViewController? {
         return topViewController
@@ -25,6 +27,11 @@ open class DDPicBaseNaviController: UINavigationController {
     
     open override var preferredInterfaceOrientationForPresentation: UIInterfaceOrientation {
         return topViewController?.preferredInterfaceOrientationForPresentation ?? .portrait
+    }
+    
+    init() {
+        super.init(nibName: nil, bundle: nil)
+        self.modalPresentationStyle = .fullScreen
     }
     
     public override init(rootViewController: UIViewController) {
@@ -50,5 +57,22 @@ extension DDPicBaseNaviController: DataTrackObserver {
     
     func track(event: AnyImageEvent, userInfo: [AnyImageEventUserInfoKey: Any]) {
         trackDelegate?.dataTrack(event: event, userInfo: userInfo)
+    }
+}
+
+extension DDPicBaseNaviController {
+    
+    func beginGeneratingDeviceOrientationNotifications() {
+        if !UIDevice.current.isGeneratingDeviceOrientationNotifications {
+            hasOverrideGeneratingDeviceOrientation = true
+            UIDevice.current.beginGeneratingDeviceOrientationNotifications()
+        }
+    }
+    
+    func endGeneratingDeviceOrientationNotifications() {
+        if UIDevice.current.isGeneratingDeviceOrientationNotifications && hasOverrideGeneratingDeviceOrientation {
+            UIDevice.current.endGeneratingDeviceOrientationNotifications()
+            hasOverrideGeneratingDeviceOrientation = false
+        }
     }
 }

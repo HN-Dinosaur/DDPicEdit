@@ -26,8 +26,8 @@ extension AnyImageEventUserInfoKey: ExpressibleByStringLiteral {
 extension AnyImageEventUserInfoKey {
     
     /// Value: Bool
-    public static let isOn: AnyImageEventUserInfoKey = "ANYIMAGEKIT_USERINFO_IS_ON"
+    public static let isOn: AnyImageEventUserInfoKey = "DDPICEDIT_USERINFO_IS_ON"
     
     /// Value: AnyImagePage
-    public static let page: AnyImageEventUserInfoKey = "ANYIMAGEKIT_USERINFO_PAGE"
+    public static let page: AnyImageEventUserInfoKey = "DDPICEDIT_USERINFO_PAGE"
 }

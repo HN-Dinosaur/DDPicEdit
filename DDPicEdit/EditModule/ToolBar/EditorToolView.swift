@@ -32,6 +32,7 @@ final class EditorToolView: DDPicBaseView {
             self.brushToolView,
             self.cropToolView,
             self.mosaicToolView,
+//            self.waterMarkToolView,
             self.doneButton,
         ])
 
@@ -45,16 +46,19 @@ final class EditorToolView: DDPicBaseView {
         
         self.editOptionsView.leftAnchor == self.leftAnchor
         self.editOptionsView.rightAnchor == self.doneButton.leftAnchor - 20
-        self.editOptionsView.bottomAnchor == self.bottomAnchor - 14
+        if #available(iOS 11.0, *) {
+            self.editOptionsView.bottomAnchor == self.safeAreaLayoutGuide.bottomAnchor - 14
+        } else {
+            self.editOptionsView.bottomAnchor == self.bottomAnchor - 14
+        }
         self.editOptionsView.heightAnchor == 50
-        self.editOptionsView.setContentHuggingPriority(.defaultLow, for: .horizontal)
-        self.editOptionsView.setContentCompressionResistancePriority(.defaultLow, for: .horizontal)
         
         self.brushToolView.horizontalAnchors == self.horizontalAnchors
         self.brushToolView.bottomAnchor == self.editOptionsView.topAnchor - 10
         self.brushToolView.heightAnchor == 40
         
         self.mosaicToolView.edgeAnchors == self.brushToolView.edgeAnchors
+//        self.waterMarkToolView.edgeAnchors == self.mosaicToolView.edgeAnchors
         
         self.cropToolView.horizontalAnchors == self.horizontalAnchors
         self.cropToolView.bottomAnchor == self.editOptionsView.bottomAnchor + 15
@@ -95,6 +99,12 @@ final class EditorToolView: DDPicBaseView {
         view.isHidden = true
         return view
     }()
+//    private(set) lazy var waterMarkToolView: EditWaterMarkToolView = {
+//        let view = EditWaterMarkToolView()
+//        view.delegate = self
+//        view.isHidden = true
+//        return view
+//    }()
     private(set) lazy var doneButton: UIButton = {
         let view = UIButton(type: .custom)
         view.layer.cornerRadius = 2
@@ -142,12 +152,14 @@ extension EditorToolView: EditorEditOptionsViewDelegate {
             brushToolView.isHidden = true
             cropToolView.isHidden = true
             mosaicToolView.isHidden = true
+//            waterMarkToolView.isHidden = true
             return true
         }
 
         brushToolView.isHidden = option != .brush
         cropToolView.isHidden = option != .crop
         mosaicToolView.isHidden = option != .mosaic
+//        waterMarkToolView.isHidden = option != .waterMark
 
         switch option {
         case .crop:
@@ -224,6 +236,13 @@ extension EditorToolView: EditorCropToolViewDelegate {
     }
 }
 
+// MARK: - EditWaterMarkToolViewDelegate
+//extension EditorToolView: EditWaterMarkToolViewDelegate {
+//    func selectWaterMarkToolLocation(_ waterMarkView: EditWaterMarkToolView, _ location: WaterMarkLocation) {
+//        context.action(.waterMark(location))
+//    }
+//}
+
 // MARK: - Event
 extension EditorToolView {
 
@@ -232,6 +251,7 @@ extension EditorToolView {
             return nil
         }
         let subViews = [editOptionsView, brushToolView, cropToolView, mosaicToolView, doneButton]
+//        let subViews = [editOptionsView, brushToolView, cropToolView, mosaicToolView, waterMarkToolView, doneButton]
         for subView in subViews {
             if let hitView = subView.hitTest(subView.convert(point, from: self), with: event) {
                 return hitView

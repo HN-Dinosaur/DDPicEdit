@@ -170,18 +170,15 @@ extension CaptureViewController: CaptureDelegate {
     func capture(_ capture: Capture, didOutput photoData: Data, fileType: FileType) {
         self.trackObserver?.track(event: .capturePhoto, userInfo: [:])
         guard let image = UIImage(data: photoData) else { return }
-        let vc = CaptureResultViewController()
-        vc.resultImageView.image = image
-        present(vc, animated: true)
-//        var editorOptions = options.editorPhotoOptions
-//        editorOptions.enableDebugLog = options.enableDebugLog
-//        let controller = ImageEditorController(photo: image, options: editorOptions, delegate: self)
-//        present(controller, animated: false) { [weak self] in
-//            guard let self = self else { return }
-//            self.toolView.captureButton.stopProcessing()
-//            self.capture.stopRunning()
-//            self.orientationUtil.stopRunning()
-//        }
+        var editorOptions = options.editorPhotoOptions
+        editorOptions.enableDebugLog = options.enableDebugLog
+        
+        let controller = ImageEditorController(photo: image, options: editorOptions, delegate: self)
+        present(controller, animated: false) { [weak self] in
+            guard let self = self else { return }
+            self.capture.stopRunning()
+            self.orientationUtil.stopRunning()
+        }
     }
     
     func capture(_ capture: Capture, didOutput sampleBuffer: CMSampleBuffer, type: CaptureBufferType) {
@@ -231,5 +228,20 @@ extension CaptureViewController: DeviceOrientationUtilDelegate {
         capture.orientation = orientation
         toolView.rotate(to: orientation, animated: true)
         previewView.rotate(to: orientation, animated: true)
+    }
+}
+
+// MARK: - ImageEditorControllerDelegate
+extension CaptureViewController: ImageEditorControllerDelegate {
+    
+    public func imageEditorDidCancel(_ editor: ImageEditorController) {
+        capture.startRunning()
+        orientationUtil.startRunning()
+        previewView.isRunning = true
+        editor.dismiss(animated: false, completion: nil)
+    }
+    
+    public func imageEditor(_ editor: ImageEditorController, didFinishEditing result: EditorResult) {
+        delegate?.capture(self, didOutput: result.mediaURL, type: result.type)
     }
 }

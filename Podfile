@@ -6,6 +6,7 @@ target 'DDPicEdit' do
   use_frameworks!
 
   pod 'Anchorage'
+  pod 'MBProgressHUD', '~> 1.2.0'
   pod 'LookinServer', :configurations => ['Debug']
 
   # Pods for DDPicEdit

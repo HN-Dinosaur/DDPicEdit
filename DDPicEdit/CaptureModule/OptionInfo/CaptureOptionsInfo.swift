@@ -23,6 +23,6 @@ public struct CaptureOptionsInfo {
     // default is false, Enable debug log
     public var enableDebugLog: Bool = false
     /// Editor photo options info, used for editor after take photo.
-    /// 后续完成编辑模块
-    
+    /// - Note: Invalid on iPad.
+    public var editorPhotoOptions: EditorPhotoOptionsInfo = .init()
 }

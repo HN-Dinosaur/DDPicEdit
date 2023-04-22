@@ -36,6 +36,8 @@ enum PhotoEditorAction {
     case textDidFinishMove(data: TextData, delete: Bool)
     case textCancel
     case textDone(TextData)
+//    
+//    case waterMark(WaterMarkLocation)
 }
 
 extension PhotoEditorAction {

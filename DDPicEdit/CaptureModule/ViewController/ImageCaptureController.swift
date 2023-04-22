@@ -42,10 +42,10 @@ open class ImageCaptureController: DDPicBaseNaviController {
     
     open override func dismiss(animated flag: Bool, completion: (() -> Void)? = nil) {
         var didDismiss = false
-//        if let _ = presentedViewController as? ImageEditorController {
-//            didDismiss = true
-//            presentingViewController?.dismiss(animated: flag, completion: completion)
-//        }
+        if let _ = presentedViewController as? ImageEditorController {
+            didDismiss = true
+            presentingViewController?.dismiss(animated: flag, completion: completion)
+        }
         if !didDismiss {
             if let _ = presentedViewController as? UIImagePickerController {
                 presentingViewController?.dismiss(animated: flag, completion: completion)

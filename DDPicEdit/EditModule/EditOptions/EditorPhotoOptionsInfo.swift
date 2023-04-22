@@ -51,14 +51,14 @@ public struct EditorPhotoOptionsInfo {
     // default: true
     public var isTextSelected: Bool = true
     
-//    /// Calculate text last line mask width when input text.
-//    ///
-//    /// false: The last line mask width equal to text view width.
-//    ///
-//    /// true: The last line mask width equal to text length.
-//    ///
-//    /// - Default: true
-//    public var calculateTextLastLineMask: Bool = true
+    /// Calculate text last line mask width when input text.
+    ///
+    /// false: The last line mask width equal to text view width.
+    ///
+    /// true: The last line mask width equal to text length.
+    ///
+    /// - Default: true
+    public var calculateTextLastLineMask: Bool = true
     
     // default: [free, 1:1, 3:4, 4:3, 9:16, 16:9]
     public var cropOptions: [EditorCropOption] = EditorCropOption.allCases

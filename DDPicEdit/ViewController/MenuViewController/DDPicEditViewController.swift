@@ -127,7 +127,11 @@ class DDPicEditViewController: DDPicBaseTableViewController {
     }
     
     @objc private func openEditorTapped() {
-        
+        options.enableDebugLog = true
+        let image = UIImage(named: "EditorTestImage")!
+        let controller = ImageEditorController(photo: image, options: options, delegate: self)
+        controller.trackDelegate = self
+        present(controller, animated: true, completion: nil)
     }
     
     private func afterClickCellBlock(indexPath: IndexPath, action: UIAlertAction, _ completion: Block) {
@@ -327,17 +331,17 @@ extension DDPicEditViewController: ImageKitDataTrackDelegate {
     }
 }
 
-//// MARK: - ImageEditorPhotoDelegate
-//extension EditorConfigViewController: ImageEditorControllerDelegate {
-//
-//    func imageEditor(_ editor: ImageEditorController, didFinishEditing result: EditorResult) {
-//        if result.type == .photo {
-////            guard let photoData = try? Data(contentsOf: result.mediaURL) else { return }
-////            guard let photo = UIImage(data: photoData) else { return }
-////            let controller = EditorResultViewController()
-////            controller.imageView.image = photo
-////            show(controller, sender: nil)
-////            editor.dismiss(animated: true, completion: nil)
-//        }
-//    }
-//}
+// MARK: - ImageEditorPhotoDelegate
+extension DDPicEditViewController: ImageEditorControllerDelegate {
+
+    func imageEditor(_ editor: ImageEditorController, didFinishEditing result: EditorResult) {
+        if result.type == .photo {
+            guard let photoData = try? Data(contentsOf: result.mediaURL) else { return }
+            guard let photo = UIImage(data: photoData) else { return }
+            let controller = EditorResultViewController()
+            controller.imageView.image = photo
+            show(controller, sender: nil)
+            editor.dismiss(animated: true, completion: nil)
+        }
+    }
+}

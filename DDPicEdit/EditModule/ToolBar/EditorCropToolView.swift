@@ -71,7 +71,7 @@ final class EditorCropToolView: DDPicBaseView {
         self.rotateButton.bottomAnchor == self.line.topAnchor - 10
         self.rotateButton.sizeAnchors == CGSize(width: 40, height: 40)
         
-        self.collectionView.horizontalAnchors == self.rotateButton.horizontalAnchors
+        self.collectionView.verticalAnchors == self.rotateButton.verticalAnchors
         if self.options.rotationDirection == .turnOff {
             self.collectionView.leftAnchor == self.leftAnchor
         } else {

@@ -210,7 +210,22 @@ extension DDPicCaptureViewController {
 
 extension DDPicCaptureViewController: ImageCaptureControllerDelegate {
     public func imageCapture(_ capture: ImageCaptureController, didFinishCapturing result: CaptureResult) {
-        
+        switch result.type {
+        case .photo:
+            capture.dismiss(animated: true, completion: { [weak self] in
+                guard let self = self else { return }
+                guard let data = try? Data(contentsOf: result.mediaURL) else { return }
+                guard let image = UIImage(data: data) else { return }
+                let controller = EditorResultViewController()
+                controller.imageView.image = image
+                self.show(controller, sender: nil)
+            })
+        case .photoLive, .photoGIF:
+            // Not support yet
+            break
+        default:
+            break
+        }
     }
 }
 

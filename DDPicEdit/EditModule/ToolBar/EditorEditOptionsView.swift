@@ -36,10 +36,9 @@ final class EditorEditOptionsView: DDPicBaseView {
         
         let stackView = UIStackView(arrangedSubviews: buttons, distribution: .fillEqually)
         self.addSubview(stackView)
-        stackView.horizontalAnchors == self.horizontalAnchors
+        stackView.verticalAnchors == self.verticalAnchors
         stackView.leftAnchor == self.leftAnchor + 12
         
-        // MARK: -未对stackView高度设置
         self.buttons.forEach {
             $0.heightAnchor == stackView.heightAnchor
             $0.widthAnchor == stackView.heightAnchor
