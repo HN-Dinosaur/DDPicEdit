@@ -69,7 +69,7 @@ extension EditorTheme {
         /// 25*25
         case photoToolMosaic = "PhotoToolMosaic"
         
-//        case photoToolWaterMark = "drop"
+        case photoToolWaterMark = "drop"
         
         /// 25*25
         case photoToolUndo = "PhotoToolUndo"
@@ -97,14 +97,13 @@ extension EditorTheme {
         case videoToolVideo = "VideoToolVideo"
         
         func defaultValue() -> UIImage? {
-//            return UIImage(named: rawValue) ?? getSFSymbolPic(named: rawValue)
-            return UIImage(named: rawValue)!
+            return UIImage(named: rawValue) ?? getSFSymbolPic(named: rawValue)
         }
         
         func getSFSymbolPic(named: String) -> UIImage? {
             if #available(iOS 13.0, *) {
                 let config = UIImage.SymbolConfiguration(weight: .regular)
-                let img =  UIImage(systemName: "drop", withConfiguration: config)
+                let img =  UIImage(systemName: named, withConfiguration: config)
                 return img
             }
             return nil

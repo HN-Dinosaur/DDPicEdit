@@ -50,11 +50,8 @@ final class EditorMosaicToolView: DDPicBaseView {
             self.mosaicButtons.append(createMosaicButton(option, idx: idx))
         }
         
-        let stackView = UIStackView(arrangedSubviews: self.mosaicButtons)
+        let stackView = UIStackView(arrangedSubviews: self.mosaicButtons, distribution: .equalSpacing, spacing: spacing)
         stackView.isHidden = self.options.mosaicOptions.count <= 1
-        stackView.spacing = self.spacing
-        stackView.axis = .horizontal
-        stackView.distribution = .equalSpacing
         self.addSubview(stackView)
         let width = self.itemWidth * CGFloat(self.mosaicButtons.count) + self.spacing * CGFloat(self.mosaicButtons.count - 1)
         let offset = (UIScreen.main.bounds.width - width - 20 * 2 - 20) / 2

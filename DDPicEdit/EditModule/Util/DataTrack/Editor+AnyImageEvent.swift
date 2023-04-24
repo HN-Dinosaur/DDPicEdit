@@ -44,7 +44,7 @@ extension AnyImageEvent {
     
     public static let editorPhotoCrop: AnyImageEvent = "DDPICEDIT_EVENT_EDITOR_PHOTO_CROP"
     
-//    public static let editorPhotoWaterMark: AnyImageEvent = "DDPICEDIT_EVENT_EDITOR_PHOTO_WATER_MARK"
+    public static let editorPhotoWaterMark: AnyImageEvent = "DDPICEDIT_EVENT_EDITOR_PHOTO_WATER_MARK"
     
     // MARK: - Video
     

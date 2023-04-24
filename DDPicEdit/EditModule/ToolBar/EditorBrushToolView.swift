@@ -62,17 +62,13 @@ final class EditorBrushToolView: DDPicBaseView {
         for (idx, option) in self.colorOptions.enumerated() {
             self.colorButtons.append(self.createColorButton(by: option, idx: idx))
         }
-        let stackView = UIStackView(arrangedSubviews: self.colorButtons, axis: .horizontal, distribution: .fillEqually, spacing: self.spacing)
+        let stackView = UIStackView(arrangedSubviews: self.colorButtons, distribution: .fillEqually, spacing: self.spacing)
         self.addSubview(stackView)
         stackView.leftAnchor == self.leftAnchor + 12
         stackView.centerYAnchor == self.centerYAnchor
         stackView.heightAnchor == self.buttonWidth
-        if UIDevice.current.userInterfaceIdiom == .phone && colorOptions.count >= 5 {
-            stackView.rightAnchor == self.undoButton.leftAnchor - 20
-        }
-        if !(UIDevice.current.userInterfaceIdiom == .phone && colorOptions.count >= 5) {
-            self.colorButtons.forEach { $0.sizeAnchors == CGSize(width: self.buttonWidth, height: self.buttonWidth) }
-        }
+        stackView.rightAnchor == self.undoButton.leftAnchor - 20
+        self.colorButtons.forEach { $0.sizeAnchors == CGSize(width: self.buttonWidth, height: self.buttonWidth) }
     }
     
     private func createColorButton(by option: EditorBrushColorOption, idx: Int) -> UIControl {

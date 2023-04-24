@@ -23,7 +23,7 @@ final class PhotoEditorController: DDPicBaseViewController {
     private let context: PhotoEditorContext
     private weak var delegate: PhotoEditorControllerDelegate?
     private var lastOperationTime: TimeInterval = 0
-//    private var waterMarkLocation: WaterMarkLocation = .rightBottom
+    private var waterMarkLocation: WaterMarkLocation = .none
     
     override var prefersStatusBarHidden: Bool { return true }
 
@@ -396,8 +396,8 @@ extension PhotoEditorController {
             if !data.text.isEmpty {
                 stack.addTextData(data)
             }
-//        case .waterMark(let location):
-//            self.waterMarkLocation = location
+        case .waterMark(let location):
+            self.waterMarkLocation = location
         }
         return true
     }
@@ -429,8 +429,8 @@ extension PhotoEditorController {
             }
             contentView.mosaic?.isUserInteractionEnabled = true
             trackObserver?.track(event: .editorPhotoMosaic, userInfo: [:])
-//        case .waterMark:
-//            trackObserver?.track(event: .editorPhotoWaterMark, userInfo: [:])
+        case .waterMark:
+            trackObserver?.track(event: .editorPhotoWaterMark, userInfo: [:])
         }
     }
 }

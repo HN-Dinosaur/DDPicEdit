@@ -8,32 +8,6 @@
 import UIKit
 
 final class CropGridView: DDPicBaseView {
-
-    private(set) lazy var bgLayer: CAShapeLayer = {
-        let layer = CAShapeLayer()
-        layer.opacity = 0
-        layer.frame = bounds
-        layer.fillRule = .evenOdd
-        layer.fillColor = UIColor.black.cgColor
-        return layer
-    }()
-    private lazy var rectLayer: CAShapeLayer = {
-        let layer = CAShapeLayer()
-        layer.opacity = 0
-        layer.lineWidth = 1
-        layer.strokeColor = UIColor.white.cgColor
-        layer.fillColor = UIColor.clear.cgColor
-        return layer
-    }()
-    private lazy var lineLayer: CAShapeLayer = {
-        let layer = CAShapeLayer()
-        layer.opacity = 0
-        layer.lineWidth = 1
-        layer.strokeColor = UIColor.white.cgColor
-        layer.fillColor = UIColor.clear.cgColor
-        return layer
-    }()
-    
     private var cropRect: CGRect = .zero
     
     private var animated: Bool = false
@@ -81,6 +55,31 @@ final class CropGridView: DDPicBaseView {
         rectLayer.path = rectPath.cgPath
         bgLayer.path = bgPath.cgPath
     }
+    
+    private(set) lazy var bgLayer: CAShapeLayer = {
+        let layer = CAShapeLayer()
+        layer.opacity = 0
+        layer.frame = bounds
+        layer.fillRule = .evenOdd
+        layer.fillColor = UIColor.black.cgColor
+        return layer
+    }()
+    private lazy var rectLayer: CAShapeLayer = {
+        let layer = CAShapeLayer()
+        layer.opacity = 0
+        layer.lineWidth = 1
+        layer.strokeColor = UIColor.white.cgColor
+        layer.fillColor = UIColor.clear.cgColor
+        return layer
+    }()
+    private lazy var lineLayer: CAShapeLayer = {
+        let layer = CAShapeLayer()
+        layer.opacity = 0
+        layer.lineWidth = 1
+        layer.strokeColor = UIColor.white.cgColor
+        layer.fillColor = UIColor.clear.cgColor
+        return layer
+    }()
 }
 
 extension CropGridView {
