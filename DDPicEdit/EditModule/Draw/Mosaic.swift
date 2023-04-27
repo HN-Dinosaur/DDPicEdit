@@ -56,7 +56,7 @@ final class Mosaic: DDPicBaseView {
         for option in mosaicOptions {
             let image: UIImage
             switch option {
-            case .default:
+            case .`default`:
                 image = originalMosaicImage
             case .custom(_, let customMosaic):
                 image = customMosaic

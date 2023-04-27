@@ -8,7 +8,7 @@
 import UIKit
 import Anchorage
 
-enum WaterMarkLocation: Int, CaseIterable {
+public enum WaterMarkLocation: Int, CaseIterable {
     case centerBottom = 0
     case rightBottom
     case center
@@ -37,10 +37,22 @@ final class EditWaterMarkToolView: DDPicBaseView {
     
     weak var delegate: EditWaterMarkToolViewDelegate?
     private var waterMarkLocationBtns: [UIButton] = []
+    private var options: EditorPhotoOptionsInfo
+    private var currentSelectLocation: WaterMarkLocation
     
-    init() {
+    init(options: EditorPhotoOptionsInfo) {
+        self.options = options
+        self.currentSelectLocation = options.defaultWaterMarkSelect
         super.init(frame: .zero)
         self.setupWaterMarkView()
+    }
+    
+    override func layoutSubviews() {
+        super.layoutSubviews()
+        self.waterMarkLocationBtns.forEach {
+            $0.isSelected = self.currentSelectLocation.rawValue == $0.tag
+            $0.layer.borderColor = $0.isSelected ? UIColor.green.cgColor : UIColor.white.cgColor
+        }
     }
     
     private func setupWaterMarkView() {
@@ -62,6 +74,8 @@ final class EditWaterMarkToolView: DDPicBaseView {
         button.tintColor = .white
         button.titleLabel?.font = UIFont.PingFang(size: 14)
         button.backgroundColor = .clear
+        button.setTitleColor(.green, for: .selected)
+        button.setTitleColor(.white, for: .normal)
         button.layer.borderColor = UIColor.white.cgColor
         button.layer.borderWidth = 1
         button.addTarget(self, action: #selector(locationButtonTapped(_:)), for: .touchUpInside)
@@ -69,7 +83,9 @@ final class EditWaterMarkToolView: DDPicBaseView {
     }
     
     @objc private func locationButtonTapped(_ sender: UIButton) {
-        print(sender.tag)
-        self.delegate?.selectWaterMarkToolLocation(self, WaterMarkLocation(rawValue: sender.tag) ?? .rightBottom)
+        guard self.currentSelectLocation.rawValue != sender.tag else { return }
+        self.currentSelectLocation = WaterMarkLocation(rawValue: sender.tag) ?? .none
+        layoutSubviews()
+        self.delegate?.selectWaterMarkToolLocation(self, currentSelectLocation)
     }
 }

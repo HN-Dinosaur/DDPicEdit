@@ -81,5 +81,11 @@ public struct EditorPhotoOptionsInfo {
     // default is false, Enable debug log
     public var enableDebugLog: Bool = false
     
+    // default is none, waterMarkContent
+    public var waterMarkContent = ""
+    
+    // default is none, without any watermark in pic
+    public var defaultWaterMarkSelect: WaterMarkLocation = .none
+    
 }
 

@@ -11,7 +11,7 @@ class DryDrawingView: DDPicBaseView {
     
     private var bezierPath: UIBezierPath = UIBezierPath()
     private var step = 0
-    private var points: [CGPoint] = Array(repeating: CGPoint(), count: 3)
+    private var points: [CGPoint] = []
     private var didCallBegin = false
     
     internal var originBounds: CGRect = .zero

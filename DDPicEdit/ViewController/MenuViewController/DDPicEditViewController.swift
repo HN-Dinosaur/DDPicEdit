@@ -19,6 +19,7 @@ class DDPicEditViewController: DDPicBaseTableViewController {
         case mosaicWidth
         case mosaicLevel
         case cropOptions
+        case waterMarkContent
         
         var title: String {
             switch self {
@@ -34,6 +35,8 @@ class DDPicEditViewController: DDPicBaseTableViewController {
                 return "MosaicLevel"
             case .cropOptions:
                 return "CropOptions"
+            case .waterMarkContent:
+                return "WaterMarkContent"
             }
         }
         
@@ -51,6 +54,8 @@ class DDPicEditViewController: DDPicBaseTableViewController {
                 return ".mosaicLevel"
             case .cropOptions:
                 return ".cropOptions"
+            case .waterMarkContent:
+                return ".waterMarkContent"
             }
         }
         
@@ -68,6 +73,8 @@ class DDPicEditViewController: DDPicBaseTableViewController {
                 return "30"
             case .cropOptions:
                 return "Free/1:1/3:4/4:3/9:16/16:9"
+            case .waterMarkContent:
+                return ""
             }
         }
         
@@ -86,6 +93,8 @@ class DDPicEditViewController: DDPicBaseTableViewController {
                 return controller.mosaicLevelTapped
             case .cropOptions:
                 return controller.cropOptionsTapped
+            case .waterMarkContent:
+                return controller.waterMarkContentTapped
             }
         }
     }
@@ -311,7 +320,24 @@ class DDPicEditViewController: DDPicBaseTableViewController {
         self.present(alert, animated: true)
     }
     
-
+    private func waterMarkContentTapped(_ indexPath: IndexPath) {
+        let alert = UIAlertController(title: "WaterMark Content", message: nil, preferredStyle: .alert)
+        alert.addAction(UIAlertAction(title: "Cancel", style: .cancel, handler: nil))
+        alert.addTextField { [weak self] (textField) in
+            guard let self = self else { return }
+            textField.placeholder = "请输入水印的内容"
+            textField.addTarget(self, action: #selector(self.alertTextAction(_:)), for: .editingChanged)
+        }
+        let confirmAction = UIAlertAction(title: "确认", style: .default) { [weak self] _ in
+            guard let textField = alert.textFields?.first,
+                  let self = self,
+                  let cell = self.tableView.cellForRow(at: indexPath) as? DDPicCaptureConfigCell
+            else { return }
+            cell.contentLabel.text = textField.text
+        }
+        alert.addAction(confirmAction)
+        self.present(alert, animated: true)
+    }
 }
 
 // MARK: - ImageKitDataTrackDelegate
@@ -342,6 +368,15 @@ extension DDPicEditViewController: ImageEditorControllerDelegate {
             controller.imageView.image = photo
             show(controller, sender: nil)
             editor.dismiss(animated: true, completion: nil)
+        }
+    }
+}
+
+extension DDPicEditViewController: UITextFieldDelegate {
+    @objc func alertTextAction(_ textField: UITextField) {
+        if let text = textField.text, text.count > 12 {
+            let endIndex = text.index(text.startIndex, offsetBy: 12)
+            textField.text = String(text[text.startIndex..<endIndex])
         }
     }
 }

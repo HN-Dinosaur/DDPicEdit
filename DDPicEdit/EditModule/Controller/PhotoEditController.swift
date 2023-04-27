@@ -110,7 +110,8 @@ final class PhotoEditorController: DDPicBaseViewController {
             self.contentView.updateView(with: self.stack.edit) { [weak self] in
                 self?.toolView.mosaicToolView.setMosaicIdx(self?.stack.edit.mosaicData.last?.idx ?? 0)
                 let delay = (self?.stack.edit.mosaicData.isEmpty ?? true) ? 0.0 : 0.25
-                DispatchQueue.main.asyncAfter(deadline: .now() + delay) { [weak self] in // 这里稍微延迟一下，给马赛克图层创建留点时间
+                DispatchQueue.main.asyncAfter(deadline: .now() + delay) { [weak self] in
+                    // 这里稍微延迟一下，给马赛克图层创建留点时间
                     self?.contentView.isHidden = false
                     self?.placeholdImageView.isHidden = true
                     self?.view.hideHudWaiting()
@@ -127,7 +128,7 @@ final class PhotoEditorController: DDPicBaseViewController {
     }
     
     private func setPlaceholdImage(_ image: UIImage) {
-        contentView.isHidden = true
+        self.contentView.isHidden = true
         self.placeholdImageView.image = image
         self.placeholdImageView.isHidden = false
         self.placeholdImageView.contentMode = .scaleAspectFit
@@ -201,7 +202,9 @@ extension PhotoEditorController {
     
     /// 存储编辑记录
     private func saveEditPath() {
-        if options.cacheIdentifier.isEmpty { return }
+        if options.cacheIdentifier.isEmpty {
+            return
+        }
         stack.save()
     }
     
@@ -310,10 +313,12 @@ extension PhotoEditorController {
         
         switch action {
         case .empty:
+            //单击屏幕
             if toolView.currentOption != .crop {
                 setTool(hidden: toolView.alpha == 1)
             }
         case .back:
+            // 点击左上交返回按钮 / 选项只有crop的时候点击取消
             delegate?.photoEditorDidCancel(self)
             trackObserver?.track(event: .editorBack, userInfo: [.page: AnyImagePage.editorPhoto])
         case .done:
@@ -325,6 +330,7 @@ extension PhotoEditorController {
             delegate?.photoEditor(self, didFinishEditing: image, isEdited: stack.edit.isEdited)
             trackObserver?.track(event: .editorDone, userInfo: [.page: AnyImagePage.editorPhoto])
         case .toolOptionChanged(let option):
+            // EditorToolView里边改UI，外边editVc做具体响应
             context.toolOption = option
             toolOptionsDidChanged(option: option)
         case .brushBeginDraw, .mosaicBeginDraw:
@@ -345,6 +351,9 @@ extension PhotoEditorController {
         case .mosaicFinishDraw(let dataList):
             setTool(hidden: false)
             stack.setMosaicData(dataList)
+            
+            
+            
         case .cropUpdateOption(let option):
             contentView.setCrop(option)
         case .cropRotate:
@@ -355,10 +364,13 @@ extension PhotoEditorController {
             trackObserver?.track(event: .editorPhotoCropReset, userInfo: [:])
         case .cropCancel:
             trackObserver?.track(event: .editorPhotoCropCancel, userInfo: [:])
+            // 只有一个选项的时候直接退出
             if options.toolOptions.count == 1 {
                 context.action(.back)
                 return true
             }
+            
+            
             backButton.isHidden = false
             contentView.cropCancel { [weak self] (_) in
                 self?.didEndCroping()

@@ -101,7 +101,7 @@ final class EditorToolView: DDPicBaseView {
     }()
     // 水印View
     private(set) lazy var waterMarkToolView: EditWaterMarkToolView = {
-        let view = EditWaterMarkToolView()
+        let view = EditWaterMarkToolView(options: options)
         view.delegate = self
         view.isHidden = true
         return view

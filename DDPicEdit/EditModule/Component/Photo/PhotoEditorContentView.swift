@@ -10,8 +10,6 @@ import Anchorage
 
 final class PhotoEditorContentView: DDPicBaseView {
     
-    /// 裁剪 - Crop
-    /// 裁剪框的四个角
     private let cornerFrame = CGRect(x: 0, y: 0, width: 40, height: 40)
     /// 文本视图
     internal var textImageViews: [TextImageView] = []

@@ -27,6 +27,16 @@ final class MosaicContentView: DryDrawingView {
         }
     }
     
+    override func layoutSublayers(of layer: CALayer) {
+        super.layoutSublayers(of: layer)
+        maskLayer.frame = bounds
+    }
+    
+    override func layoutSubviews() {
+        super.layoutSubviews()
+        imageView.frame = bounds
+    }
+    
     init(idx: Int, mosaic: UIImage) {
         self.idx = idx
         super.init(frame: .zero)
@@ -48,16 +58,6 @@ final class MosaicContentView: DryDrawingView {
     override func didFinishDraw(path: UIBezierPath) {
         delegate?.mosaicDidEndDraw()
         updateMask()
-    }
-    
-    override func layoutSublayers(of layer: CALayer) {
-        super.layoutSublayers(of: layer)
-        maskLayer.frame = bounds
-    }
-    
-    override func layoutSubviews() {
-        super.layoutSubviews()
-        imageView.frame = bounds
     }
     
     func updateMask() {

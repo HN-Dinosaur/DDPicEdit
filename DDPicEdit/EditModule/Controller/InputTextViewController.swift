@@ -253,6 +253,7 @@ extension InputTextViewController {
     private func setupMaskLayer(_ height: CGFloat = 0) {
         let height = height == 0 ? textCoverView.bounds.height : height
         textLayer?.removeFromSuperlayer()
+        guard data.isTextSelected else { return }
         let array = textView.getSeparatedLines()
         if array.isEmpty { return }
         
@@ -278,10 +279,13 @@ extension InputTextViewController {
         let bezier: UIBezierPath
         if hasMultiLine && width - lastLineWidth > (hInset * 2) { // 一半的情况
             bezier = UIBezierPath(roundedRect: CGRect(x: 0, y: 0, width: width, height: height), byRoundingCorners: [.topLeft, .topRight, .bottomLeft], cornerRadii: CGSize(width: radius, height: radius))
+            // 最后一行右边
             let cropBezier1 = UIBezierPath(roundedRect: CGRect(x: lastLineWidth, y: height-lastLineHeight, width: width-lastLineWidth, height: lastLineHeight), byRoundingCorners: .topLeft, cornerRadii: CGSize(width: radius, height: radius))
             bezier.append(cropBezier1)
+            // 倒数第一个行右下角
             let cropBezier2 = createReversePath(CGPoint(x: lastLineWidth-radius, y: height-radius), radius: radius)
             bezier.append(cropBezier2)
+            // 倒数第二行右下角
             let cropBezier3 = createReversePath(CGPoint(x: width-radius, y: height-lastLineHeight-radius), radius: radius)
             bezier.append(cropBezier3)
         } else {

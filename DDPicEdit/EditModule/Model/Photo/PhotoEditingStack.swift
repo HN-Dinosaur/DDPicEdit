@@ -32,7 +32,7 @@ final class PhotoEditingStack {
     
     init(identifier: String) {
         self.identifier = identifier
-        load()
+        self.load()
     }
 }
 

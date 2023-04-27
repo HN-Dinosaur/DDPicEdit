@@ -62,13 +62,8 @@ final class EditorTextToolView: DDPicBaseView {
         stackView.leftAnchor == self.textButton.rightAnchor + 12
         stackView.centerYAnchor == self.centerYAnchor
         stackView.heightAnchor == self.buttonWidth
-        if UIDevice.current.userInterfaceIdiom == .phone && colorOptions.count >= 5 {
-            stackView.rightAnchor == self.rightAnchor - 20
-        }
-        
-        if !(UIDevice.current.userInterfaceIdiom == .phone && colorOptions.count >= 5) {
-            self.colorButtons.forEach { $0.sizeAnchors == CGSize(width: self.buttonWidth, height: self.buttonWidth) }
-        }
+        stackView.rightAnchor == self.rightAnchor - 20
+        self.colorButtons.forEach { $0.sizeAnchors == CGSize(width: self.buttonWidth, height: self.buttonWidth) }
     }
     
     private func createColorView(_ color: EditorTextColor, idx: Int) -> ColorButton {
