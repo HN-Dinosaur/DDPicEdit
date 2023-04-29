@@ -103,13 +103,16 @@ extension PhotoEditorContentView {
     
     /// 删除隐藏的TextView
     func removeHiddenTextView() {
-        for (idx, textView) in textImageViews.enumerated() {
+        var newTextImageViews = [TextImageView]()
+        for (_, textView) in textImageViews.enumerated() {
             if textView.isHidden {
                 textView.removeFromSuperview()
-                textImageViews.remove(at: idx)
                 context.action(.textDidFinishMove(data: textView.data, delete: true))
+            } else {
+                newTextImageViews.append(textView)
             }
         }
+        self.textImageViews = newTextImageViews
     }
     
     /// 删除所有TextView
@@ -134,7 +137,7 @@ extension PhotoEditorContentView {
     }
     
     func updateTextView(with edit: PhotoEditingStack.Edit) {
-        let textData = textImageViews.map { $0.data }
+        let textData = self.textImageViews.map { $0.data }
         if textData == edit.textData {
             return
         } else if textData.count < edit.textData.count {
@@ -213,11 +216,8 @@ extension PhotoEditorContentView {
         let pan = UIPanGestureRecognizer(target: self, action: #selector(onTextPan(_:)))
         let pinch = UIPinchGestureRecognizer(target: self, action: #selector(onTextPinch(_:)))
         let rotation = UIRotationGestureRecognizer(target: self, action: #selector(onTextRotation(_:)))
+        // pan手势优先，pan识别fail之后再判断是否tap
         tap.require(toFail: pan)
-        tap.delegate = self
-        pan.delegate = self
-        pinch.delegate = self
-        rotation.delegate = self
         textView.addGestureRecognizer(tap)
         textView.addGestureRecognizer(pan)
         textView.addGestureRecognizer(pinch)
@@ -228,6 +228,8 @@ extension PhotoEditorContentView {
     private func shouldBeginGesture(in textView: TextImageView) -> Bool {
         if textView.isActive { return true }
         for view in textImageViews {
+            // 如果还有手势状态为.changed
+            // 不应该开始响应手势
             if !view.isGestureEnded {
                 return false
             }
@@ -309,7 +311,7 @@ extension PhotoEditorContentView {
             check(targetView: textView, inTrashView: pan.location(in: self))
         default:
             var delete = false
-            if textTrashView.state == .remove && textTrashView.frame.contains(pan.location(in: self)) { // 判断在删除区域
+            if textTrashView.state == .remove && textTrashView.frame.contains(pan.location(in: self)) {
                 delete = true
             } else if !cropLayerLeave.displayRect.contains(pan.location(in: cropLayerLeave)) { // 判断超出图片区域
                 UIView.animate(withDuration: 0.25) {
@@ -370,26 +372,10 @@ extension PhotoEditorContentView {
         self.textTrashView.centerXAnchor == self.centerXAnchor
         self.textTrashView.widthAnchor >= 160
         self.textTrashView.heightAnchor == 80
-        self.textTrashViewTopConstraint.rebatch {
-            if #available(iOS 11.0, *) {
-                self.textTrashView.topAnchor == self.safeAreaLayoutGuide.bottomAnchor + 50
-            } else {
-                self.textTrashView.topAnchor == self.bottomAnchor
-            }
-            
-        }
-        self.layoutIfNeeded()
+        self.textTrashView.topAnchor == self.safeAreaLayoutGuide.bottomAnchor - 80 - 30
         
         UIView.animate(withDuration: 0.25) {
             self.textTrashView.alpha = 1
-            self.textTrashViewTopConstraint.rebatch {
-                if #available(iOS 11.0, *) {
-                    self.textTrashView.topAnchor == self.safeAreaLayoutGuide.bottomAnchor - 80 - 30
-                } else {
-                    self.textTrashView.topAnchor == self.bottomAnchor - 80 - 30
-                }
-            }
-            self.layoutIfNeeded()
         }
     }
     
@@ -409,7 +395,7 @@ extension PhotoEditorContentView {
                 targetView.alpha = 0.25
             }
         } else if textTrashView.state == .remove { // move out
-            hideTrashView()
+            textTrashView.state = .idle
             UIView.animate(withDuration: 0.25) {
                 targetView.alpha = 1.0
             }

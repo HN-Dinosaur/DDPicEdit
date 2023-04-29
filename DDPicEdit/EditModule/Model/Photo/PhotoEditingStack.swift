@@ -91,13 +91,6 @@ extension PhotoEditingStack {
         }
     }
     
-    func updateTextData(_ data: TextData) {
-        if let idx = edit.textData.firstIndex(of: data) {
-            edit.textData.remove(at: idx)
-            edit.textData.append(data)
-        }
-    }
-    
     func moveTextDataToTop(_ data: TextData) {
         if let idx = edit.textData.firstIndex(of: data) {
             edit.textData.remove(at: idx)

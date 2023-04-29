@@ -31,15 +31,13 @@ final class TextTrashView: DDPicBaseView {
     
     private func setupView() {
         backgroundColor = Palette.black.withAlphaComponent(0.8)
-        addSubview(imageView)
-        addSubview(label)
         self.recursiveAddSubView(views: [self.imageView, self.label])
         self.imageView.topAnchor == self.topAnchor + 15
         self.imageView.centerXAnchor == self.centerXAnchor
         self.imageView.sizeAnchors == CGSize(width: 25, height: 25)
         
         self.label.topAnchor == self.imageView.bottomAnchor + 15
-        self.label.horizontalAnchors == self.horizontalAnchors - 10
+        self.label.horizontalAnchors == self.horizontalAnchors + 10
     }
     
     private func set(state: State) {

@@ -18,7 +18,6 @@ final class PhotoEditorContentView: DDPicBaseView {
     internal let image: UIImage
     internal let context: PhotoEditorContext
     internal var options: EditorPhotoOptionsInfo { return self.context.options }
-    internal var textTrashViewTopConstraint: [NSLayoutConstraint] = []
     /// 裁剪数据
     internal var cropContext: PhotoEditorCropContext = .init()
     

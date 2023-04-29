@@ -333,6 +333,7 @@ extension PhotoEditorController {
             // EditorToolView里边改UI，外边editVc做具体响应
             context.toolOption = option
             toolOptionsDidChanged(option: option)
+        // MARK: -画笔
         case .brushBeginDraw, .mosaicBeginDraw:
             setTool(hidden: true)
         case .brushUndo:
@@ -343,6 +344,7 @@ extension PhotoEditorController {
         case .brushFinishDraw(let dataList):
             setTool(hidden: false)
             stack.setBrushData(dataList)
+        // MARK: -马赛克
         case .mosaicUndo:
             stack.mosaicUndo()
             trackObserver?.track(event: .editorPhotoMosaicUndo, userInfo: [:])
@@ -351,9 +353,7 @@ extension PhotoEditorController {
         case .mosaicFinishDraw(let dataList):
             setTool(hidden: false)
             stack.setMosaicData(dataList)
-            
-            
-            
+        // MARK: -裁剪
         case .cropUpdateOption(let option):
             contentView.setCrop(option)
         case .cropRotate:
@@ -369,8 +369,6 @@ extension PhotoEditorController {
                 context.action(.back)
                 return true
             }
-            
-            
             backButton.isHidden = false
             contentView.cropCancel { [weak self] (_) in
                 self?.didEndCroping()
@@ -387,6 +385,7 @@ extension PhotoEditorController {
             }
         case .cropFinish(let data):
             stack.setCropData(data)
+        // MARK: -文字编辑
         case .textWillBeginEdit(let data):
             openInputController(data)
         case .textBringToFront(let data):
@@ -394,7 +393,7 @@ extension PhotoEditorController {
         case .textWillBeginMove(_):
             setTool(hidden: true)
         case .textDidFinishMove(let data, let delete):
-            stack.updateTextData(data)
+            stack.moveTextDataToTop(data)
             setTool(hidden: false)
             if delete {
                 stack.removeTextData(data)
@@ -408,6 +407,7 @@ extension PhotoEditorController {
             if !data.text.isEmpty {
                 stack.addTextData(data)
             }
+        // MARK: -水印
         case .waterMark(let location):
             self.waterMarkLocation = location
         }

@@ -147,7 +147,7 @@ extension PhotoEditorContentView {
     private func layoutStartCrop(animated: Bool = false, setCrop: Bool = true) {
         let top = cropY
         let bottom = cropBottomOffset
-        scrollView.frame = CGRect(x: cropX, y: top, width: bounds.width-cropX*2, height: bounds.height-top-bottom)
+        scrollView.frame = CGRect(x: cropX, y: top, width: bounds.width - cropX * 2, height: bounds.height-top-bottom)
         scrollView.minimumZoomScale = 1.0
         scrollView.maximumZoomScale = maximumZoomScale
         scrollView.zoomScale = 1.0
@@ -241,6 +241,7 @@ extension PhotoEditorContentView {
             scrollView.maximumZoomScale = maximumZoomScale
             scrollView.minimumZoomScale = getMinimumZoomScale(with: lastCropData.rect.size, imageSize: lastCropData.imageViewFrame.size)
         } else {
+            // 先记录当前的数据作为上一次的数据
             lastCropData.didCrop = didCrop
             lastCropData.rect = cropRect
             lastCropData.zoomScale = scrollView.zoomScale
