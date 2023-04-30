@@ -8,7 +8,7 @@
 import UIKit
 import Anchorage
 
-public enum WaterMarkLocation: Int, CaseIterable {
+public enum WaterMarkLocation: Int, CaseIterable, Codable, Equatable {
     case centerBottom = 0
     case rightBottom
     case center

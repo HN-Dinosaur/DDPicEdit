@@ -82,10 +82,13 @@ public struct EditorPhotoOptionsInfo {
     public var enableDebugLog: Bool = false
     
     // default is none, waterMarkContent
-    public var waterMarkContent = ""
+    public var waterMarkContent = "@Londy"
     
     // default is none, without any watermark in pic
     public var defaultWaterMarkSelect: WaterMarkLocation = .none
+    
+    // default is Pingfang 70
+    public var waterMarkContentFont = UIFont.PingFang(size: 70)
     
 }
 

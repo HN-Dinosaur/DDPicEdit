@@ -23,7 +23,6 @@ final class PhotoEditorController: DDPicBaseViewController {
     private let context: PhotoEditorContext
     private weak var delegate: PhotoEditorControllerDelegate?
     private var lastOperationTime: TimeInterval = 0
-    private var waterMarkLocation: WaterMarkLocation = .none
     
     override var prefersStatusBarHidden: Bool { return true }
 
@@ -240,6 +239,7 @@ extension PhotoEditorController {
         contentView.cropLayerLeave.isHidden = false
         contentView.canvas.isHidden = true
         contentView.mosaic?.isHidden = true
+        contentView.waterMarkLabel.isHidden = true
         contentView.hiddenAllTextView()
         contentView.imageView.image = image
     }
@@ -248,6 +248,7 @@ extension PhotoEditorController {
     private func didEndCroping() {
         contentView.canvas.isHidden = false
         contentView.mosaic?.isHidden = false
+        contentView.waterMarkLabel.isHidden = false
         contentView.updateTextFrameWhenCropEnd()
         contentView.imageView.image = contentView.image
     }
@@ -408,8 +409,9 @@ extension PhotoEditorController {
                 stack.addTextData(data)
             }
         // MARK: -水印
-        case .waterMark(let location):
-            self.waterMarkLocation = location
+        case .waterMark(let data):
+            self.contentView.addWaterMarkIn(data: data)
+            self.stack.setWaterMarkData(data)
         }
         return true
     }

@@ -21,6 +21,11 @@ final class PhotoEditorContentView: DDPicBaseView {
     /// 裁剪数据
     internal var cropContext: PhotoEditorCropContext = .init()
     
+    internal lazy var waterMarkLabel = UILabel(text: options.waterMarkContent,
+                                               color: .white,
+                                               textFont: options.waterMarkContentFont.withSize(options.waterMarkContentFont.pointSize - 50))
+    internal var waterMarkLabelConstraint = [NSLayoutConstraint]()
+    
     init(frame: CGRect, image: UIImage, context: PhotoEditorContext) {
         self.image = image
         self.context = context
@@ -43,8 +48,11 @@ final class PhotoEditorContentView: DDPicBaseView {
     private func setupView() {
         self.recursiveAddSubView(views: [self.scrollView, self.textTrashView])
         self.scrollView.addSubview(self.imageView)
-        self.imageView.addSubview(self.mirrorCropView)
-        self.imageView.addSubview(self.canvas)
+        self.imageView.recursiveAddSubView(views: [
+            self.mirrorCropView,
+            self.canvas,
+            self.waterMarkLabel
+        ])
         self.setupCropView()
         self.scrollView.addGestureRecognizer(UITapGestureRecognizer(target: self, action: #selector(onSingleTapped)))
     }
@@ -92,7 +100,10 @@ final class PhotoEditorContentView: DDPicBaseView {
             }
         }
         group.notify(queue: .main) { [weak self] in
-            guard let self = self else { completion?(); return }
+            guard let self = self else {
+                completion?()
+                return
+            }
             if edit.cropData.didCropOrRotate && self.cropContext.lastCropData != edit.cropData {
                 self.cropContext.lastCropData = edit.cropData
                 self.layoutEndCrop(edit.isEdited)

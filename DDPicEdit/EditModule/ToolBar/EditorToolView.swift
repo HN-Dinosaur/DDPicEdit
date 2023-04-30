@@ -240,7 +240,8 @@ extension EditorToolView: EditorCropToolViewDelegate {
 // MARK: - EditWaterMarkToolViewDelegate
 extension EditorToolView: EditWaterMarkToolViewDelegate {
     func selectWaterMarkToolLocation(_ waterMarkView: EditWaterMarkToolView, _ location: WaterMarkLocation) {
-        context.action(.waterMark(location))
+        let data = WaterMarkData(waterMarkContent: self.options.waterMarkContent, waterMarkLocation: location, fontSize: self.options.waterMarkContentFont.pointSize)
+        context.action(.waterMark(data))
     }
 }
 

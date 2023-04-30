@@ -37,7 +37,7 @@ enum PhotoEditorAction {
     case textCancel
     case textDone(TextData)
     
-    case waterMark(WaterMarkLocation)
+    case waterMark(WaterMarkData)
 }
 
 extension PhotoEditorAction {

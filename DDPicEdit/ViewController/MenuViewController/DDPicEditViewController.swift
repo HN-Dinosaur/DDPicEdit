@@ -74,7 +74,7 @@ class DDPicEditViewController: DDPicBaseTableViewController {
             case .cropOptions:
                 return "Free/1:1/3:4/4:3/9:16/16:9"
             case .waterMarkContent:
-                return ""
+                return "@Londy"
             }
         }
         
@@ -321,19 +321,21 @@ class DDPicEditViewController: DDPicBaseTableViewController {
     }
     
     private func waterMarkContentTapped(_ indexPath: IndexPath) {
+        guard let cell = self.tableView.cellForRow(at: indexPath) as? DDPicCaptureConfigCell else { return }
         let alert = UIAlertController(title: "WaterMark Content", message: nil, preferredStyle: .alert)
         alert.addAction(UIAlertAction(title: "Cancel", style: .cancel, handler: nil))
         alert.addTextField { [weak self] (textField) in
             guard let self = self else { return }
             textField.placeholder = "请输入水印的内容"
+            textField.text = cell.contentLabel.text
             textField.addTarget(self, action: #selector(self.alertTextAction(_:)), for: .editingChanged)
         }
         let confirmAction = UIAlertAction(title: "确认", style: .default) { [weak self] _ in
             guard let textField = alert.textFields?.first,
-                  let self = self,
-                  let cell = self.tableView.cellForRow(at: indexPath) as? DDPicCaptureConfigCell
+                  let self = self
             else { return }
             cell.contentLabel.text = textField.text
+            self.options.waterMarkContent = textField.text ?? ""
         }
         alert.addAction(confirmAction)
         self.present(alert, animated: true)

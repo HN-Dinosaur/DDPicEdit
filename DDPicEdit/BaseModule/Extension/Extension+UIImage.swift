@@ -103,16 +103,12 @@ extension UIImage {
         }
     }
     
-    func addWaterMark(str: String = "@水印Test") -> UIImage? {
-        let imageSize = self.size
+    func drawWaterMark(attr: NSAttributedString, point: CGPoint) -> UIImage? {
         UIGraphicsBeginImageContextWithOptions(size, false, UIScreen.main.scale)
+        // 将这个pic绘制在Context中
         self.draw(at: .zero)
-        let centerPoint = CGPoint(x: imageSize.width / 2, y: imageSize.height / 2)
-        let attributes: [NSAttributedString.Key: Any] = [
-            .font: UIFont.PingFang(size: 70),
-            .foregroundColor: UIColor.white
-        ]
-        NSString(string: str).draw(at: centerPoint, withAttributes: attributes)
+        // pic绘制str
+        attr.draw(at: point)
         let result = UIGraphicsGetImageFromCurrentImageContext()
         UIGraphicsEndImageContext()
         return result

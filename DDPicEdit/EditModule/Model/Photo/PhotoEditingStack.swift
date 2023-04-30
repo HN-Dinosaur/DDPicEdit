@@ -61,6 +61,7 @@ extension PhotoEditingStack {
         var mosaicData: [MosaicData] = []
         var cropData: CropData = .init()
         var textData: [TextData] = []
+        var waterMarkData: WaterMarkData = .init()
         var outputImageData: Data?
     }
     
@@ -82,6 +83,10 @@ extension PhotoEditingStack {
     func addTextData(_ data: TextData) {
         edit.textData.append(data)
         delegate?.editingStack(self, needUpdatePreview: edit)
+    }
+    
+    func setWaterMarkData(_ waterMarkData: WaterMarkData) {
+        edit.waterMarkData = waterMarkData
     }
     
     func removeTextData(_ data: TextData) {
@@ -193,13 +198,34 @@ extension PhotoEditingStack {
         
         return UIGraphicsImageRenderer.init(size: newSize, format: getImageRendererFormat()).image { rendererContext in
             let context = rendererContext.cgContext
-            context.translateBy(x: newSize.width/2, y: newSize.height/2)
+            context.translateBy(x: newSize.width / 2, y: newSize.height / 2)
             context.scaleBy(x: -1, y: 1)
             if radians != RotateState.upsideDown.angle {
                 context.rotate(by: CGFloat(radians))
             }
-            context.draw(cgImage, in: CGRect(x: -image.size.width/2, y: -image.size.height/2, width: image.size.width, height: image.size.height))
+            context.draw(cgImage, in: CGRect(x: -image.size.width / 2, y: -image.size.height / 2, width: image.size.width, height: image.size.height))
         }
+    }
+    
+    private func processWaterMark(_ image: UIImage) -> UIImage? {
+        let attributes: [NSAttributedString.Key: Any] = [
+            .font: UIFont.PingFang(size: edit.waterMarkData.fontSize),
+            .foregroundColor: UIColor.white
+        ]
+        let attr = NSAttributedString(string: edit.waterMarkData.waterMarkContent, attributes: attributes)
+        let strSize = attr.boundingRect(with: CGSize(width: CGFloat.infinity, height: CGFloat.infinity), options: .usesLineFragmentOrigin, context: nil)
+        let point: CGPoint
+        switch edit.waterMarkData.waterMarkLocation {
+        case .center:
+            point = CGPoint(x: (image.size.width - strSize.width) / 2, y: (image.size.height - strSize.height) / 2)
+        case .centerBottom:
+            point = CGPoint(x: (image.size.width - strSize.width) / 2, y: image.size.height - strSize.height - 10)
+        case .rightBottom:
+            point = CGPoint(x: image.size.width - strSize.width - 10, y: image.size.height - strSize.height - 10)
+        default:
+            return image
+        }
+        return image.drawWaterMark(attr: attr, point: point)
     }
     
     func output() -> UIImage? {
@@ -222,7 +248,7 @@ extension PhotoEditingStack {
                 $0.draw(in: context, size: canvasSize)
             }
         }
-        return rotateImage(cropImage(image))
+        return processWaterMark(rotateImage(cropImage(image)))
     }
 }
 

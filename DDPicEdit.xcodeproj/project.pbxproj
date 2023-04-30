@@ -69,6 +69,8 @@
 		9D928FB229DD5F6D0008BBCE /* Capture+CMVideoFormatDescription.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9D928FB129DD5F6D0008BBCE /* Capture+CMVideoFormatDescription.swift */; };
 		9D928FB429DD77250008BBCE /* Capture+CGImage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9D928FB329DD77250008BBCE /* Capture+CGImage.swift */; };
 		9D928FB829DF08C70008BBCE /* CaptureBufferType.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9D928FB729DF08C70008BBCE /* CaptureBufferType.swift */; };
+		9DAE77DF29FD58BD00C1C811 /* PhotoEditorContentView+WaterMark.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9DAE77DE29FD58BD00C1C811 /* PhotoEditorContentView+WaterMark.swift */; };
+		9DAE77E329FE0D0100C1C811 /* WaterMarkData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9DAE77E229FE0D0100C1C811 /* WaterMarkData.swift */; };
 		9DC3A1FF29C727A3009EBFB0 /* HomeMenuProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9DC3A1FE29C727A3009EBFB0 /* HomeMenuProtocol.swift */; };
 		9DC3A20229C728C7009EBFB0 /* DDPicCaptureViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9DC3A20129C728C7009EBFB0 /* DDPicCaptureViewController.swift */; };
 		9DC3A20429C74B1A009EBFB0 /* DDPicCaptureConfigCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9DC3A20329C74B1A009EBFB0 /* DDPicCaptureConfigCell.swift */; };
@@ -225,6 +227,8 @@
 		9D928FB129DD5F6D0008BBCE /* Capture+CMVideoFormatDescription.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Capture+CMVideoFormatDescription.swift"; sourceTree = "<group>"; };
 		9D928FB329DD77250008BBCE /* Capture+CGImage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Capture+CGImage.swift"; sourceTree = "<group>"; };
 		9D928FB729DF08C70008BBCE /* CaptureBufferType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CaptureBufferType.swift; sourceTree = "<group>"; };
+		9DAE77DE29FD58BD00C1C811 /* PhotoEditorContentView+WaterMark.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "PhotoEditorContentView+WaterMark.swift"; sourceTree = "<group>"; };
+		9DAE77E229FE0D0100C1C811 /* WaterMarkData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WaterMarkData.swift; sourceTree = "<group>"; };
 		9DC3A1FE29C727A3009EBFB0 /* HomeMenuProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeMenuProtocol.swift; sourceTree = "<group>"; };
 		9DC3A20129C728C7009EBFB0 /* DDPicCaptureViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DDPicCaptureViewController.swift; sourceTree = "<group>"; };
 		9DC3A20329C74B1A009EBFB0 /* DDPicCaptureConfigCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DDPicCaptureConfigCell.swift; sourceTree = "<group>"; };
@@ -543,6 +547,7 @@
 			isa = PBXGroup;
 			children = (
 				9D6D580329E7BF4700132AAC /* BrushData.swift */,
+				9DAE77E229FE0D0100C1C811 /* WaterMarkData.swift */,
 				9D6D580E29E7ED8300132AAC /* MosaicData.swift */,
 				9D6D581029E7EDCA00132AAC /* RotateState.swift */,
 				9D6D581429E7FB2500132AAC /* CropData.swift */,
@@ -784,6 +789,7 @@
 			isa = PBXGroup;
 			children = (
 				9DD6FF7B29EE4B25008EE747 /* PhotoEditorContentView.swift */,
+				9DAE77DE29FD58BD00C1C811 /* PhotoEditorContentView+WaterMark.swift */,
 				9DD6FF7E29EE4C70008EE747 /* PhotoEditorContentView+Getter.swift */,
 				9DD6FF8029EE4C8D008EE747 /* PhotoEditorContentView+Brush.swift */,
 				9DD6FF8229EE4CF3008EE747 /* PhotoEditorContentView+Mosaic.swift */,
@@ -1006,6 +1012,7 @@
 				9D6D581529E7FB2500132AAC /* CropData.swift in Sources */,
 				9DD6FF9829EF9CFA008EE747 /* EditorResultViewController.swift in Sources */,
 				9D6D581929E8001A00132AAC /* Cacheable.swift in Sources */,
+				9DAE77DF29FD58BD00C1C811 /* PhotoEditorContentView+WaterMark.swift in Sources */,
 				9DD6FF5429EA9936008EE747 /* BlurredMask.swift in Sources */,
 				9DD6FF5629EA9D6D008EE747 /* CanvasMask.swift in Sources */,
 				9D4BADE329D49F3700CE3669 /* CaptureAspectRatio.swift in Sources */,
@@ -1112,6 +1119,7 @@
 				9D6D580C29E7EB7200132AAC /* CacheModule.swift in Sources */,
 				9D4BADD729D45DCB00CE3669 /* CaptureOptionsInfo.swift in Sources */,
 				9D4BAE0029D5D12800CE3669 /* DebugHelper.swift in Sources */,
+				9DAE77E329FE0D0100C1C811 /* WaterMarkData.swift in Sources */,
 				9D6D57FC29E7B7E100132AAC /* FileHelper.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
