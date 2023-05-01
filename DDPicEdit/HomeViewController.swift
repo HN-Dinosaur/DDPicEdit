@@ -12,6 +12,7 @@ class HomeViewController: UITableViewController {
     enum HomeMenu: CaseIterable, HomeMenuProtocol {
         case edit
         case capture
+        case crop
         
         var title: String {
             switch self {
@@ -19,6 +20,8 @@ class HomeViewController: UITableViewController {
                 return "Edit"
             case .capture:
                 return "Capture"
+            case .crop:
+                return "Crop"
             }
         }
         
@@ -34,6 +37,8 @@ class HomeViewController: UITableViewController {
                 return DDPicEditViewController(style: style)
             case .capture:
                 return DDPicCaptureViewController(style: style)
+            case .crop:
+                return DDPicNineGridViewController()
             }
         }
     }
@@ -52,7 +57,6 @@ class HomeViewController: UITableViewController {
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell: UITableViewCell = tableView.dequeueCell(indexPath: indexPath)
         cell.accessoryType = .disclosureIndicator
-        
         cell.textLabel?.text = HomeMenu.allCases[indexPath.row].title
         return cell
     }

@@ -123,4 +123,14 @@ extension UIImage {
         guard let outputImage = CIContext().createCGImage(result, from: ciImage.extent) else { return nil }
         return UIImage(cgImage: outputImage)
     }
+    
+    /// 截取图片的指定区域，并生成新图片
+    /// - Parameter rect: 指定的区域
+    func cropping(to rect: CGRect) -> UIImage? {
+        // 截取部分图片并生成新图片
+        guard let sourceImageRef = self.cgImage else { return nil }
+        guard let newImageRef = sourceImageRef.cropping(to: rect) else { return nil }
+        let newImage = UIImage(cgImage: newImageRef, scale: 1, orientation: .up)
+        return newImage
+    }
 }

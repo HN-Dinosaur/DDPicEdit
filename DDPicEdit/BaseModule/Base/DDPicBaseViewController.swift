@@ -60,6 +60,10 @@ open class DDPicBaseViewController: UIViewController {
         switch self {
         case _ as CaptureViewController:
             page = .capture
+        case _ as PhotoEditorController:
+            page = .editor
+        case _ as DDPicNineGridViewController:
+            page = .nineGrid
         default:
             page = .undefined
         }

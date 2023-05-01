@@ -12,8 +12,8 @@ extension UIButton {
     convenience init(title: String? = nil, font: UIFont, edgeInset: UIEdgeInsets = .zero) {
         self.init()
         self.setTitle(title, for: .normal)
-        self.titleLabel?.font = UIFont.systemFont(ofSize: 18, weight: .regular)
-        self.contentEdgeInsets = UIEdgeInsets(top: 8, left: 8, bottom: 8, right: 8)
+        self.titleLabel?.font = font
+        self.contentEdgeInsets = edgeInset
     }
     
     convenience init(image: UIImage) {

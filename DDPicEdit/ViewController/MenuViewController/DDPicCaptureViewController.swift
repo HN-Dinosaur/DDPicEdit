@@ -79,7 +79,7 @@ public class DDPicCaptureViewController: DDPicBaseTableViewController {
         }
     }
     
-    var options =  CaptureOptionsInfo()
+    var options = CaptureOptionsInfo()
     
     override public func viewDidLoad() {
         super.viewDidLoad()
