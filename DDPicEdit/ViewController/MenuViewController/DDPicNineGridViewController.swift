@@ -65,16 +65,31 @@ public class DDPicNineGridViewController: DDPicBaseViewController {
     
     
     private func processPhoto(_ image: UIImage) {
-        let stepY = image.size.width / 3
-        let stepX = image.size.height / 3
+        var processImage: UIImage
+        if image.size.height != image.size.width, let image = getSquarePic(image) {
+            processImage = image
+        } else {
+            processImage = image
+        }
+        let stepY = processImage.size.width / 3
+        let stepX = processImage.size.height / 3
         let resultPicSize = CGSize(width: stepX, height: stepY)
         var result = [UIImage?]()
         for y in 0...2 {
             for x in 0...2 {
-                result.append(image.cropping(to: CGRect(origin: CGPoint(x: stepX * CGFloat(x), y: stepY * CGFloat(y)), size: resultPicSize)))
+                result.append(processImage.cropping(to: CGRect(origin: CGPoint(x: stepX * CGFloat(x), y: stepY * CGFloat(y)), size: resultPicSize)))
             }
         }
         self.resultPics = result.compactMap { $0 }
+    }
+    
+    private func getSquarePic(_ image: UIImage) -> UIImage? {
+        let picWidth = image.size.width
+        let picHeight = image.size.height
+        let picLength = min(image.size.height, image.size.width)
+        let x = picWidth > picHeight ? (picWidth - picLength) / 2 : 0
+        let y = picHeight > picWidth ? (picHeight - picLength) / 2 : 0
+        return image.cropping(to: CGRect(x: x, y: y, width: picLength, height: picLength))
     }
     
     @objc func tapBottomButton() {
@@ -93,6 +108,7 @@ public class DDPicNineGridViewController: DDPicBaseViewController {
             picker.delegate = self
             //打开相机
             picker.sourceType = .photoLibrary
+            picker.modalPresentationStyle = .fullScreen
             //让页面出现
             self.present(picker, animated: true)
         }
