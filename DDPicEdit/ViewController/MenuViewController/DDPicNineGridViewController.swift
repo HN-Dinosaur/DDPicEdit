@@ -55,7 +55,8 @@ public class DDPicNineGridViewController: DDPicBaseViewController {
     }
     
     @objc private func storePhoto() {
-        self.resultPics.forEach {
+        self.resultPics.forEach { [weak self] in
+            guard let self = self else { return }
             UIImageWriteToSavedPhotosAlbum($0, self, nil, nil)
         }
         let alert = UIAlertController.show(title: "保存成功" ,actions: [])

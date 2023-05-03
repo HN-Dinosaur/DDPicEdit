@@ -8,6 +8,10 @@
 
 /* Begin PBXBuildFile section */
 		69E56A5C91553775668C794E /* Pods_DDPicEdit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9D281A844AE1E5C851466A0B /* Pods_DDPicEdit.framework */; };
+		9D23ADAD29FFE91700ABC52C /* Slider.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9D23ADAC29FFE91700ABC52C /* Slider.swift */; };
+		9D23ADB029FFE93600ABC52C /* SlideRuler.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9D23ADAF29FFE93600ABC52C /* SlideRuler.swift */; };
+		9D23ADB229FFE94600ABC52C /* ProcessIndicatorView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9D23ADB129FFE94600ABC52C /* ProcessIndicatorView.swift */; };
+		9D23ADB429FFE95700ABC52C /* ProcessIndicatorContainer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9D23ADB329FFE95700ABC52C /* ProcessIndicatorContainer.swift */; };
 		9D48E33929F3CEAD003B178C /* EditWaterMarkToolView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9D48E33829F3CEAD003B178C /* EditWaterMarkToolView.swift */; };
 		9D4BADCF29D4520700CE3669 /* Extension+Thread.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9D4BADCE29D4520700CE3669 /* Extension+Thread.swift */; };
 		9D4BADD129D4526000CE3669 /* Constant.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9D4BADD029D4526000CE3669 /* Constant.swift */; };
@@ -170,6 +174,10 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		9D23ADAC29FFE91700ABC52C /* Slider.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Slider.swift; sourceTree = "<group>"; };
+		9D23ADAF29FFE93600ABC52C /* SlideRuler.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SlideRuler.swift; sourceTree = "<group>"; };
+		9D23ADB129FFE94600ABC52C /* ProcessIndicatorView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProcessIndicatorView.swift; sourceTree = "<group>"; };
+		9D23ADB329FFE95700ABC52C /* ProcessIndicatorContainer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProcessIndicatorContainer.swift; sourceTree = "<group>"; };
 		9D281A844AE1E5C851466A0B /* Pods_DDPicEdit.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_DDPicEdit.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		9D48E33829F3CEAD003B178C /* EditWaterMarkToolView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditWaterMarkToolView.swift; sourceTree = "<group>"; };
 		9D4BADCE29D4520700CE3669 /* Extension+Thread.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Extension+Thread.swift"; sourceTree = "<group>"; };
@@ -363,6 +371,17 @@
 				C874753863D1BCF69DB75918 /* Pods-DDPicEdit.release.xcconfig */,
 			);
 			path = Pods;
+			sourceTree = "<group>";
+		};
+		9D23ADAE29FFE91E00ABC52C /* Slider */ = {
+			isa = PBXGroup;
+			children = (
+				9D23ADAC29FFE91700ABC52C /* Slider.swift */,
+				9D23ADAF29FFE93600ABC52C /* SlideRuler.swift */,
+				9D23ADB129FFE94600ABC52C /* ProcessIndicatorView.swift */,
+				9D23ADB329FFE95700ABC52C /* ProcessIndicatorContainer.swift */,
+			);
+			path = Slider;
 			sourceTree = "<group>";
 		};
 		9D4BADD829D45DD300CE3669 /* CaptureModule */ = {
@@ -643,6 +662,7 @@
 				9DC3A20529C74B29009EBFB0 /* TableViewCell */,
 				9D6D57D929E55BA700132AAC /* UIView */,
 				9DAE77EB29FE76D700C1C811 /* UICollectionViewCell */,
+				9D23ADAE29FFE91E00ABC52C /* Slider */,
 			);
 			path = Component;
 			sourceTree = "<group>";
@@ -1074,6 +1094,7 @@
 				9D4BADF629D5CADB00CE3669 /* DataTrackObserver.swift in Sources */,
 				9DC3A1FF29C727A3009EBFB0 /* HomeMenuProtocol.swift in Sources */,
 				9D928FAE29DD1ADE0008BBCE /* CaptureWhiteBalance.swift in Sources */,
+				9D23ADAD29FFE91700ABC52C /* Slider.swift in Sources */,
 				9DD6FF4E29EA6D81008EE747 /* Extension+CGSize.swift in Sources */,
 				9D6D57E529E5981C00132AAC /* Extension+UIStackView.swift in Sources */,
 				9DD6FF7029ED3448008EE747 /* Editor+AnyImagePage.swift in Sources */,
@@ -1123,6 +1144,7 @@
 				9D6D581D29E830C900132AAC /* CodableCacheTool.swift in Sources */,
 				9DD961E929D97B27005FC488 /* CaptureFocusView.swift in Sources */,
 				9DAE77E829FE755400C1C811 /* UIKitConstant.swift in Sources */,
+				9D23ADB429FFE95700ABC52C /* ProcessIndicatorContainer.swift in Sources */,
 				9DD961E129D967FF005FC488 /* DeviceOrientationUtil.swift in Sources */,
 				9DC3A21A29C95A81009EBFB0 /* DDPicBaseLabel.swift in Sources */,
 				9DD6FF9529EF976B008EE747 /* EditorResult.swift in Sources */,
@@ -1153,7 +1175,9 @@
 				9D4BADD129D4526000CE3669 /* Constant.swift in Sources */,
 				9DD6FF9129EF8B10008EE747 /* Extension+CALayer.swift in Sources */,
 				9DC6046429E10DE8000F90A8 /* Palette.swift in Sources */,
+				9D23ADB029FFE93600ABC52C /* SlideRuler.swift in Sources */,
 				9DD6FF6929EBB55A008EE747 /* TextTrashView.swift in Sources */,
+				9D23ADB229FFE94600ABC52C /* ProcessIndicatorView.swift in Sources */,
 				9DD6FF6B29EBBB50008EE747 /* MirrorCropView.swift in Sources */,
 				9D4BADDD29D460BE00CE3669 /* StringConfigKey.swift in Sources */,
 				9DC3A20929C74C6A009EBFB0 /* Extention+UIView.swift in Sources */,
