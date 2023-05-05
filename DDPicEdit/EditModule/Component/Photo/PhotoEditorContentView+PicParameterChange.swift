@@ -13,7 +13,9 @@ extension PhotoEditorContentView {
         guard self.lastPicData != data else { return }
         self.lastPicData = data
         DispatchQueue.main.async {
-            self.imageView.image = self.image.editImage(contrast: data.contrast, brightness: data.brightness, saturation: data.saturation)
+            guard let newImage = self.image.editImage(contrast: data.contrast, brightness: data.brightness, saturation: data.saturation) else { return }
+            self.imageView.image = newImage
+            self.updateOutputImageBlock?(newImage)
         }
     }
     

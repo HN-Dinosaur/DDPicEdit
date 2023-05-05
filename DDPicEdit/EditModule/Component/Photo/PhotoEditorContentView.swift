@@ -26,6 +26,7 @@ final class PhotoEditorContentView: DDPicBaseView {
                                                textFont: options.waterMarkContentFont.withSize(options.waterMarkContentFont.pointSize - 50))
     internal var waterMarkLabelConstraint = [NSLayoutConstraint]()
     internal var lastPicData: PicParameterData = .init()
+    internal var updateOutputImageBlock: ((UIImage) -> Void)?
     
     init(frame: CGRect, image: UIImage, context: PhotoEditorContext) {
         self.image = image

@@ -147,6 +147,9 @@ final class PhotoEditorController: DDPicBaseViewController {
     private lazy var contentView: PhotoEditorContentView = {
         let view = PhotoEditorContentView(frame: self.view.bounds, image: image, context: context)
         view.canvas.setBrush(color: options.brushColors[options.defaultBrushIndex].color)
+        view.updateOutputImageBlock = { [weak self ] (image) in
+            self?.image = image
+        }
         return view
     }()
     private lazy var placeholdImageView: UIImageView = {
@@ -414,10 +417,13 @@ extension PhotoEditorController {
             self.stack.setWaterMarkData(data)
         case .picParameterChange(let data):
             self.contentView.picParameterChange(data: data)
+            self.stack.setPicParameterData(data)
+            self.trackObserver?.track(event: .editorPhotoParameterChange, userInfo: [:])
         case .picParameterCancel:
             trackObserver?.track(event: .editorPhotoParameterCancel, userInfo: [:])
             backButton.isHidden = false
         case .picParameterDone:
+            self.stack.originImage = self.image
             trackObserver?.track(event: .editorPhotoParameterDone, userInfo: [:])
             backButton.isHidden = false
         }
