@@ -13,6 +13,7 @@ public enum EditorPhotoToolOption: Equatable, CaseIterable {
     case crop
     case mosaic
     case waterMark
+    case picParameter
 }
 
 extension EditorPhotoToolOption {
@@ -29,6 +30,8 @@ extension EditorPhotoToolOption {
             return .photoToolMosaic
         case .waterMark:
             return .photoToolWaterMark
+        case .picParameter:
+            return .photoToolPicParameter
         }
     }
 }
@@ -46,6 +49,8 @@ extension EditorPhotoToolOption: CustomStringConvertible {
             return "MOSAIC"
         case .waterMark:
             return "WATERMARK"
+        case .picParameter:
+            return "PICPARAMETER"
         }
     }
     
@@ -61,6 +66,8 @@ extension EditorPhotoToolOption: CustomStringConvertible {
             return .editorMosaic
         case .waterMark:
             return .editorWaterMark
+        case .picParameter:
+            return .editorPicParameter
         }
     }
 }
@@ -71,6 +78,7 @@ extension StringConfigKey {
     public static let editorCrop = StringConfigKey(rawValue: "CROP")
     public static let editorMosaic = StringConfigKey(rawValue: "MOSAIC")
     public static let editorWaterMark = StringConfigKey(rawValue: "WATERMARK")
+    public static let editorPicParameter = StringConfigKey(rawValue: "PICPARAMETER")
     public static let editorInputText = StringConfigKey(rawValue: "INPUT_TEXT")
     public static let editorFree = StringConfigKey(rawValue: "FREE")
     

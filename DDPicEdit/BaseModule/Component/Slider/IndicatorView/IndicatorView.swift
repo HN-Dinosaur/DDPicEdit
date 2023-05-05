@@ -1,5 +1,5 @@
 //
-//  ProcessIndicatorView.swift
+//  IndicatorView.swift
 //  DDPicEdit
 //
 //  Created by LongDengYu on 2023/5/1.
@@ -7,13 +7,13 @@
 
 import UIKit
 
-protocol ProcessIndicatorViewDelegate {
-    func didActive(_ processIndicatorView: ProcessIndicatorView)
-    func didTempReset(_ processIndicatorView: ProcessIndicatorView)
-    func didRemoveTempReset(_ processIndicatorView: ProcessIndicatorView)
+protocol IndicatorViewDelegate {
+    func didActive(_ indicatorView: IndicatorView)
+    func didTempReset(_ indicatorView: IndicatorView)
+    func didRemoveTempReset(_ indicatorView: IndicatorView)
 }
 
-class ProcessIndicatorView: DDPicBaseView {
+public class IndicatorView: DDPicBaseView {
     var limitNumber = 100
     var normalIconImage: CGImage?
     var dimmedIconImage: CGImage?
@@ -33,7 +33,7 @@ class ProcessIndicatorView: DDPicBaseView {
         }
     }
     
-    var delegate: ProcessIndicatorViewDelegate?
+    var delegate: IndicatorViewDelegate?
     
     private var circlePath: UIBezierPath!
     
@@ -55,20 +55,15 @@ class ProcessIndicatorView: DDPicBaseView {
         }
     }
     
-    init(frame: CGRect, limitNumber: Int = 30, normalIconImage: CGImage? = nil, dimmedIconImage: CGImage? = nil) {
+    override init(frame: CGRect) {
         super.init(frame: frame)
-        
-        self.limitNumber = limitNumber
-        self.normalIconImage = normalIconImage
-        self.dimmedIconImage = dimmedIconImage
-
         setupView()
         change(to: .initial)
         
         let tap = UITapGestureRecognizer(target: self, action: #selector(handleTap))
         addGestureRecognizer(tap)
         
-        NotificationCenter.default.addObserver(self, selector: #selector(handleActivited(notification:)), name: .ProgressIndicatorActivated, object: nil)
+        NotificationCenter.default.addObserver(self, selector: #selector(handleActivited(notification:)), name: .IndicatorActivated, object: nil)
     }
     
     func setupView() {
@@ -94,8 +89,14 @@ class ProcessIndicatorView: DDPicBaseView {
         minusProgressLayer.path = circlePath.reversing().cgPath
     }
     
+    func setData(limitNumber: Int = 30, normalIconImage: CGImage? = nil, dimmedIconImage: CGImage? = nil) {
+        self.limitNumber = limitNumber
+        self.normalIconImage = normalIconImage
+        self.dimmedIconImage = dimmedIconImage
+    }
+    
     @objc func handleActivited(notification: Notification) {
-        guard let object = notification.object as? ProcessIndicatorView else {
+        guard let object = notification.object as? IndicatorView else {
             return
         }
         
@@ -126,7 +127,7 @@ class ProcessIndicatorView: DDPicBaseView {
             }
         }
         
-        NotificationCenter.default.post(name: .ProgressIndicatorActivated, object: self)
+        NotificationCenter.default.post(name: .IndicatorActivated, object: self)
     }
     
     private func getProgressLayer(color: CGColor) -> CAShapeLayer {
@@ -215,7 +216,7 @@ class ProcessIndicatorView: DDPicBaseView {
 }
 
 extension Notification.Name {
-    static let ProgressIndicatorActivated
+    static let IndicatorActivated
                 = NSNotification.Name("ProgressIndicatorActivated")
 }
 

@@ -38,6 +38,10 @@ enum PhotoEditorAction {
     case textDone(TextData)
     
     case waterMark(WaterMarkData)
+    
+    case picParameterChange(PicParameterData)
+    case picParameterCancel
+    case picParameterDone
 }
 
 extension PhotoEditorAction {
@@ -53,7 +57,7 @@ extension PhotoEditorAction {
             return 0.55
         case .cropRotate:
             return 0.3
-        case .cropDone, .cropCancel:
+        case .cropDone, .cropCancel, .picParameterCancel, .picParameterDone:
             return 0.25
         default:
             return 0.0

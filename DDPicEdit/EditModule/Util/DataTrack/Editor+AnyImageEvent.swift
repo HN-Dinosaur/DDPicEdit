@@ -46,6 +46,12 @@ extension AnyImageEvent {
     
     public static let editorPhotoWaterMark: AnyImageEvent = "DDPICEDIT_EVENT_EDITOR_PHOTO_WATER_MARK"
     
+    public static let editorPhotoParameterChange: AnyImageEvent = "DDPICEDIT_EVENT_EDITOR_PHOTO_PARAMETER_CHANGE"
+    
+    public static let editorPhotoParameterCancel: AnyImageEvent = "DDPICEDIT_EVENT_EDITOR_PHOTO_PARAMETER_CANCEL"
+    
+    public static let editorPhotoParameterDone: AnyImageEvent = "DDPICEDIT_EVENT_EDITOR_PHOTO_PARAMETER_DONE"
+    
     // MARK: - Video
     
     /// UserInfo: [isOn: (true|false)] true=play, false=pause

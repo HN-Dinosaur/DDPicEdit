@@ -68,8 +68,10 @@ extension EditorTheme {
         case photoToolCrop = "PhotoToolCrop"
         /// 25*25
         case photoToolMosaic = "PhotoToolMosaic"
-        
+        /// 水印
         case photoToolWaterMark = "drop"
+        /// pic参数
+        case photoToolPicParameter = "circlebadge.2"
         
         /// 25*25
         case photoToolUndo = "PhotoToolUndo"

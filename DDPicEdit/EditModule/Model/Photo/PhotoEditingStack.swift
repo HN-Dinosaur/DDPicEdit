@@ -62,6 +62,7 @@ extension PhotoEditingStack {
         var cropData: CropData = .init()
         var textData: [TextData] = []
         var waterMarkData: WaterMarkData = .init()
+        var picParameterData: PicParameterData = .init()
         var outputImageData: Data?
     }
     
@@ -87,6 +88,10 @@ extension PhotoEditingStack {
     
     func setWaterMarkData(_ waterMarkData: WaterMarkData) {
         edit.waterMarkData = waterMarkData
+    }
+    
+    func setPicParameterData(_ picParameterData: PicParameterData) {
+        edit.picParameterData = picParameterData
     }
     
     func removeTextData(_ data: TextData) {

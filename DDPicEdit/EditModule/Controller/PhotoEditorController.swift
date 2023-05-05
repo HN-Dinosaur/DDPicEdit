@@ -412,6 +412,14 @@ extension PhotoEditorController {
         case .waterMark(let data):
             self.contentView.addWaterMarkIn(data: data)
             self.stack.setWaterMarkData(data)
+        case .picParameterChange(let data):
+            self.contentView.picParameterChange(data: data)
+        case .picParameterCancel:
+            trackObserver?.track(event: .editorPhotoParameterCancel, userInfo: [:])
+            backButton.isHidden = false
+        case .picParameterDone:
+            trackObserver?.track(event: .editorPhotoParameterDone, userInfo: [:])
+            backButton.isHidden = false
         }
         return true
     }
@@ -445,6 +453,8 @@ extension PhotoEditorController {
             trackObserver?.track(event: .editorPhotoMosaic, userInfo: [:])
         case .waterMark:
             trackObserver?.track(event: .editorPhotoWaterMark, userInfo: [:])
+        case .picParameter:
+            trackObserver?.track(event: .editorPhotoParameterChange, userInfo: [:])
         }
     }
 }

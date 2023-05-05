@@ -90,5 +90,8 @@ public struct EditorPhotoOptionsInfo {
     // default is Pingfang 70
     public var waterMarkContentFont = UIFont.PingFang(size: 70)
     
+    // default is all
+    public var picParameterChangeOption: [EditorPicParameterOption] = EditorPicParameterOption.allCases
+    
 }
 

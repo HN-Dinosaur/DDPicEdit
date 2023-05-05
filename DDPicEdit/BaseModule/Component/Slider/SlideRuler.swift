@@ -17,7 +17,7 @@ protocol SlideRulerDelegate {
     func didGetOffsetRatio(from slideRuler: SlideRuler, offsetRatio: CGFloat)
 }
 
-class SlideRuler: DDPicBaseView {
+public class SlideRuler: DDPicBaseView {
     
     var sliderOffsetRatio: CGFloat = 0.5
     var delegate: SlideRulerDelegate?
@@ -53,7 +53,7 @@ class SlideRuler: DDPicBaseView {
         centralDot.path = UIBezierPath(ovalIn: centralDot.bounds).cgPath
         // 普通bar
         scaleBarLayer.frame = CGRect(x: frame.width / 2, y: 0.6 * frame.height, width: frame.width, height: 0.4 * frame.height)
-//        scaleBarLayer.instanceTransform = CATransform3DMakeTranslation((frame.width - scaleWidth) / CGFloat((scaleBarNumber - 1)) , 0, 0)
+        scaleBarLayer.instanceTransform = CATransform3DMakeTranslation((frame.width - scaleWidth) / CGFloat((scaleBarNumber - 1)) , 0, 0)
 
         scaleBarLayer.sublayers?.forEach { [weak self] in
             guard let self = self else { return }
@@ -61,7 +61,7 @@ class SlideRuler: DDPicBaseView {
         }
         // 高亮bar
         majorScaleBarLayer.frame = scaleBarLayer.frame
-//        majorScaleBarLayer.instanceTransform = CATransform3DMakeTranslation((frame.width - scaleWidth) / CGFloat((majorScaleBarNumber - 1)) , 0, 0)
+        majorScaleBarLayer.instanceTransform = CATransform3DMakeTranslation((frame.width - scaleWidth) / CGFloat((majorScaleBarNumber - 1)) , 0, 0)
         
         majorScaleBarLayer.sublayers?.forEach {
             $0.frame = CGRect(x: 0, y: 0, width: 1, height: majorScaleBarLayer.frame.height)
@@ -154,11 +154,11 @@ class SlideRuler: DDPicBaseView {
 
 extension SlideRuler: UIScrollViewDelegate {
     
-    func scrollViewDidEndDragging(_ scrollView: UIScrollView, willDecelerate decelerate: Bool) {
+    public func scrollViewDidEndDragging(_ scrollView: UIScrollView, willDecelerate decelerate: Bool) {
         checkCentralDotHiddenStatus()
     }
     
-    func scrollViewDidScroll(_ scrollView: UIScrollView) {
+    public func scrollViewDidScroll(_ scrollView: UIScrollView) {
         centralDot.isHidden = false
         
         let speed = scrollView.panGestureRecognizer.velocity(in: scrollView.superview)

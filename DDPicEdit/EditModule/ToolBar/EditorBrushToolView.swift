@@ -67,7 +67,6 @@ final class EditorBrushToolView: DDPicBaseView {
         stackView.leftAnchor == self.leftAnchor + 12
         stackView.centerYAnchor == self.centerYAnchor
         stackView.heightAnchor == self.buttonWidth
-        stackView.rightAnchor == self.undoButton.leftAnchor - 20
         self.colorButtons.forEach { $0.sizeAnchors == CGSize(width: self.buttonWidth, height: self.buttonWidth) }
     }
     

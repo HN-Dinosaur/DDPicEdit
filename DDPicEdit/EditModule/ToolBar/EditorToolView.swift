@@ -33,6 +33,7 @@ final class EditorToolView: DDPicBaseView {
             self.cropToolView,
             self.mosaicToolView,
             self.waterMarkToolView,
+            self.picParameterToolView,
             self.doneButton,
         ])
 
@@ -64,6 +65,10 @@ final class EditorToolView: DDPicBaseView {
         self.cropToolView.bottomAnchor == self.editOptionsView.bottomAnchor + 15
         let height: CGFloat = 40 + 10 + 60
         self.cropToolView.heightAnchor == height
+        
+        self.picParameterToolView.horizontalAnchors == self.horizontalAnchors
+        self.picParameterToolView.bottomAnchor == self.cropToolView.bottomAnchor
+        self.picParameterToolView.heightAnchor == EditPicParameterToolView.staticHeight
         
         self.doneButton.centerYAnchor == self.editOptionsView.centerYAnchor
         self.doneButton.rightAnchor == self.rightAnchor - 20
@@ -102,6 +107,12 @@ final class EditorToolView: DDPicBaseView {
     // 水印View
     private(set) lazy var waterMarkToolView: EditWaterMarkToolView = {
         let view = EditWaterMarkToolView(options: options)
+        view.delegate = self
+        view.isHidden = true
+        return view
+    }()
+    private(set) lazy var picParameterToolView: EditPicParameterToolView = {
+        let view = EditPicParameterToolView(options: options)
         view.delegate = self
         view.isHidden = true
         return view
@@ -152,6 +163,7 @@ extension EditorToolView: EditorEditOptionsViewDelegate {
         guard let option = option else {
             brushToolView.isHidden = true
             cropToolView.isHidden = true
+            picParameterToolView.isHidden = true
             mosaicToolView.isHidden = true
             waterMarkToolView.isHidden = true
             return true
@@ -159,15 +171,16 @@ extension EditorToolView: EditorEditOptionsViewDelegate {
 
         brushToolView.isHidden = option != .brush
         cropToolView.isHidden = option != .crop
+        picParameterToolView.isHidden = option != .picParameter
         mosaicToolView.isHidden = option != .mosaic
         waterMarkToolView.isHidden = option != .waterMark
 
         switch option {
-        case .crop:
+        case .crop, .picParameter:
             editOptionsView.isHidden = true
             topCoverView.isHidden = true
             doneButton.isHidden = true
-            if let option = options.cropOptions.first, cropToolView.currentOption == nil {
+            if option == .crop, let option = options.cropOptions.first, cropToolView.currentOption == nil {
                 cropToolView.currentOption = option
             }
         default:
@@ -204,6 +217,17 @@ extension EditorToolView: EditorMosaicToolViewDelegate {
 // MARK: - EditorCropToolViewDelegate
 extension EditorToolView: EditorCropToolViewDelegate {
 
+    private func hiddenCropView() {
+        exposureCommonView()
+        cropToolView.isHidden = true
+    }
+    
+    private func exposureCommonView() {
+        editOptionsView.isHidden = false
+        topCoverView.isHidden = false
+        doneButton.isHidden = false
+    }
+    
     func cropToolView(_ toolView: EditorCropToolView, didClickCropOption option: EditorCropOption) -> Bool {
         return context.action(.cropUpdateOption(option))
     }
@@ -211,20 +235,14 @@ extension EditorToolView: EditorCropToolViewDelegate {
     func cropToolViewCancelButtonTapped(_ cropToolView: EditorCropToolView) {
         let result = context.action(.cropCancel)
         guard result else { return }
-        editOptionsView.isHidden = false
-        topCoverView.isHidden = false
-        doneButton.isHidden = false
-        cropToolView.isHidden = true
+        hiddenCropView()
         editOptionsView.unselectButtons()
     }
 
     func cropToolViewDoneButtonTapped(_ cropToolView: EditorCropToolView) {
         let result = context.action(.cropDone)
         guard result else { return }
-        editOptionsView.isHidden = false
-        topCoverView.isHidden = false
-        doneButton.isHidden = false
-        cropToolView.isHidden = true
+        hiddenCropView()
         editOptionsView.unselectButtons()
     }
 
@@ -245,6 +263,30 @@ extension EditorToolView: EditWaterMarkToolViewDelegate {
     }
 }
 
+// MARK: -EditPicParameterToolViewDelegate
+extension EditorToolView: EditPicParameterToolViewDelegate {
+    private func hiddenPicParameterView() {
+        exposureCommonView()
+        picParameterToolView.isHidden = true
+    }
+    
+    func picParameterToolView(_ toolView: EditPicParameterToolView, data: PicParameterData) {
+        context.action(.picParameterChange(data))
+    }
+    
+    func picParameterToolViewCancelButtonTapped(_ toolView: EditPicParameterToolView) {
+        context.action(.picParameterCancel)
+        hiddenPicParameterView()
+        editOptionsView.unselectButtons()
+    }
+    
+    func picParameterToolViewDoneButtonTapped(_ toolView: EditPicParameterToolView) {
+        context.action(.cropDone)
+        hiddenPicParameterView()
+        editOptionsView.unselectButtons()
+    }
+}
+
 // MARK: - Event
 extension EditorToolView {
 
@@ -252,7 +294,7 @@ extension EditorToolView {
         if isHidden || !isUserInteractionEnabled || alpha < 0.01 {
             return nil
         }
-        let subViews = [editOptionsView, brushToolView, cropToolView, mosaicToolView, waterMarkToolView, doneButton]
+        let subViews = [editOptionsView, brushToolView, cropToolView, mosaicToolView, waterMarkToolView, picParameterToolView, doneButton]
         for subView in subViews {
             if let hitView = subView.hitTest(subView.convert(point, from: self), with: event) {
                 return hitView
