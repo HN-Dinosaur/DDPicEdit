@@ -20,7 +20,7 @@ final class EditPicParameterToolView: DDPicBaseView {
     
     weak var delegate: EditPicParameterToolViewDelegate?
     private let options: EditorPhotoOptionsInfo
-    private var toolViewModels: [IndicatorModel] = []
+    private var data = PicParameterData()
     
     init(options: EditorPhotoOptionsInfo) {
         self.options = options
@@ -66,7 +66,7 @@ final class EditPicParameterToolView: DDPicBaseView {
     private func createIndicatorOptions() {
         var models: [IndicatorModel] = []
         self.options.picParameterChangeOption.forEach {
-            models.append(IndicatorModel(limitNumber: 100, normalIconImage: nil, describeStr: $0.rawValue))
+            models.append(IndicatorModel(limitNumber: $0.limit, normalIconImage: $0.icon, describeStr: $0.str))
         }
         self.toolView.indicatorModels = models
     }
@@ -92,8 +92,21 @@ final class EditPicParameterToolView: DDPicBaseView {
 
 extension EditPicParameterToolView: IndicatorAndSliderViewDelegate {
     
-    public func didGetOffsetRatio(_ slider: IndicatorAndSliderView, activeIndicatorIndex: Int, offsetRatio: Float) {
+    public func didGetOffsetRatio(_ slider: IndicatorAndSliderView, activeIndicatorIndex: Int, offsetRatio: CGFloat) {
+        // offsetRatio -1 ~ 1
         
+        // contrast 0 ~ 4, make it from 0.7 to 1.3
+        // (oldValue - oldMin) * (newMax - newMin) / (oldMax - oldMin) + newMin
+        if activeIndicatorIndex == 0 {
+            data.contrast = ((offsetRatio + 1) * 0.4 / 2 + 0.8).roundTo(places: 2)
+        } else if activeIndicatorIndex == 1 {
+            // brightness -1 ~ 1, make it from -0.1 to 0.1
+            data.brightness = (offsetRatio / 10).roundTo(places: 2)
+        } else if activeIndicatorIndex == 2 {
+            // saturation 0 ~ 2
+            data.saturation = ((offsetRatio + 1) * 0.6 / 2 + 0.7).roundTo(places: 2)
+        }
+        delegate?.picParameterToolView(self, data: data)
     }
     
 }

@@ -257,8 +257,7 @@ extension EditorToolView: EditorCropToolViewDelegate {
 
 // MARK: - EditWaterMarkToolViewDelegate
 extension EditorToolView: EditWaterMarkToolViewDelegate {
-    func selectWaterMarkToolLocation(_ waterMarkView: EditWaterMarkToolView, _ location: WaterMarkLocation) {
-        let data = WaterMarkData(waterMarkContent: self.options.waterMarkContent, waterMarkLocation: location, fontSize: self.options.waterMarkContentFont.pointSize)
+    func selectWaterMarkToolLocation(_ waterMarkView: EditWaterMarkToolView, _ data: WaterMarkData) {
         context.action(.waterMark(data))
     }
 }
@@ -281,7 +280,7 @@ extension EditorToolView: EditPicParameterToolViewDelegate {
     }
     
     func picParameterToolViewDoneButtonTapped(_ toolView: EditPicParameterToolView) {
-        context.action(.cropDone)
+        context.action(.picParameterDone)
         hiddenPicParameterView()
         editOptionsView.unselectButtons()
     }

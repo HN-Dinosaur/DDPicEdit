@@ -8,11 +8,13 @@
 import UIKit
 
 extension PhotoEditorContentView {
-    
+
     func picParameterChange(data: PicParameterData) {
-        print("contrast: --\(data.contrast)")
-        print("brightness: --\(data.brightness)")
-        print("saturation: --\(data.saturation)")
+        guard self.lastPicData != data else { return }
+        self.lastPicData = data
+        DispatchQueue.main.async {
+            self.imageView.image = self.image.editImage(contrast: data.contrast, brightness: data.brightness, saturation: data.saturation)
+        }
     }
     
 }

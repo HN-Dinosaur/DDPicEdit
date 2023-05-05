@@ -21,7 +21,7 @@ public class IndicatorView: DDPicBaseView {
     
     var active = false
     
-    var progress: Float = 0.0 {
+    var progress: CGFloat = 0.0 {
         didSet {
             setProgress(progress)
         }
@@ -139,7 +139,7 @@ public class IndicatorView: DDPicBaseView {
         return layer
     }
     
-    private func setProgress(_ progress: Float) {
+    private func setProgress(_ progress: CGFloat) {
         status = .editing
         
         if progress > 0 {
@@ -164,7 +164,7 @@ public class IndicatorView: DDPicBaseView {
     }
     
     func getProgressValue() -> Int {
-        Int(progress * Float(limitNumber))
+        Int(progress * CGFloat(limitNumber))
     }
     
     func change(to status: IndicatorStatus) {

@@ -15,7 +15,7 @@ final class PhotoEditorContentView: DDPicBaseView {
     internal var textImageViews: [TextImageView] = []
     
     /// 原始图片
-    internal let image: UIImage
+    internal var image: UIImage
     internal let context: PhotoEditorContext
     internal var options: EditorPhotoOptionsInfo { return self.context.options }
     /// 裁剪数据
@@ -25,6 +25,7 @@ final class PhotoEditorContentView: DDPicBaseView {
                                                color: .white,
                                                textFont: options.waterMarkContentFont.withSize(options.waterMarkContentFont.pointSize - 50))
     internal var waterMarkLabelConstraint = [NSLayoutConstraint]()
+    internal var lastPicData: PicParameterData = .init()
     
     init(frame: CGRect, image: UIImage, context: PhotoEditorContext) {
         self.image = image

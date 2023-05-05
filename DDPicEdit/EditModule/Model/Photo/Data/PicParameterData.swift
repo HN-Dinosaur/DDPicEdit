@@ -16,14 +16,17 @@ public struct PicParameterData: Equatable, Codable {
 //    var highlight: CGFloat = 0
 //    // 阴影
 //    var shadow: CGFloat = 0
-    // 对比度
-    var contrast: CGFloat = 0
-    // 亮度
+    /// 对比度
+    /// default is 1, score is 0 ~ 4
+    var contrast: CGFloat = 1
+    /// 亮度
+    /// default is 0, score is -1 ~ 1
     var brightness: CGFloat = 0
 //    // 黑点
 //    var darkness: CGFloat = 0
-    // 饱和度
-    var saturation: CGFloat = 0
+    /// 饱和度
+    /// default is 1, score is 0 ~ 2
+    var saturation: CGFloat = 1
 //    // 自然饱和度
 //    var naturalSaturation: CGFloat = 0
 //    // 色温
@@ -38,4 +41,10 @@ public struct PicParameterData: Equatable, Codable {
 //    var noiseElimination: CGFloat = 0
 //    // 晕影
 //    var halation: CGFloat = 0
+    
+    public static func == (lhs: PicParameterData, rhs: PicParameterData) -> Bool {
+        return lhs.contrast == rhs.contrast
+            && lhs.brightness == rhs.brightness
+            && lhs.saturation == rhs.saturation
+    }
 }

@@ -20,9 +20,9 @@ public class IndicatorContainer: DDPicBaseView {
         }
     }
     
-    var didActive: ((Float) -> Void) = { _ in }
+    var didActive: ((CGFloat) -> Void) = { _ in }
     var didTempReset = {}
-    var didRemoveTempReset: ((Float) -> Void) = { _ in }
+    var didRemoveTempReset: ((CGFloat) -> Void) = { _ in }
     
     override init(frame: CGRect) {
         super.init(frame: frame)

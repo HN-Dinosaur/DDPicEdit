@@ -112,7 +112,7 @@ public class SlideRuler: DDPicBaseView {
         majorScaleBarLayer.sublayers?.forEach { $0.backgroundColor = color}
     }
     
-    func handleRemoveTempResetWith(progress: Float) {
+    func handleRemoveTempResetWith(progress: CGFloat) {
         centralDot.fillColor = UIColor.white.cgColor
         
         scaleBarLayer.sublayers?.forEach { $0.backgroundColor = UIColor.gray.cgColor}

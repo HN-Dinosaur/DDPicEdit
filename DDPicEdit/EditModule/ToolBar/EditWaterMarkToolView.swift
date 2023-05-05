@@ -30,7 +30,7 @@ public enum WaterMarkLocation: Int, CaseIterable, Codable, Equatable {
 
 protocol EditWaterMarkToolViewDelegate: AnyObject {
     
-    func selectWaterMarkToolLocation(_ waterMarkView: EditWaterMarkToolView, _ location: WaterMarkLocation)
+    func selectWaterMarkToolLocation(_ waterMarkView: EditWaterMarkToolView, _ data: WaterMarkData)
 }
 
 final class EditWaterMarkToolView: DDPicBaseView {
@@ -86,6 +86,9 @@ final class EditWaterMarkToolView: DDPicBaseView {
         guard self.currentSelectLocation.rawValue != sender.tag else { return }
         self.currentSelectLocation = WaterMarkLocation(rawValue: sender.tag) ?? .none
         layoutSubviews()
-        self.delegate?.selectWaterMarkToolLocation(self, currentSelectLocation)
+        let data = WaterMarkData(waterMarkContent: self.options.waterMarkContent,
+                                 waterMarkLocation: self.currentSelectLocation,
+                                 fontSize: self.options.waterMarkContentFont.pointSize)
+        self.delegate?.selectWaterMarkToolLocation(self, data)
     }
 }

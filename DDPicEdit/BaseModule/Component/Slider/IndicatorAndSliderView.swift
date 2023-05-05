@@ -10,7 +10,7 @@ import Anchorage
 
 public protocol IndicatorAndSliderViewDelegate {
     
-    func didGetOffsetRatio(_ slider: IndicatorAndSliderView, activeIndicatorIndex: Int, offsetRatio: Float)
+    func didGetOffsetRatio(_ slider: IndicatorAndSliderView, activeIndicatorIndex: Int, offsetRatio: CGFloat)
     
 }
 
@@ -62,7 +62,7 @@ public class IndicatorAndSliderView: DDPicBaseView {
         self.slideRuler.heightAnchor == 50
     }
     
-    func setSlideRulerBy(progress: Float) {
+    func setSlideRulerBy(progress: CGFloat) {
         self.slideRuler.handleRemoveTempResetWith(progress: progress)
 //        let activeIndex = self.indicatorContainer.activeIndicatorIndex
 //        self.delegate?.didGetOffsetRatio(self, activeIndicatorIndex: activeIndex, offsetRatio: progress)
@@ -93,9 +93,9 @@ public class IndicatorAndSliderView: DDPicBaseView {
 
 extension IndicatorAndSliderView: SlideRulerDelegate {
     func didGetOffsetRatio(from slideRuler: SlideRuler, offsetRatio: CGFloat) {
-        indicatorContainer.getActiveIndicator()?.progress = Float(offsetRatio)
+        indicatorContainer.getActiveIndicator()?.progress = offsetRatio
         
         let activeIndex = indicatorContainer.activeIndicatorIndex
-        delegate?.didGetOffsetRatio(self, activeIndicatorIndex: activeIndex, offsetRatio: Float(offsetRatio))
+        delegate?.didGetOffsetRatio(self, activeIndicatorIndex: activeIndex, offsetRatio: offsetRatio)
     }
 }

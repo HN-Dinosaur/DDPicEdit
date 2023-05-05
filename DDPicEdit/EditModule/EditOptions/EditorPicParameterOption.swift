@@ -5,9 +5,9 @@
 //  Created by LongDengYu on 2023/5/4.
 //
 
-import Foundation
+import UIKit
 
-public enum EditorPicParameterOption: String, Equatable, CaseIterable {
+public enum EditorPicParameterOption: Int, Equatable, CaseIterable {
 //    // 曝光
 //    case sensitometry = "曝光"
 //    // 鲜明度
@@ -17,13 +17,13 @@ public enum EditorPicParameterOption: String, Equatable, CaseIterable {
 //    // 阴影
 //    case shadow = "阴影"
     // 对比度
-    case contrast = "对比度"
+    case contrast = 0
     // 亮度
-    case brightness = "亮度"
+    case brightness
 //    // 黑点
 //    case darkness = "黑点"
     // 饱和度
-    case saturation = "饱和度"
+    case saturation
 //    // 自然饱和度
 //    case naturalSaturation = "自然饱和度"
 //    // 色温
@@ -38,4 +38,37 @@ public enum EditorPicParameterOption: String, Equatable, CaseIterable {
 //    case noiseElimination = "噪点消除"
 //    // 晕影
 //    case halation = "晕影"
+    
+    var limit: Int {
+        switch self {
+        case .contrast:
+            return 100
+        case .brightness:
+            return 100
+        case .saturation:
+            return 100
+        }
+    }
+    
+    var icon: CGImage? {
+        switch self {
+        case .contrast:
+            return nil
+        case .brightness:
+            return nil
+        case .saturation:
+            return nil
+        }
+    }
+    
+    var str: String {
+        switch self {
+        case .contrast:
+            return "对比度"
+        case .brightness:
+            return "亮度"
+        case .saturation:
+            return "饱和度"
+        }
+    }
 }

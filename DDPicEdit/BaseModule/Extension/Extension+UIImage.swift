@@ -94,12 +94,14 @@ extension UIImage {
     }
     
     // brightness: 0-1  saturation: 0-2 contrast: 0-4
-    func editImage(brightness: CGFloat, saturation: CGFloat, contrast: CGFloat) -> UIImage? {
+    func editImage(contrast: CGFloat,
+                   brightness: CGFloat,
+                   saturation: CGFloat) -> UIImage? {
         guard let filter = CIFilter(name: "CIColorControls") else { return nil }
         return self.generateImageByCIFilter(filter: filter) {
-            filter.setValue(brightness, forKey: "inputSaturation")
-            filter.setValue(brightness, forKey: "inputBrightness")
             filter.setValue(contrast, forKey: "inputContrast")
+            filter.setValue(brightness, forKey: "inputBrightness")
+            filter.setValue(saturation, forKey: "inputSaturation")
         }
     }
     
