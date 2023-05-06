@@ -9,6 +9,7 @@
 /* Begin PBXBuildFile section */
 		69E56A5C91553775668C794E /* Pods_DDPicEdit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9D281A844AE1E5C851466A0B /* Pods_DDPicEdit.framework */; };
 		9D15DD5C2A03ED5C00871923 /* EditorPicParameterOption.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9D15DD5B2A03ED5C00871923 /* EditorPicParameterOption.swift */; };
+		9D15DD5E2A056A4900871923 /* EditorEditOptionsCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9D15DD5D2A056A4900871923 /* EditorEditOptionsCell.swift */; };
 		9D23ADAD29FFE91700ABC52C /* IndicatorAndSliderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9D23ADAC29FFE91700ABC52C /* IndicatorAndSliderView.swift */; };
 		9D23ADB029FFE93600ABC52C /* SlideRuler.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9D23ADAF29FFE93600ABC52C /* SlideRuler.swift */; };
 		9D23ADB229FFE94600ABC52C /* IndicatorView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9D23ADB129FFE94600ABC52C /* IndicatorView.swift */; };
@@ -180,6 +181,7 @@
 
 /* Begin PBXFileReference section */
 		9D15DD5B2A03ED5C00871923 /* EditorPicParameterOption.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditorPicParameterOption.swift; sourceTree = "<group>"; };
+		9D15DD5D2A056A4900871923 /* EditorEditOptionsCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditorEditOptionsCell.swift; sourceTree = "<group>"; };
 		9D23ADAC29FFE91700ABC52C /* IndicatorAndSliderView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IndicatorAndSliderView.swift; sourceTree = "<group>"; };
 		9D23ADAF29FFE93600ABC52C /* SlideRuler.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SlideRuler.swift; sourceTree = "<group>"; };
 		9D23ADB129FFE94600ABC52C /* IndicatorView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IndicatorView.swift; sourceTree = "<group>"; };
@@ -532,6 +534,7 @@
 			isa = PBXGroup;
 			children = (
 				9D6D57E829E6791000132AAC /* EditorCropOptionCell.swift */,
+				9D15DD5D2A056A4900871923 /* EditorEditOptionsCell.swift */,
 				9D6D57DA29E57CD100132AAC /* ColorButton.swift */,
 				9D6D581229E7F85400132AAC /* CropCornerView.swift */,
 				9DD6FF6029EB9D07008EE747 /* CropGridView.swift */,
@@ -1150,6 +1153,7 @@
 				9D4BADE729D521BC00CE3669 /* CaptureFlashMode.swift in Sources */,
 				9DD6FF9329EF90AA008EE747 /* ImageEditorController.swift in Sources */,
 				9DC4F86B29C6CEFC00EAFDB5 /* HomeViewController.swift in Sources */,
+				9D15DD5E2A056A4900871923 /* EditorEditOptionsCell.swift in Sources */,
 				9DD961E429D968C4005FC488 /* DeviceOrientation.swift in Sources */,
 				9DC3A20F29C80C00009EBFB0 /* Extension+UIFont.swift in Sources */,
 				9DD961FF29DC3D27005FC488 /* Capture.swift in Sources */,

@@ -17,11 +17,9 @@ protocol EditorEditOptionsViewDelegate: AnyObject {
 final class EditorEditOptionsView: DDPicBaseView {
     
     weak var delegate: EditorEditOptionsViewDelegate?
-    
     private(set) var currentOption: EditorPhotoToolOption?
-    
+    private(set) var currentSelectIndexpath: IndexPath?
     private let options: EditorPhotoOptionsInfo
-    private var buttons: [UIButton] = []
     
     init(frame: CGRect, options: EditorPhotoOptionsInfo) {
         self.options = options
@@ -30,58 +28,56 @@ final class EditorEditOptionsView: DDPicBaseView {
     }
     
     private func setupView() {
-        for (idx, option) in self.options.toolOptions.enumerated() {
-            self.buttons.append(self.createButton(tag: idx, option: option))
-        }
-        
-        let stackView = UIStackView(arrangedSubviews: buttons, distribution: .fillEqually)
-        self.addSubview(stackView)
-        stackView.verticalAnchors == self.verticalAnchors
-        stackView.leftAnchor == self.leftAnchor + 12
-        
-        self.buttons.forEach {
-            $0.heightAnchor == stackView.heightAnchor
-            $0.widthAnchor == stackView.heightAnchor
-        }
+        self.addSubview(collectionView)
+        self.collectionView.verticalAnchors == self.verticalAnchors
+        self.collectionView.leftAnchor == self.leftAnchor + 12
+        self.collectionView.rightAnchor == self.rightAnchor
     }
     
-    private func createButton(tag: Int, option: EditorPhotoToolOption) -> UIButton {
-        let button = UIButton(type: .custom)
-        let image = options.theme[icon: option.iconKey]?.withRenderingMode(.alwaysTemplate)
-        button.tag = tag
-        button.setImage(image, for: .normal)
-        button.imageView?.tintColor = .white
-        button.addTarget(self, action: #selector(buttonTapped(_:)), for: .touchUpInside)
-        return button
-    }
-    
-    private func selectButton(_ button: UIButton) {
-        self.currentOption = self.options.toolOptions[button.tag]
-        for btn in buttons {
-            let isSelected = btn == button
-            btn.isSelected = isSelected
-            btn.imageView?.tintColor = isSelected ? options.theme[color: .primary] : .white
-        }
-    }
+    private lazy var collectionView: UICollectionView = {
+        let layout = UICollectionViewFlowLayout()
+        layout.itemSize = EditorEditOptionsCell.staticSize
+        layout.scrollDirection = .horizontal
+        layout.minimumLineSpacing = 0
+        layout.minimumInteritemSpacing = 0
+        let view = UICollectionView(frame: .zero, collectionViewLayout: layout)
+        view.backgroundColor = .clear
+        view.delegate = self
+        view.dataSource = self
+        view.showsHorizontalScrollIndicator = false
+        view.registerCellClasses(classes: [EditorEditOptionsCell.self])
+        return view
+    }()
 }
 
-// MARK: - Target
-extension EditorEditOptionsView {
+extension EditorEditOptionsView: UICollectionViewDelegate, UICollectionViewDataSource {
     
-    @objc private func buttonTapped(_ sender: UIButton) {
-        let nextOption: EditorPhotoToolOption?
-        if let current = currentOption, options.toolOptions[sender.tag] == current {
-            nextOption = nil
+    func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
+        return self.options.toolOptions.count
+    }
+    
+    func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
+        let cell: EditorEditOptionsCell = collectionView.dequeueCell(indexPath: indexPath)
+        let option = self.options.toolOptions[indexPath.item]
+        cell.updateData(options.theme[icon: option.iconKey]?.withRenderingMode(.alwaysTemplate))
+        cell.contentImageView.tintColor = self.currentSelectIndexpath == indexPath ? options.theme[color: .primary] : .white
+        return cell
+    }
+    
+    func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+        collectionView.deselectItem(at: indexPath, animated: true)
+        let nextIndexpath: IndexPath?
+        if let currentIndexpath = self.currentSelectIndexpath, currentIndexpath == indexPath {
+            nextIndexpath = nil
         } else {
-            nextOption = options.toolOptions[sender.tag]
+            nextIndexpath = indexPath
         }
-
-        let result = delegate?.editOptionsView(self, optionWillChange: nextOption) ?? false
+        let result = delegate?.editOptionsView(self, optionWillChange: nextIndexpath == nil ? nil : self.options.toolOptions[nextIndexpath!.item]) ?? false
         guard result else { return }
-        if nextOption == nil {
+        if nextIndexpath == nil {
             unselectButtons()
         } else {
-            selectButton(sender)
+            selectButtons(indexPath)
         }
     }
 }
@@ -91,15 +87,18 @@ extension EditorEditOptionsView {
     
     public func selectFirstItemIfNeeded() {
         if currentOption == nil && options.toolOptions.count == 1 && options.toolOptions.first! != .text {
-            buttonTapped(buttons.first!)
+            self.collectionView.selectItem(at: IndexPath(item: 0, section: 0), animated: true, scrollPosition: .left)
         }
     }
     
+    func selectButtons(_ indexPath: IndexPath) {
+        self.currentOption = self.options.toolOptions[indexPath.item]
+        self.currentSelectIndexpath = indexPath
+        self.collectionView.reloadData()
+    }
+    
     func unselectButtons() {
-        self.currentOption = nil
-        for button in buttons {
-            button.isSelected = false
-            button.imageView?.tintColor = .white
-        }
+        self.currentSelectIndexpath = nil
+        self.collectionView.reloadData()
     }
 }
