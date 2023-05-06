@@ -60,7 +60,7 @@ extension PhotoEditingStack {
         var brushData: [BrushData] = []
         var mosaicData: [MosaicData] = []
         var cropData: CropData = .init()
-        var textData: [TextData] = []
+        var stickerData: [StickerData] = []
         var waterMarkData: WaterMarkData = .init()
         var picParameterData: PicParameterData = .init()
         var outputImageData: Data?
@@ -81,8 +81,8 @@ extension PhotoEditingStack {
         delegate?.editingStack(self, needUpdatePreview: edit)
     }
     
-    func addTextData(_ data: TextData) {
-        edit.textData.append(data)
+    func addStickerData(_ data: StickerData) {
+        edit.stickerData.append(data)
         delegate?.editingStack(self, needUpdatePreview: edit)
     }
     
@@ -94,17 +94,17 @@ extension PhotoEditingStack {
         edit.picParameterData = picParameterData
     }
     
-    func removeTextData(_ data: TextData) {
-        if let idx = edit.textData.firstIndex(of: data) {
-            edit.textData.remove(at: idx)
+    func removeStickerData(_ data: StickerData) {
+        if let idx = edit.stickerData.firstIndex(of: data) {
+            edit.stickerData.remove(at: idx)
             delegate?.editingStack(self, needUpdatePreview: edit)
         }
     }
     
-    func moveTextDataToTop(_ data: TextData) {
-        if let idx = edit.textData.firstIndex(of: data) {
-            edit.textData.remove(at: idx)
-            edit.textData.append(data)
+    func moveStickerDataToTop(_ data: StickerData) {
+        if let idx = edit.stickerData.firstIndex(of: data) {
+            edit.stickerData.remove(at: idx)
+            edit.stickerData.append(data)
         }
     }
     
@@ -135,7 +135,7 @@ extension PhotoEditingStack {
 extension PhotoEditingStack.Edit {
     
     var isEdited: Bool {
-        return cropData.didCrop || cropData.rotateState != .portrait || !brushData.isEmpty || !mosaicData.isEmpty || !textData.isEmpty
+        return cropData.didCrop || cropData.rotateState != .portrait || !brushData.isEmpty || !mosaicData.isEmpty || !stickerData.isEmpty
     }
     
     var canvasCanUndo: Bool {
@@ -153,7 +153,7 @@ extension PhotoEditingStack.Edit: Equatable {
         return lhs.brushData == rhs.brushData
             && lhs.mosaicData == rhs.mosaicData
             && lhs.cropData == rhs.cropData
-            && lhs.textData == rhs.textData
+            && lhs.stickerData == rhs.stickerData
             && lhs.outputImageData == rhs.outputImageData
     }
 }
@@ -174,7 +174,7 @@ extension PhotoEditingStack {
             self.drawer.append(BlurredMask(paths: data.drawnPaths, scale: scale, blurImage: mosaicImages[data.idx]))
         }
         drawer.append(CanvasMask(paths: edit.brushData.map { $0.drawnPath }, scale: scale))
-        edit.textData.forEach { data in
+        edit.stickerData.forEach { data in
             self.drawer.append(TextMask(data: data, scale: scale))
         }
     }

@@ -30,18 +30,22 @@ enum PhotoEditorAction {
     case cropDone
     case cropFinish(CropData)
 
-    case textWillBeginEdit(TextData)
-    case textBringToFront(TextData)
-    case textWillBeginMove(TextData)
-    case textDidFinishMove(data: TextData, delete: Bool)
+    case textWillBeginEdit(StickerData)
+    case stickerBringToFront(StickerData)
+    case stickerWillBeginMove
+    case stickerDidFinishMove(data: StickerData, delete: Bool)
     case textCancel
-    case textDone(TextData)
+    case textDone(StickerData)
     
     case waterMark(WaterMarkData)
     
     case picParameterChange(PicParameterData)
     case picParameterCancel
     case picParameterDone
+    
+    case pasterSelect(StickerData)
+    case pasterCancel
+    case pasterDone
 }
 
 extension PhotoEditorAction {
@@ -53,11 +57,14 @@ extension PhotoEditorAction {
                 return 0.5
             }
             return 0.1
+        case .pasterSelect(_):
+            return 0.5
         case .cropUpdateOption, .cropReset:
             return 0.55
         case .cropRotate:
             return 0.3
-        case .cropDone, .cropCancel, .picParameterCancel, .picParameterDone:
+        case .cropDone, .cropCancel, .picParameterCancel, .picParameterDone,
+                .pasterDone, .pasterCancel:
             return 0.25
         default:
             return 0.0

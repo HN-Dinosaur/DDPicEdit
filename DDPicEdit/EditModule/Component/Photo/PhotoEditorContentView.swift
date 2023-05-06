@@ -11,8 +11,8 @@ import Anchorage
 final class PhotoEditorContentView: DDPicBaseView {
     
     private let cornerFrame = CGRect(x: 0, y: 0, width: 40, height: 40)
-    /// 文本视图
-    internal var textImageViews: [TextImageView] = []
+    /// 贴纸视图
+    internal var stickerImageViews: [StickerBaseView] = []
     
     /// 原始图片
     internal var image: UIImage
@@ -84,7 +84,7 @@ final class PhotoEditorContentView: DDPicBaseView {
         self.updateSubviewFrame()
         self.canvas.updateView(with: edit)
         self.mosaic?.updateView(with: edit)
-        self.updateTextView(with: edit)
+        self.updateStickerView(with: edit)
         
         let group = DispatchGroup()
         if !edit.brushData.isEmpty {

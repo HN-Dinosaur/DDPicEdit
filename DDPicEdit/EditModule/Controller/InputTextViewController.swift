@@ -13,7 +13,7 @@ final class InputTextViewController: DDPicBaseViewController {
     private let context: PhotoEditorContext
     private var options: EditorPhotoOptionsInfo { return context.options }
     private let coverImage: UIImage?
-    private let data: TextData
+    private let data: StickerData
     private let lineHeight: CGFloat
     private let vInset: CGFloat = 8
     private let hInset: CGFloat = 12
@@ -48,7 +48,7 @@ final class InputTextViewController: DDPicBaseViewController {
         return UIApplication.shared.statusBarOrientation
     }
     
-    init(context: PhotoEditorContext, data: TextData, coverImage: UIImage?) {
+    init(context: PhotoEditorContext, data: StickerData, coverImage: UIImage?) {
         self.context = context
         self.coverImage = coverImage
         self.data = data

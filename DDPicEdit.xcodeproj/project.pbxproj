@@ -10,6 +10,10 @@
 		69E56A5C91553775668C794E /* Pods_DDPicEdit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9D281A844AE1E5C851466A0B /* Pods_DDPicEdit.framework */; };
 		9D15DD5C2A03ED5C00871923 /* EditorPicParameterOption.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9D15DD5B2A03ED5C00871923 /* EditorPicParameterOption.swift */; };
 		9D15DD5E2A056A4900871923 /* EditorEditOptionsCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9D15DD5D2A056A4900871923 /* EditorEditOptionsCell.swift */; };
+		9D15DD622A0609EF00871923 /* EditorPasterToolView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9D15DD612A0609EF00871923 /* EditorPasterToolView.swift */; };
+		9D15DD692A066BF800871923 /* StickerBaseView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9D15DD682A066BF800871923 /* StickerBaseView.swift */; };
+		9D15DD6B2A0675E700871923 /* EditorStickerCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9D15DD6A2A0675E700871923 /* EditorStickerCell.swift */; };
+		9D15DD6E2A06A57700871923 /* StickerData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9D15DD6D2A06A57700871923 /* StickerData.swift */; };
 		9D23ADAD29FFE91700ABC52C /* IndicatorAndSliderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9D23ADAC29FFE91700ABC52C /* IndicatorAndSliderView.swift */; };
 		9D23ADB029FFE93600ABC52C /* SlideRuler.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9D23ADAF29FFE93600ABC52C /* SlideRuler.swift */; };
 		9D23ADB229FFE94600ABC52C /* IndicatorView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9D23ADB129FFE94600ABC52C /* IndicatorView.swift */; };
@@ -70,7 +74,6 @@
 		9D6D581129E7EDCA00132AAC /* RotateState.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9D6D581029E7EDCA00132AAC /* RotateState.swift */; };
 		9D6D581329E7F85400132AAC /* CropCornerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9D6D581229E7F85400132AAC /* CropCornerView.swift */; };
 		9D6D581529E7FB2500132AAC /* CropData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9D6D581429E7FB2500132AAC /* CropData.swift */; };
-		9D6D581729E7FB7600132AAC /* TextData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9D6D581629E7FB7600132AAC /* TextData.swift */; };
 		9D6D581929E8001A00132AAC /* Cacheable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9D6D581829E8001A00132AAC /* Cacheable.swift */; };
 		9D6D581B29E830A800132AAC /* PhotoEditingStack.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9D6D581A29E830A800132AAC /* PhotoEditingStack.swift */; };
 		9D6D581D29E830C900132AAC /* CodableCacheTool.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9D6D581C29E830C900132AAC /* CodableCacheTool.swift */; };
@@ -132,7 +135,6 @@
 		9DD6FF6129EB9D07008EE747 /* CropGridView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9DD6FF6029EB9D07008EE747 /* CropGridView.swift */; };
 		9DD6FF6329EBA23B008EE747 /* Extension+CABasicAnimation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9DD6FF6229EBA23B008EE747 /* Extension+CABasicAnimation.swift */; };
 		9DD6FF6529EBA815008EE747 /* CropLayerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9DD6FF6429EBA815008EE747 /* CropLayerView.swift */; };
-		9DD6FF6729EBB19E008EE747 /* TextImageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9DD6FF6629EBB19E008EE747 /* TextImageView.swift */; };
 		9DD6FF6929EBB55A008EE747 /* TextTrashView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9DD6FF6829EBB55A008EE747 /* TextTrashView.swift */; };
 		9DD6FF6B29EBBB50008EE747 /* MirrorCropView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9DD6FF6A29EBBB50008EE747 /* MirrorCropView.swift */; };
 		9DD6FF6D29ED017F008EE747 /* DryDrawingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9DD6FF6C29ED017F008EE747 /* DryDrawingView.swift */; };
@@ -147,7 +149,7 @@
 		9DD6FF8329EE4CF3008EE747 /* PhotoEditorContentView+Mosaic.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9DD6FF8229EE4CF3008EE747 /* PhotoEditorContentView+Mosaic.swift */; };
 		9DD6FF8529EE4D8C008EE747 /* Extension+UIImage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9DD6FF8429EE4D8C008EE747 /* Extension+UIImage.swift */; };
 		9DD6FF8729EE4DBA008EE747 /* PhotoEditorContentView+Crop.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9DD6FF8629EE4DBA008EE747 /* PhotoEditorContentView+Crop.swift */; };
-		9DD6FF8929EE4DDB008EE747 /* PhotoEditorContentView+InputText.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9DD6FF8829EE4DDB008EE747 /* PhotoEditorContentView+InputText.swift */; };
+		9DD6FF8929EE4DDB008EE747 /* PhotoEditorContentView+Sticker.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9DD6FF8829EE4DDB008EE747 /* PhotoEditorContentView+Sticker.swift */; };
 		9DD6FF8B29EE4EAF008EE747 /* PhotoEditorCropContext.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9DD6FF8A29EE4EAF008EE747 /* PhotoEditorCropContext.swift */; };
 		9DD6FF8D29EE9B99008EE747 /* InputTextViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9DD6FF8C29EE9B99008EE747 /* InputTextViewController.swift */; };
 		9DD6FF8F29EF81A0008EE747 /* Extension+UITextView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9DD6FF8E29EF81A0008EE747 /* Extension+UITextView.swift */; };
@@ -182,6 +184,10 @@
 /* Begin PBXFileReference section */
 		9D15DD5B2A03ED5C00871923 /* EditorPicParameterOption.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditorPicParameterOption.swift; sourceTree = "<group>"; };
 		9D15DD5D2A056A4900871923 /* EditorEditOptionsCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditorEditOptionsCell.swift; sourceTree = "<group>"; };
+		9D15DD612A0609EF00871923 /* EditorPasterToolView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditorPasterToolView.swift; sourceTree = "<group>"; };
+		9D15DD682A066BF800871923 /* StickerBaseView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StickerBaseView.swift; sourceTree = "<group>"; };
+		9D15DD6A2A0675E700871923 /* EditorStickerCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditorStickerCell.swift; sourceTree = "<group>"; };
+		9D15DD6D2A06A57700871923 /* StickerData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StickerData.swift; sourceTree = "<group>"; };
 		9D23ADAC29FFE91700ABC52C /* IndicatorAndSliderView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IndicatorAndSliderView.swift; sourceTree = "<group>"; };
 		9D23ADAF29FFE93600ABC52C /* SlideRuler.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SlideRuler.swift; sourceTree = "<group>"; };
 		9D23ADB129FFE94600ABC52C /* IndicatorView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IndicatorView.swift; sourceTree = "<group>"; };
@@ -243,7 +249,6 @@
 		9D6D581029E7EDCA00132AAC /* RotateState.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RotateState.swift; sourceTree = "<group>"; };
 		9D6D581229E7F85400132AAC /* CropCornerView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CropCornerView.swift; sourceTree = "<group>"; };
 		9D6D581429E7FB2500132AAC /* CropData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CropData.swift; sourceTree = "<group>"; };
-		9D6D581629E7FB7600132AAC /* TextData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TextData.swift; sourceTree = "<group>"; };
 		9D6D581829E8001A00132AAC /* Cacheable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Cacheable.swift; sourceTree = "<group>"; };
 		9D6D581A29E830A800132AAC /* PhotoEditingStack.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhotoEditingStack.swift; sourceTree = "<group>"; };
 		9D6D581C29E830C900132AAC /* CodableCacheTool.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CodableCacheTool.swift; sourceTree = "<group>"; };
@@ -307,7 +312,6 @@
 		9DD6FF6029EB9D07008EE747 /* CropGridView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CropGridView.swift; sourceTree = "<group>"; };
 		9DD6FF6229EBA23B008EE747 /* Extension+CABasicAnimation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Extension+CABasicAnimation.swift"; sourceTree = "<group>"; };
 		9DD6FF6429EBA815008EE747 /* CropLayerView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CropLayerView.swift; sourceTree = "<group>"; };
-		9DD6FF6629EBB19E008EE747 /* TextImageView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TextImageView.swift; sourceTree = "<group>"; };
 		9DD6FF6829EBB55A008EE747 /* TextTrashView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TextTrashView.swift; sourceTree = "<group>"; };
 		9DD6FF6A29EBBB50008EE747 /* MirrorCropView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MirrorCropView.swift; sourceTree = "<group>"; };
 		9DD6FF6C29ED017F008EE747 /* DryDrawingView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DryDrawingView.swift; sourceTree = "<group>"; };
@@ -322,7 +326,7 @@
 		9DD6FF8229EE4CF3008EE747 /* PhotoEditorContentView+Mosaic.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "PhotoEditorContentView+Mosaic.swift"; sourceTree = "<group>"; };
 		9DD6FF8429EE4D8C008EE747 /* Extension+UIImage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Extension+UIImage.swift"; sourceTree = "<group>"; };
 		9DD6FF8629EE4DBA008EE747 /* PhotoEditorContentView+Crop.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "PhotoEditorContentView+Crop.swift"; sourceTree = "<group>"; };
-		9DD6FF8829EE4DDB008EE747 /* PhotoEditorContentView+InputText.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "PhotoEditorContentView+InputText.swift"; sourceTree = "<group>"; };
+		9DD6FF8829EE4DDB008EE747 /* PhotoEditorContentView+Sticker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "PhotoEditorContentView+Sticker.swift"; sourceTree = "<group>"; };
 		9DD6FF8A29EE4EAF008EE747 /* PhotoEditorCropContext.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhotoEditorCropContext.swift; sourceTree = "<group>"; };
 		9DD6FF8C29EE9B99008EE747 /* InputTextViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InputTextViewController.swift; sourceTree = "<group>"; };
 		9DD6FF8E29EF81A0008EE747 /* Extension+UITextView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Extension+UITextView.swift"; sourceTree = "<group>"; };
@@ -535,11 +539,12 @@
 			children = (
 				9D6D57E829E6791000132AAC /* EditorCropOptionCell.swift */,
 				9D15DD5D2A056A4900871923 /* EditorEditOptionsCell.swift */,
+				9D15DD6A2A0675E700871923 /* EditorStickerCell.swift */,
 				9D6D57DA29E57CD100132AAC /* ColorButton.swift */,
 				9D6D581229E7F85400132AAC /* CropCornerView.swift */,
 				9DD6FF6029EB9D07008EE747 /* CropGridView.swift */,
 				9DD6FF6429EBA815008EE747 /* CropLayerView.swift */,
-				9DD6FF6629EBB19E008EE747 /* TextImageView.swift */,
+				9D15DD682A066BF800871923 /* StickerBaseView.swift */,
 				9DD6FF6829EBB55A008EE747 /* TextTrashView.swift */,
 				9DD6FF6A29EBBB50008EE747 /* MirrorCropView.swift */,
 			);
@@ -555,6 +560,7 @@
 				9D48E33829F3CEAD003B178C /* EditWaterMarkToolView.swift */,
 				9D23ADBB2A0358C800ABC52C /* EditPicParameterToolView.swift */,
 				9D6D57F129E6C55C00132AAC /* EditorToolView.swift */,
+				9D15DD612A0609EF00871923 /* EditorPasterToolView.swift */,
 				9D6D57F329E6C61E00132AAC /* EditorEditOptionsView.swift */,
 				9D6D57F529E6CD5900132AAC /* EditorTextToolView.swift */,
 			);
@@ -601,10 +607,10 @@
 				9D6D580329E7BF4700132AAC /* BrushData.swift */,
 				9DAE77E229FE0D0100C1C811 /* WaterMarkData.swift */,
 				9D23ADB72A02C22100ABC52C /* PicParameterData.swift */,
+				9D15DD6D2A06A57700871923 /* StickerData.swift */,
 				9D6D580E29E7ED8300132AAC /* MosaicData.swift */,
 				9D6D581029E7EDCA00132AAC /* RotateState.swift */,
 				9D6D581429E7FB2500132AAC /* CropData.swift */,
-				9D6D581629E7FB7600132AAC /* TextData.swift */,
 			);
 			path = Data;
 			sourceTree = "<group>";
@@ -886,7 +892,7 @@
 				9DD6FF8029EE4C8D008EE747 /* PhotoEditorContentView+Brush.swift */,
 				9DD6FF8229EE4CF3008EE747 /* PhotoEditorContentView+Mosaic.swift */,
 				9DD6FF8629EE4DBA008EE747 /* PhotoEditorContentView+Crop.swift */,
-				9DD6FF8829EE4DDB008EE747 /* PhotoEditorContentView+InputText.swift */,
+				9DD6FF8829EE4DDB008EE747 /* PhotoEditorContentView+Sticker.swift */,
 			);
 			path = Photo;
 			sourceTree = "<group>";
@@ -1079,7 +1085,6 @@
 				9DD6FF6529EBA815008EE747 /* CropLayerView.swift in Sources */,
 				9D6D57EE29E6849A00132AAC /* Extension+UICollectionView.swift in Sources */,
 				9DD961DF29D82BEE005FC488 /* BundleHelper.swift in Sources */,
-				9DD6FF6729EBB19E008EE747 /* TextImageView.swift in Sources */,
 				9D4BADF329D5BC8300CE3669 /* ImageKitDataTrackDelegate.swift in Sources */,
 				9DC6046729E11017000F90A8 /* EditorTextColor.swift in Sources */,
 				9D6D580929E7E3DE00132AAC /* GraphicsDrawing.swift in Sources */,
@@ -1100,6 +1105,7 @@
 				9DD9620829DC4D5E005FC488 /* VideoIOComponent.swift in Sources */,
 				9DD6FF8B29EE4EAF008EE747 /* PhotoEditorCropContext.swift in Sources */,
 				9DD961F329DBDDDD005FC488 /* CaptureButton.swift in Sources */,
+				9D15DD6E2A06A57700871923 /* StickerData.swift in Sources */,
 				9D4BADF129D5908800CE3669 /* ImageCaptureController.swift in Sources */,
 				9DD6FF5A29EAA09D008EE747 /* Extension+CGPoint.swift in Sources */,
 				9DC3A21C29C9679E009EBFB0 /* Extension+UIEdgeInset.swift in Sources */,
@@ -1167,7 +1173,7 @@
 				9D6D57FE29E7BBF200132AAC /* PhotoEditorContext.swift in Sources */,
 				9D6D57E029E587DA00132AAC /* Extension+UIImageView.swift in Sources */,
 				9DC6046F29E11A27000F90A8 /* EditorMosaicOption.swift in Sources */,
-				9DD6FF8929EE4DDB008EE747 /* PhotoEditorContentView+InputText.swift in Sources */,
+				9DD6FF8929EE4DDB008EE747 /* PhotoEditorContentView+Sticker.swift in Sources */,
 				9DC6046A29E11087000F90A8 /* Shadow.swift in Sources */,
 				9D6D57F829E6DFBA00132AAC /* PhotoEditorAction.swift in Sources */,
 				9D4BADFA29D5CB0100CE3669 /* AnyImageEvent.swift in Sources */,
@@ -1203,6 +1209,7 @@
 				9DD6FF7F29EE4C70008EE747 /* PhotoEditorContentView+Getter.swift in Sources */,
 				9DD961F729DC13E3005FC488 /* CaptureRecordView.swift in Sources */,
 				9D6D57D829E55BA300132AAC /* AxialGradientView.swift in Sources */,
+				9D15DD622A0609EF00871923 /* EditorPasterToolView.swift in Sources */,
 				9D4BADD129D4526000CE3669 /* Constant.swift in Sources */,
 				9DD6FF9129EF8B10008EE747 /* Extension+CALayer.swift in Sources */,
 				9DC6046429E10DE8000F90A8 /* Palette.swift in Sources */,
@@ -1218,9 +1225,10 @@
 				9DD6FF5029EA6DA0008EE747 /* Extension+CGRect.swift in Sources */,
 				9DD961EB29D9AF7E005FC488 /* Extension+Array.swift in Sources */,
 				9DC6046229E02F14000F90A8 /* EditorTheme.swift in Sources */,
+				9D15DD6B2A0675E700871923 /* EditorStickerCell.swift in Sources */,
 				9DD6FF8D29EE9B99008EE747 /* InputTextViewController.swift in Sources */,
-				9D6D581729E7FB7600132AAC /* TextData.swift in Sources */,
 				9D4BADF829D5CAEF00CE3669 /* AnyImagePage.swift in Sources */,
+				9D15DD692A066BF800871923 /* StickerBaseView.swift in Sources */,
 				9DC3A20D29C80421009EBFB0 /* DDPicBaseTableViewController.swift in Sources */,
 				9DC6045E29E00A5A000F90A8 /* EditorPhotoOptionsInfo.swift in Sources */,
 				9D6D580C29E7EB7200132AAC /* CacheModule.swift in Sources */,

@@ -72,6 +72,8 @@ extension EditorTheme {
         case photoToolWaterMark = "drop"
         /// pic参数
         case photoToolPicParameter = "circlebadge.2"
+        /// paster
+        case photoToolPaster = "photo.on.rectangle.angled"
         
         /// 25*25
         case photoToolUndo = "PhotoToolUndo"

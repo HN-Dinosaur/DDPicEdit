@@ -14,6 +14,7 @@ public enum EditorPhotoToolOption: Equatable, CaseIterable {
     case mosaic
     case waterMark
     case picParameter
+    case paster
 }
 
 extension EditorPhotoToolOption {
@@ -32,6 +33,8 @@ extension EditorPhotoToolOption {
             return .photoToolWaterMark
         case .picParameter:
             return .photoToolPicParameter
+        case .paster:
+            return .photoToolPaster
         }
     }
 }
@@ -51,6 +54,8 @@ extension EditorPhotoToolOption: CustomStringConvertible {
             return "WATERMARK"
         case .picParameter:
             return "PICPARAMETER"
+        case .paster:
+            return "PASTER"
         }
     }
     
@@ -68,6 +73,8 @@ extension EditorPhotoToolOption: CustomStringConvertible {
             return .editorWaterMark
         case .picParameter:
             return .editorPicParameter
+        case .paster:
+            return.editorPaster
         }
     }
 }
@@ -79,8 +86,10 @@ extension StringConfigKey {
     public static let editorMosaic = StringConfigKey(rawValue: "MOSAIC")
     public static let editorWaterMark = StringConfigKey(rawValue: "WATERMARK")
     public static let editorPicParameter = StringConfigKey(rawValue: "PICPARAMETER")
+    public static let editorPaster = StringConfigKey(rawValue: "Paster")
     public static let editorInputText = StringConfigKey(rawValue: "INPUT_TEXT")
     public static let editorFree = StringConfigKey(rawValue: "FREE")
+    public static let editorSticker = StringConfigKey(rawValue: "STICKER")
     
     public static let editorDragHereToRemove = StringConfigKey(rawValue: "DRAG_HERE_TO_REMOVE")
     public static let editorReleaseToRemove = StringConfigKey(rawValue: "RELEASE_TO_REMOVE")

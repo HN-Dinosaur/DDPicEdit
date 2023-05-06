@@ -252,7 +252,7 @@ extension PhotoEditorController {
         contentView.canvas.isHidden = false
         contentView.mosaic?.isHidden = false
         contentView.waterMarkLabel.isHidden = false
-        contentView.updateTextFrameWhenCropEnd()
+        contentView.updateStickerFrameWhenCropEnd()
         contentView.imageView.image = contentView.image
     }
 }
@@ -261,12 +261,12 @@ extension PhotoEditorController {
 extension PhotoEditorController {
     
     /// 打开文本编辑器
-    private func openInputController(_ data: TextData? = nil) {
-        let textData: TextData
+    private func openInputController(_ data: StickerData? = nil) {
+        let textData: StickerData
         if let obj = data {
             textData = obj
         } else {
-            textData = TextData()
+            textData = StickerData()
             textData.isTextSelected = options.isTextSelected
         }
         
@@ -392,24 +392,24 @@ extension PhotoEditorController {
         // MARK: -文字编辑
         case .textWillBeginEdit(let data):
             openInputController(data)
-        case .textBringToFront(let data):
-            stack.moveTextDataToTop(data)
-        case .textWillBeginMove(_):
+        case .stickerBringToFront(let data):
+            stack.moveStickerDataToTop(data)
+        case .stickerWillBeginMove:
             setTool(hidden: true)
-        case .textDidFinishMove(let data, let delete):
-            stack.moveTextDataToTop(data)
+        case .stickerDidFinishMove(let data, let delete):
+            stack.moveStickerDataToTop(data)
             setTool(hidden: false)
             if delete {
-                stack.removeTextData(data)
+                stack.removeStickerData(data)
             }
         case .textCancel:
             didEndInputing()
             contentView.restoreHiddenTextView()
         case .textDone(let data):
             didEndInputing()
-            contentView.removeHiddenTextView()
+            contentView.removeHiddenStickerView()
             if !data.text.isEmpty {
-                stack.addTextData(data)
+                stack.addStickerData(data)
             }
         // MARK: -水印
         case .waterMark(let data):
@@ -426,6 +426,16 @@ extension PhotoEditorController {
             self.stack.originImage = self.image
             trackObserver?.track(event: .editorPhotoParameterDone, userInfo: [:])
             backButton.isHidden = false
+        case .pasterCancel:
+            trackObserver?.track(event: .editorPhotoPasterCancel, userInfo: [:])
+            backButton.isHidden = false
+        case .pasterDone:
+            trackObserver?.track(event: .editorPhotoPasterDone, userInfo: [:])
+            backButton.isHidden = false
+        case .pasterSelect(let data):
+            self.trackObserver?.track(event: .editorPhotoPasterSelect, userInfo: [:])
+            self.contentView.removeHiddenStickerView()
+            self.stack.addStickerData(data)
         }
         return true
     }
@@ -460,7 +470,9 @@ extension PhotoEditorController {
         case .waterMark:
             trackObserver?.track(event: .editorPhotoWaterMark, userInfo: [:])
         case .picParameter:
-            trackObserver?.track(event: .editorPhotoParameterChange, userInfo: [:])
+            trackObserver?.track(event: .editorPhotoParameter, userInfo: [:])
+        case .paster:
+            trackObserver?.track(event: .editorPhotoPaster, userInfo: [:])
         }
     }
 }

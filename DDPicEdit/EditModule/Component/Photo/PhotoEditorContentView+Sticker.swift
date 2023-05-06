@@ -1,5 +1,5 @@
 //
-//  PhotoEditorContentView+InputText.swift
+//  PhotoEditorContentView+Sticker.swift
 //  DDPicEdit
 //
 //  Created by LongDengYu on 2023/4/18.
@@ -12,69 +12,69 @@ import Anchorage
 extension PhotoEditorContentView {
     
     @discardableResult
-    func addText(data: TextData, add: Bool = true) -> TextImageView {
+    func addSticker(data: StickerData, add: Bool = true) -> StickerBaseView {
         if data.frame.isEmpty {
-            calculateTextFrame(data: data)
+            calculateStickerFrame(data: data)
             if cropContext.rotateState != .portrait {
                 data.rotation = cropContext.rotateState.toPortraitAngle
             }
         }
         
-        let textView = TextImageView(data: data)
-        textView.transform = textView.calculateTransform()
+        let stickerView = StickerBaseView(data: data)
+        stickerView.transform = stickerView.calculateTransform()
         if add {
-            imageView.insertSubview(textView, belowSubview: cropLayerLeave)
-            textImageViews.append(textView)
-            addTextGestureRecognizer(textView)
+            imageView.insertSubview(stickerView, belowSubview: cropLayerLeave)
+            stickerImageViews.append(stickerView)
+            addTextGestureRecognizer(stickerView)
         }
-        return textView
+        return stickerView
     }
     
     /// 裁剪结束时更新UI
-    func updateTextFrameWhenCropEnd() {
+    func updateStickerFrameWhenCropEnd() {
         let scale = imageView.bounds.width / cropContext.lastImageViewBounds.width
-        resetTextView(with: scale)
+        resetStickerView(with: scale)
     }
     
     /// 更新UI
-    func resetTextView(with scale: CGFloat) {
-        var newTextImageViews: [TextImageView] = []
-        for textView in textImageViews {
-            let originPoint = textView.data.point
-            let originScale = textView.data.scale
-            let originRotation = textView.data.rotation
-            textView.data.point = .zero
-            textView.data.scale = 1.0
-            textView.data.rotation = 0.0
-            textView.transform = textView.calculateTransform()
+    func resetStickerView(with scale: CGFloat) {
+        var newStickerImageViews: [StickerBaseView] = []
+        for stickerView in stickerImageViews {
+            let originPoint = stickerView.data.point
+            let originScale = stickerView.data.scale
+            let originRotation = stickerView.data.rotation
+            stickerView.data.point = .zero
+            stickerView.data.scale = 1.0
+            stickerView.data.rotation = 0.0
+            stickerView.transform = stickerView.calculateTransform()
             
-            var frame = textView.frame
+            var frame = stickerView.frame
             frame.origin.x *= scale
             frame.origin.y *= scale
             frame.size.width *= scale
             frame.size.height *= scale
-            textView.data.frame = frame
+            stickerView.data.frame = frame
             
-            let newTextView = addText(data: textView.data, add: false)
-            newTextView.data.point = CGPoint(x: originPoint.x * scale, y: originPoint.y * scale)
-            newTextView.data.scale = originScale
-            newTextView.data.rotation = originRotation
-            newTextView.transform = textView.calculateTransform()
-            newTextImageViews.append(newTextView)
+            let newStickerView = addSticker(data: stickerView.data, add: false)
+            newStickerView.data.point = CGPoint(x: originPoint.x * scale, y: originPoint.y * scale)
+            newStickerView.data.scale = originScale
+            newStickerView.data.rotation = originRotation
+            newStickerView.transform = stickerView.calculateTransform()
+            newStickerImageViews.append(newStickerView)
         }
         
-        textImageViews.forEach { $0.removeFromSuperview() }
-        textImageViews.removeAll()
-        newTextImageViews.forEach {
+        stickerImageViews.forEach { $0.removeFromSuperview() }
+        stickerImageViews.removeAll()
+        newStickerImageViews.forEach {
             imageView.insertSubview($0, belowSubview: cropLayerLeave)
-            self.textImageViews.append($0)
+            self.stickerImageViews.append($0)
             self.addTextGestureRecognizer($0)
         }
     }
     
     func calculateFinalFrame(with scale: CGFloat) {
-        for textView in textImageViews {
-            let data = textView.data
+        for stickerView in stickerImageViews {
+            let data = stickerView.data
             let originPoint = data.point
             let originScale = data.scale
             let originRotation = data.rotation
@@ -82,81 +82,81 @@ extension PhotoEditorContentView {
             data.point = .zero
             data.scale = 1.0
             data.rotation = 0.0
-            textView.transform = textView.calculateTransform()
-            var frame = textView.frame
+            stickerView.transform = stickerView.calculateTransform()
+            var frame = stickerView.frame
             frame.origin.x *= scale
             frame.origin.y *= scale
             frame.size.width *= scale
             frame.size.height *= scale
             data.frame = frame
             
-            let newTextView = TextImageView(data: data)
+            let newStickerView = StickerBaseView(data: data)
             data.point = originPoint.multipliedBy(scale)
             data.scale = originScale
             data.frame = originFrame
-            newTextView.transform = textView.calculateTransform()
-            data.finalFrame = newTextView.frame
+            newStickerView.transform = stickerView.calculateTransform()
+            data.finalFrame = newStickerView.frame
             data.point = originPoint
             data.rotation = originRotation
         }
     }
     
-    /// 删除隐藏的TextView
-    func removeHiddenTextView() {
-        var newTextImageViews = [TextImageView]()
-        for (_, textView) in textImageViews.enumerated() {
-            if textView.isHidden {
-                textView.removeFromSuperview()
-                context.action(.textDidFinishMove(data: textView.data, delete: true))
+    /// 删除隐藏的Sticker
+    func removeHiddenStickerView() {
+        var newStickerImageViews = [StickerBaseView]()
+        for (_, stickerView) in stickerImageViews.enumerated() {
+            if stickerView.isHidden {
+                stickerView.removeFromSuperview()
+                context.action(.stickerDidFinishMove(data: stickerView.data, delete: true))
             } else {
-                newTextImageViews.append(textView)
+                newStickerImageViews.append(stickerView)
             }
         }
-        self.textImageViews = newTextImageViews
+        self.stickerImageViews = newStickerImageViews
     }
     
-    /// 删除所有TextView
-    func removeAllTextView() {
-        textImageViews.forEach { $0.removeFromSuperview() }
-        textImageViews.removeAll()
+    /// 删除所有StickerView
+    func removeAllStickerView() {
+        stickerImageViews.forEach { $0.removeFromSuperview() }
+        stickerImageViews.removeAll()
     }
     
-    /// 显示所有TextView
+    /// 显示所有Sticker
     func restoreHiddenTextView() {
-        textImageViews.forEach{ $0.isHidden = false }
+        stickerImageViews.forEach { $0.isHidden = false }
     }
     
-    /// 隐藏所有TextView
+    /// 隐藏所有Sticker
     func hiddenAllTextView() {
-        textImageViews.forEach{ $0.isHidden = true }
+        stickerImageViews.forEach { $0.isHidden = true }
     }
     
-    /// 取消激活所有TextView
+    /// 取消激活所有Sticker
     func deactivateAllTextView() {
-        textImageViews.forEach{ $0.setActive(false) }
+        stickerImageViews.forEach { $0.setActive(false) }
     }
     
-    func updateTextView(with edit: PhotoEditingStack.Edit) {
-        let textData = self.textImageViews.map { $0.data }
-        if textData == edit.textData {
+    func updateStickerView(with edit: PhotoEditingStack.Edit) {
+        let stickerData = self.stickerImageViews.map { $0.data }
+        if stickerData == edit.stickerData {
             return
-        } else if textData.count < edit.textData.count {
-            if textData == Array(edit.textData[0..<textImageViews.count]) {
-                for i in textData.count..<edit.textData.count {
-                    addText(data: edit.textData[i])
+        } else if stickerData.count < edit.stickerData.count {
+            if stickerData == Array(edit.stickerData[0..<stickerImageViews.count]) {
+                for i in stickerData.count..<edit.stickerData.count {
+                    addSticker(data: edit.stickerData[i])
                 }
             }
         } else {
-            if edit.textData == Array(textData[0..<edit.textData.count]) {
-                for _ in edit.textData.count..<textData.count {
-                    let textView = textImageViews.removeLast()
-                    textView.removeFromSuperview()
+            if edit.stickerData == Array(stickerData[0..<edit.stickerData.count]) {
+                for _ in edit.stickerData.count..<stickerData.count {
+                    let stickerView = stickerImageViews.removeLast()
+                    stickerView.removeFromSuperview()
                 }
             }
         }
-        if textData != edit.textData { // Just in case
-            removeAllTextView()
-            edit.textData.forEach { addText(data: $0) }
+        if stickerData != edit.stickerData { // Just in case
+            removeAllStickerView()
+            edit.stickerData.forEach { addSticker(data: $0) }
         }
     }
 }
@@ -165,7 +165,7 @@ extension PhotoEditorContentView {
 extension PhotoEditorContentView {
     
     /// 计算视图位置
-    private func calculateTextFrame(data: TextData) {
+    public func calculateStickerFrame(data: StickerData) {
         let image = data.image
         let scale = scrollView.zoomScale
         let inset: CGFloat = 0
@@ -211,23 +211,29 @@ extension PhotoEditorContentView {
     }
     
     /// 添加手势
-    private func addTextGestureRecognizer(_ textView: TextImageView) {
+    public func addTextGestureRecognizer(_ view: UIView) {
         let tap = UITapGestureRecognizer(target: self, action: #selector(onTextSingleTap(_:)))
         let pan = UIPanGestureRecognizer(target: self, action: #selector(onTextPan(_:)))
         let pinch = UIPinchGestureRecognizer(target: self, action: #selector(onTextPinch(_:)))
         let rotation = UIRotationGestureRecognizer(target: self, action: #selector(onTextRotation(_:)))
-        // pan手势优先，pan识别fail之后再判断是否tap
+        
+        tap.delegate = self
+        pan.delegate = self
+        pinch.delegate = self
+        rotation.delegate = self
+        // pan识别fail之后再判断是否tap
         tap.require(toFail: pan)
-        textView.addGestureRecognizer(tap)
-        textView.addGestureRecognizer(pan)
-        textView.addGestureRecognizer(pinch)
-        textView.addGestureRecognizer(rotation)
+        
+        view.addGestureRecognizer(tap)
+        view.addGestureRecognizer(pan)
+        view.addGestureRecognizer(pinch)
+        view.addGestureRecognizer(rotation)
     }
     
     /// 允许开始响应手势
-    private func shouldBeginGesture(in textView: TextImageView) -> Bool {
-        if textView.isActive { return true }
-        for view in textImageViews {
+    private func shouldBeginGesture(in stickerView: StickerBaseView) -> Bool {
+        if stickerView.isActive { return true }
+        for view in stickerImageViews {
             // 如果还有手势状态为.changed
             // 不应该开始响应手势
             if !view.isGestureEnded {
@@ -239,24 +245,24 @@ extension PhotoEditorContentView {
     
     /// 激活视图
     @discardableResult
-    private func activeTextViewIfPossible(_ textView: TextImageView) -> Bool {
-        if !shouldBeginGesture(in: textView) { return false }
-        for view in textImageViews {
-            if view == textView && !textView.isActive {
-                bringTextViewToFront(textView)
+    private func activeStickerViewIfPossible(_ stickerView: StickerBaseView) -> Bool {
+        if !shouldBeginGesture(in: stickerView) { return false }
+        for view in stickerImageViews {
+            if view == stickerView && !stickerView.isActive {
+                bringStickerViewToFront(stickerView)
                 imageView.bringSubviewToFront(cropLayerLeave)
             }
-            view.setActive(view == textView)
+            view.setActive(view == stickerView)
         }
         return true
     }
     
-    private func bringTextViewToFront(_ textView: TextImageView) {
-        imageView.bringSubviewToFront(textView)
-        context.action(.textBringToFront(textView.data))
-        if let idx = textImageViews.firstIndex(of: textView) {
-            textImageViews.remove(at: idx)
-            textImageViews.append(textView)
+    private func bringStickerViewToFront(_ stickerView: StickerBaseView) {
+        imageView.bringSubviewToFront(stickerView)
+        context.action(.stickerBringToFront(stickerView.data))
+        if let idx = stickerImageViews.firstIndex(of: stickerView) {
+            stickerImageViews.remove(at: idx)
+            stickerImageViews.append(stickerView)
         }
     }
 }
@@ -266,57 +272,60 @@ extension PhotoEditorContentView {
     
     /// 单击手势
     @objc private func onTextSingleTap(_ tap: UITapGestureRecognizer) {
-        guard let textView = tap.view as? TextImageView else { return }
-        if !shouldBeginGesture(in: textView) { return }
-        if !textView.isActive {
-            activeTextViewIfPossible(textView)
+        guard let stickerView = tap.view as? StickerBaseView else { return }
+        if !shouldBeginGesture(in: stickerView) { return }
+        if !stickerView.isActive {
+            activeStickerViewIfPossible(stickerView)
         } else {
-            // 隐藏当前TextView，进入编辑页面
-            textView.isHidden = true
-            context.action(.textWillBeginEdit(textView.data))
+            // 隐藏当前stickerView，进入编辑页面
+            stickerView.isHidden = true
+            // 是文字不是贴纸
+            if !stickerView.data.text.isEmpty {
+                context.action(.textWillBeginEdit(stickerView.data))
+            }
         }
     }
     
     /// 拖拽手势
     @objc private func onTextPan(_ pan: UIPanGestureRecognizer) {
-        guard let textView = pan.view as? TextImageView else { return }
-        guard activeTextViewIfPossible(textView) else { return }
+        guard let stickerView = pan.view as? StickerBaseView else { return }
+        guard activeStickerViewIfPossible(stickerView) else { return }
         
         if pan.state == .began {
-            textView.data.pointBeforePan = textView.data.point
+            stickerView.data.pointBeforePan = stickerView.data.point
         }
         
         let scale = scrollView.zoomScale
-        let point = textView.data.point
+        let point = stickerView.data.point
         let newPoint = pan.translation(in: self)
         switch cropContext.rotateState {
         case .portrait:
-            textView.data.point = CGPoint(x: point.x + newPoint.x / scale, y: point.y + newPoint.y / scale)
+            stickerView.data.point = CGPoint(x: point.x + newPoint.x / scale, y: point.y + newPoint.y / scale)
         case .upsideDown:
-            textView.data.point = CGPoint(x: point.x - newPoint.x / scale, y: point.y - newPoint.y / scale)
+            stickerView.data.point = CGPoint(x: point.x - newPoint.x / scale, y: point.y - newPoint.y / scale)
         case .landscapeLeft:
-            textView.data.point = CGPoint(x: point.x - newPoint.y / scale, y: point.y + newPoint.x / scale)
+            stickerView.data.point = CGPoint(x: point.x - newPoint.y / scale, y: point.y + newPoint.x / scale)
         case .landscapeRight:
-            textView.data.point = CGPoint(x: point.x + newPoint.y / scale, y: point.y - newPoint.x / scale)
+            stickerView.data.point = CGPoint(x: point.x + newPoint.y / scale, y: point.y - newPoint.x / scale)
         }
-        textView.transform = textView.calculateTransform()
+        stickerView.transform = stickerView.calculateTransform()
         pan.setTranslation(.zero, in: self)
         
         switch pan.state {
         case .began:
             showTrashView()
-            bringTextViewToFront(textView)
-            context.action(.textWillBeginMove(textView.data))
+            bringStickerViewToFront(stickerView)
+            context.action(.stickerWillBeginMove)
         case .changed:
-            check(targetView: textView, inTrashView: pan.location(in: self))
+            check(targetView: stickerView, inTrashView: pan.location(in: self))
         default:
             var delete = false
             if textTrashView.state == .remove && textTrashView.frame.contains(pan.location(in: self)) {
                 delete = true
             } else if !cropLayerLeave.displayRect.contains(pan.location(in: cropLayerLeave)) { // 判断超出图片区域
                 UIView.animate(withDuration: 0.25) {
-                    textView.data.point = textView.data.pointBeforePan
-                    textView.transform = textView.calculateTransform()
+                    stickerView.data.point = stickerView.data.pointBeforePan
+                    stickerView.transform = stickerView.calculateTransform()
                 } completion: { (_) in
                     self.imageView.bringSubviewToFront(self.cropLayerLeave)
                 }
@@ -324,30 +333,30 @@ extension PhotoEditorContentView {
                 imageView.bringSubviewToFront(cropLayerLeave)
             }
             hideTrashView()
-            context.action(.textDidFinishMove(data: textView.data, delete: delete))
+            context.action(.stickerDidFinishMove(data: stickerView.data, delete: delete))
         }
     }
     
     /// 捏合手势
     @objc private func onTextPinch(_ pinch: UIPinchGestureRecognizer) {
-        guard let textView = pinch.view as? TextImageView else { return }
-        guard activeTextViewIfPossible(textView) else { return }
+        guard let stickerView = pinch.view as? StickerBaseView else { return }
+        guard activeStickerViewIfPossible(stickerView) else { return }
         
-        let scale = textView.data.scale + (pinch.scale - 1.0)
-        if scale < textView.data.scale || textView.frame.width < imageView.bounds.width*2.0 {
-            textView.data.scale = scale
-            textView.transform = textView.calculateTransform()
+        let scale = stickerView.data.scale + (pinch.scale - 1.0)
+        if scale < stickerView.data.scale || stickerView.frame.width < imageView.bounds.width * 2.0 {
+            stickerView.data.scale = scale
+            stickerView.transform = stickerView.calculateTransform()
         }
         pinch.scale = 1.0
     }
     
     /// 旋转手势
     @objc private func onTextRotation(_ rotation: UIRotationGestureRecognizer) {
-        guard let textView = rotation.view as? TextImageView else { return }
-        guard activeTextViewIfPossible(textView) else { return }
+        guard let stickerView = rotation.view as? StickerBaseView else { return }
+        guard activeStickerViewIfPossible(stickerView) else { return }
         
-        textView.data.rotation += rotation.rotation
-        textView.transform = textView.calculateTransform()
+        stickerView.data.rotation += rotation.rotation
+        stickerView.transform = stickerView.calculateTransform()
         rotation.rotation = 0.0
     }
 }
@@ -357,8 +366,8 @@ extension PhotoEditorContentView: UIGestureRecognizerDelegate {
     
     /// 允许多个手势同时响应
     func gestureRecognizer(_ gestureRecognizer: UIGestureRecognizer, shouldRecognizeSimultaneouslyWith otherGestureRecognizer: UIGestureRecognizer) -> Bool {
-        guard let view = gestureRecognizer.view as? TextImageView,
-            let otherView = otherGestureRecognizer.view as? TextImageView
+        guard let view = gestureRecognizer.view as? StickerBaseView,
+            let otherView = otherGestureRecognizer.view as? StickerBaseView
             else { return false }
         guard view == otherView, view.isActive else { return false }
         return true

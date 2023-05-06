@@ -9,10 +9,10 @@ import UIKit
 
 struct TextMask {
     
-    let data: TextData
+    let data: StickerData
     let scale: CGFloat
     
-    init(data: TextData, scale: CGFloat) {
+    init(data: StickerData, scale: CGFloat) {
         self.data = data
         self.scale = scale
     }

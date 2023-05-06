@@ -34,6 +34,7 @@ final class EditorToolView: DDPicBaseView {
             self.mosaicToolView,
             self.waterMarkToolView,
             self.picParameterToolView,
+            self.pasterToolView,
             self.doneButton,
         ])
 
@@ -69,6 +70,10 @@ final class EditorToolView: DDPicBaseView {
         self.picParameterToolView.horizontalAnchors == self.horizontalAnchors
         self.picParameterToolView.bottomAnchor == self.cropToolView.bottomAnchor
         self.picParameterToolView.heightAnchor == EditPicParameterToolView.staticHeight
+        
+        self.pasterToolView.horizontalAnchors == self.horizontalAnchors
+        self.pasterToolView.bottomAnchor == self.cropToolView.bottomAnchor
+        self.pasterToolView.heightAnchor == EditorPasterToolView.staticHeight
         
         self.doneButton.centerYAnchor == self.editOptionsView.centerYAnchor
         self.doneButton.rightAnchor == self.rightAnchor - 20
@@ -111,8 +116,16 @@ final class EditorToolView: DDPicBaseView {
         view.isHidden = true
         return view
     }()
+    // 图片参数View
     private(set) lazy var picParameterToolView: EditPicParameterToolView = {
         let view = EditPicParameterToolView(options: options)
+        view.delegate = self
+        view.isHidden = true
+        return view
+    }()
+    // 贴纸View
+    private(set) lazy var pasterToolView: EditorPasterToolView = {
+        let view = EditorPasterToolView(options: options)
         view.delegate = self
         view.isHidden = true
         return view
@@ -163,6 +176,7 @@ extension EditorToolView: EditorEditOptionsViewDelegate {
         guard let option = option else {
             brushToolView.isHidden = true
             cropToolView.isHidden = true
+            pasterToolView.isHidden = true
             picParameterToolView.isHidden = true
             mosaicToolView.isHidden = true
             waterMarkToolView.isHidden = true
@@ -171,12 +185,13 @@ extension EditorToolView: EditorEditOptionsViewDelegate {
 
         brushToolView.isHidden = option != .brush
         cropToolView.isHidden = option != .crop
+        pasterToolView.isHidden = option != .paster
         picParameterToolView.isHidden = option != .picParameter
         mosaicToolView.isHidden = option != .mosaic
         waterMarkToolView.isHidden = option != .waterMark
 
         switch option {
-        case .crop, .picParameter:
+        case .crop, .picParameter, .paster:
             editOptionsView.isHidden = true
             topCoverView.isHidden = true
             doneButton.isHidden = true
@@ -226,6 +241,7 @@ extension EditorToolView: EditorCropToolViewDelegate {
         editOptionsView.isHidden = false
         topCoverView.isHidden = false
         doneButton.isHidden = false
+        editOptionsView.unselectButtons()
     }
     
     func cropToolView(_ toolView: EditorCropToolView, didClickCropOption option: EditorCropOption) -> Bool {
@@ -276,13 +292,35 @@ extension EditorToolView: EditPicParameterToolViewDelegate {
     func picParameterToolViewCancelButtonTapped(_ toolView: EditPicParameterToolView) {
         context.action(.picParameterCancel)
         hiddenPicParameterView()
-        editOptionsView.unselectButtons()
     }
     
     func picParameterToolViewDoneButtonTapped(_ toolView: EditPicParameterToolView) {
         context.action(.picParameterDone)
         hiddenPicParameterView()
-        editOptionsView.unselectButtons()
+    }
+}
+
+// MARK: -EditPasterToolViewDelegate
+extension EditorToolView: EditPasterToolViewDelegate {
+    
+    private func hiddenPasterToolView() {
+        exposureCommonView()
+        pasterToolView.isHidden = true
+    }
+    
+    func pasterToolViewDidSelectPaster(_ pasterToolView: EditorPasterToolView, data: StickerData) {
+        context.action(.pasterSelect(data))
+        hiddenPasterToolView()
+    }
+    
+    func pasterToolViewCancelButtonTapped(_ pasterToolView: EditorPasterToolView) {
+        context.action(.pasterCancel)
+        hiddenPasterToolView()
+    }
+    
+    func pasterToolViewDoneButtonTapped(_ pasterToolView: EditorPasterToolView) {
+        context.action(.pasterDone)
+        hiddenPasterToolView()
     }
 }
 
@@ -293,7 +331,7 @@ extension EditorToolView {
         if isHidden || !isUserInteractionEnabled || alpha < 0.01 {
             return nil
         }
-        let subViews = [editOptionsView, brushToolView, cropToolView, mosaicToolView, waterMarkToolView, picParameterToolView, doneButton]
+        let subViews = [editOptionsView, brushToolView, cropToolView, mosaicToolView, waterMarkToolView, picParameterToolView, pasterToolView, doneButton]
         for subView in subViews {
             if let hitView = subView.hitTest(subView.convert(point, from: self), with: event) {
                 return hitView

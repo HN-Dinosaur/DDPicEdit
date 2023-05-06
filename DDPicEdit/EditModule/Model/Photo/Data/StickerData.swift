@@ -1,13 +1,13 @@
 //
-//  TextData.swift
+//  StickerData.swift
 //  DDPicEdit
 //
-//  Created by LongDengYu on 2023/4/13.
+//  Created by LongDengYu on 2023/5/6.
 //
 
 import UIKit
 
-final class TextData: Codable {
+public class StickerData: Equatable, Codable {
     
     var frame: CGRect = .zero
     var finalFrame: CGRect = .zero
@@ -22,18 +22,12 @@ final class TextData: Codable {
     var rotation: CGFloat = 0.0
     
     var pointBeforePan: CGPoint = .zero
-}
-
-extension TextData {
     
     var image: UIImage {
         return UIImage(data: imageData, scale: UIScreen.main.scale) ?? UIImage()
     }
-}
-
-extension TextData: Equatable {
     
-    static func == (lhs: TextData, rhs: TextData) -> Bool {
+    public static func == (lhs: StickerData, rhs: StickerData) -> Bool {
         return lhs.frame == rhs.frame
             && lhs.text == rhs.text
             && lhs.colorIdx == rhs.colorIdx
@@ -41,4 +35,5 @@ extension TextData: Equatable {
             && lhs.scale == rhs.scale
             && lhs.rotation == rhs.rotation
     }
+    
 }
