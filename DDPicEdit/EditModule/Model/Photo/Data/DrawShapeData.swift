@@ -55,6 +55,9 @@ class DrawShapeData: NSObject, Codable {
         case .rectangle:
             path = UIBezierPath(roundedRect: CGRect(origin: inSelf ? .zero : frame.origin, size: frame.size), cornerRadius: 1)
         case .circle:
+            let length = min(frame.size.width, frame.size.height)
+            path = UIBezierPath(roundedRect: CGRect(origin: inSelf ? .zero : frame.origin, size: CGSize(width: length, height: length)), cornerRadius: frame.size.width / 2)
+        case .oval:
             path = UIBezierPath(ovalIn: CGRect(origin: inSelf ? .zero : frame.origin, size: frame.size))
         case .arrow:
             path = UIBezierPath()

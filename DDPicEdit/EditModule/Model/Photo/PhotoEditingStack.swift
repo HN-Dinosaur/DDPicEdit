@@ -205,6 +205,9 @@ extension PhotoEditingStack {
         edit.stickerData.forEach { data in
             self.drawer.append(TextMask(data: data, scale: scale))
         }
+        edit.drawShapeData.forEach { data in
+            self.drawer.append(ShapeMask(model: data, imageScale: scale))
+        }
     }
     
     private func cropImage(_ image: UIImage) -> UIImage {

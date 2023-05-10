@@ -11,6 +11,7 @@ public enum EditorDrawShapeOption: Int, Equatable, Hashable, CaseIterable, Codab
     
     case rectangle = 0
     case circle
+    case oval
     case arrow
     
     var iconKey: EditorTheme.IconConfigKey {
@@ -19,6 +20,8 @@ public enum EditorDrawShapeOption: Int, Equatable, Hashable, CaseIterable, Codab
             return .photoToolDrawShapeRectangle
         case .circle:
             return .photoToolDrawShapeCircle
+        case .oval:
+            return .photoToolDrawShapeOval
         case .arrow:
             return .photoToolDrawShapeArrow
         }

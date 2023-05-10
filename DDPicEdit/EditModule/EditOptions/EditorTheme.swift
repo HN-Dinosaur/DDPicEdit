@@ -89,8 +89,8 @@ extension EditorTheme {
         case photoToolDrawShapeRectangle = "rectangle"
         
         case photoToolDrawShapeCircle = "circle"
-//
-//        case photoToolDrawShapeOval = "oval"
+
+        case photoToolDrawShapeOval = "oval"
         
         case photoToolDrawShapeArrow = "line.diagonal.arrow"
         
