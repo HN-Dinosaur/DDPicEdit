@@ -15,6 +15,7 @@ public enum EditorPhotoToolOption: Equatable, CaseIterable {
     case waterMark
     case picParameter
     case paster
+    case drawShape
 }
 
 extension EditorPhotoToolOption {
@@ -35,6 +36,8 @@ extension EditorPhotoToolOption {
             return .photoToolPicParameter
         case .paster:
             return .photoToolPaster
+        case .drawShape:
+            return .photoToolDrawShape
         }
     }
 }
@@ -56,6 +59,8 @@ extension EditorPhotoToolOption: CustomStringConvertible {
             return "PICPARAMETER"
         case .paster:
             return "PASTER"
+        case .drawShape:
+            return "DRAWSHAPE"
         }
     }
     
@@ -75,6 +80,8 @@ extension EditorPhotoToolOption: CustomStringConvertible {
             return .editorPicParameter
         case .paster:
             return.editorPaster
+        case .drawShape:
+            return .editorDrawShape
         }
     }
 }
@@ -90,6 +97,7 @@ extension StringConfigKey {
     public static let editorInputText = StringConfigKey(rawValue: "INPUT_TEXT")
     public static let editorFree = StringConfigKey(rawValue: "FREE")
     public static let editorSticker = StringConfigKey(rawValue: "STICKER")
+    public static let editorDrawShape = StringConfigKey(rawValue: "DRAWSHAPE")
     
     public static let editorDragHereToRemove = StringConfigKey(rawValue: "DRAG_HERE_TO_REMOVE")
     public static let editorReleaseToRemove = StringConfigKey(rawValue: "RELEASE_TO_REMOVE")

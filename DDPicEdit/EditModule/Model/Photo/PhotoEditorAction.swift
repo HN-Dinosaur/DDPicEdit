@@ -46,6 +46,13 @@ enum PhotoEditorAction {
     case pasterSelect(StickerData)
     case pasterCancel
     case pasterDone
+    
+    case shapeBeginDraw
+    case shapeUndo
+    case shapeChange(Int)
+    case shapeFinishDraw
+    case shapeDidRemove(DrawShapeData)
+    case shapeAddData(DrawShapeData)
 }
 
 extension PhotoEditorAction {

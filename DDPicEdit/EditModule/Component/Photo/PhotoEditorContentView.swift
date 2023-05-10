@@ -13,6 +13,7 @@ final class PhotoEditorContentView: DDPicBaseView {
     private let cornerFrame = CGRect(x: 0, y: 0, width: 40, height: 40)
     /// 贴纸视图
     internal var stickerImageViews: [StickerBaseView] = []
+    internal var drawShapeViews: [DrawShapeView] = []
     
     /// 原始图片
     internal var image: UIImage
@@ -53,6 +54,7 @@ final class PhotoEditorContentView: DDPicBaseView {
         self.imageView.recursiveAddSubView(views: [
             self.mirrorCropView,
             self.canvas,
+            self.shapeCanvas,
             self.waterMarkLabel
         ])
         self.setupCropView()
@@ -76,6 +78,7 @@ final class PhotoEditorContentView: DDPicBaseView {
     internal func updateSubviewFrame() {
         self.mirrorCropView.edgeAnchors == self.imageView.edgeAnchors
         self.canvas.frame = CGRect(origin: .zero, size: self.imageView.bounds.size)
+        self.shapeCanvas.frame = CGRect(origin: .zero, size: self.imageView.bounds.size)
         self.mosaic?.frame = CGRect(origin: .zero, size: self.imageView.bounds.size)
         self.mosaic?.layoutSubviews()
     }
@@ -83,6 +86,7 @@ final class PhotoEditorContentView: DDPicBaseView {
     internal func updateView(with edit: PhotoEditingStack.Edit, completion: (() -> Void)? = nil) {
         self.updateSubviewFrame()
         self.canvas.updateView(with: edit)
+        self.updateDrawShapeView(with: edit)
         self.mosaic?.updateView(with: edit)
         self.updateStickerView(with: edit)
         
@@ -146,6 +150,14 @@ final class PhotoEditorContentView: DDPicBaseView {
         view.dataSource = self
         view.isUserInteractionEnabled = false
         view.setBrush(lineWidth: options.brushWidth)
+        return view
+    }()
+    
+    /// 绘制形状的画板
+    private(set) lazy var shapeCanvas: DrawShapeCanvas = {
+        let view = DrawShapeCanvas(frame: .zero)
+        view.delegate = self
+        view.isUserInteractionEnabled = false
         return view
     }()
     

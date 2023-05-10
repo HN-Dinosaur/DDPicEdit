@@ -50,6 +50,8 @@ extension AnyImageEvent {
     
     public static let editorPhotoPaster: AnyImageEvent = "DDPICEDIT_EVENT_EDITOR_PHOTO_PASTER"
     
+    public static let editorPhotoDrawShape: AnyImageEvent = "DDPICEDIT_EVENT_EDITOR_PHOTO_DRAW_SHAPE"
+    
     public static let editorPhotoParameterChange: AnyImageEvent = "DDPICEDIT_EVENT_EDITOR_PHOTO_PARAMETER_CHANGE"
     
     public static let editorPhotoParameterCancel: AnyImageEvent = "DDPICEDIT_EVENT_EDITOR_PHOTO_PARAMETER_CANCEL"
@@ -61,6 +63,8 @@ extension AnyImageEvent {
     public static let editorPhotoPasterCancel: AnyImageEvent = "DDPICEDIT_EVENT_EDITOR_PHOTO_PASTER_CANCEL"
     
     public static let editorPhotoPasterSelect: AnyImageEvent = "DDPICEDIT_EVENT_EDITOR_PHOTO_PASTER_SELECT"
+    
+    public static let editorPhotoDrawShapeUndo: AnyImageEvent = "DDPICEDIT_EVENT_EDITOR_PHOTO_DRAW_SHAPE_UNDO"
     
     // MARK: - Video
     

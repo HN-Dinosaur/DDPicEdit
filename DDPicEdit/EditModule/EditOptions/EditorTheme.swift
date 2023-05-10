@@ -74,6 +74,8 @@ extension EditorTheme {
         case photoToolPicParameter = "circlebadge.2"
         /// paster
         case photoToolPaster = "photo.on.rectangle.angled"
+        /// painter shape
+        case photoToolDrawShape = "pencil.and.outline"
         
         /// 25*25
         case photoToolUndo = "PhotoToolUndo"
@@ -83,6 +85,14 @@ extension EditorTheme {
         case photoToolCropTrunRight = "PhotoToolCropTrunRight"
         /// 25*25
         case photoToolMosaicDefault = "PhotoToolMosaicDefault"
+        
+        case photoToolDrawShapeRectangle = "rectangle"
+        
+        case photoToolDrawShapeCircle = "circle"
+//
+//        case photoToolDrawShapeOval = "oval"
+        
+        case photoToolDrawShapeArrow = "line.diagonal.arrow"
         
         /// 25*25
         case textNormalIcon = "TextNormalIcon"

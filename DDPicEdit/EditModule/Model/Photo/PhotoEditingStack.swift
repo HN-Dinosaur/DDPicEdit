@@ -63,6 +63,7 @@ extension PhotoEditingStack {
         var stickerData: [StickerData] = []
         var waterMarkData: WaterMarkData = .init()
         var picParameterData: PicParameterData = .init()
+        var drawShapeData: [DrawShapeData] = []
         var outputImageData: Data?
     }
     
@@ -78,6 +79,11 @@ extension PhotoEditingStack {
     
     func setCropData(_ data: CropData) {
         edit.cropData = data
+        delegate?.editingStack(self, needUpdatePreview: edit)
+    }
+    
+    func addDrawShapeData(_ data: DrawShapeData) {
+        edit.drawShapeData.append(data)
         delegate?.editingStack(self, needUpdatePreview: edit)
     }
     
@@ -119,6 +125,21 @@ extension PhotoEditingStack {
         delegate?.editingStack(self, needUpdatePreview: edit)
     }
     
+    func drawShapeRemoveData(data: DrawShapeData) {
+        guard let idx = edit.drawShapeData.firstIndex(of: data) else {
+            assertionFailure()
+            return
+        }
+        edit.drawShapeData.remove(at: idx)
+        delegate?.editingStack(self, needUpdatePreview: edit)
+    }
+    
+    func drawShapeUndo() {
+        guard !edit.drawShapeData.isEmpty else { return }
+        edit.drawShapeData.removeLast()
+        delegate?.editingStack(self, needUpdatePreview: edit)
+    }
+    
     func mosaicUndo() {
         guard let data = edit.mosaicData.last else { return }
         if data.drawnPaths.count == 1 {
@@ -135,11 +156,15 @@ extension PhotoEditingStack {
 extension PhotoEditingStack.Edit {
     
     var isEdited: Bool {
-        return cropData.didCrop || cropData.rotateState != .portrait || !brushData.isEmpty || !mosaicData.isEmpty || !stickerData.isEmpty
+        return cropData.didCrop || cropData.rotateState != .portrait || !brushData.isEmpty || !mosaicData.isEmpty || !stickerData.isEmpty || !drawShapeData.isEmpty
     }
     
     var canvasCanUndo: Bool {
         return !brushData.isEmpty
+    }
+    
+    var drawShapeCanUndo: Bool {
+        return !drawShapeData.isEmpty
     }
     
     var mosaicCanUndo: Bool {
@@ -155,6 +180,9 @@ extension PhotoEditingStack.Edit: Equatable {
             && lhs.cropData == rhs.cropData
             && lhs.stickerData == rhs.stickerData
             && lhs.outputImageData == rhs.outputImageData
+            && lhs.waterMarkData == rhs.waterMarkData
+            && lhs.picParameterData == rhs.picParameterData
+            && lhs.drawShapeData == rhs.drawShapeData
     }
 }
 

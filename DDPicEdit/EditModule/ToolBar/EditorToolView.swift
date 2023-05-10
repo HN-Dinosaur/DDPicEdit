@@ -32,6 +32,7 @@ final class EditorToolView: DDPicBaseView {
             self.brushToolView,
             self.cropToolView,
             self.mosaicToolView,
+            self.drawShapeToolView,
             self.waterMarkToolView,
             self.picParameterToolView,
             self.pasterToolView,
@@ -61,6 +62,8 @@ final class EditorToolView: DDPicBaseView {
         
         self.mosaicToolView.edgeAnchors == self.brushToolView.edgeAnchors
         self.waterMarkToolView.edgeAnchors == self.mosaicToolView.edgeAnchors
+        
+        self.drawShapeToolView.edgeAnchors == self.mosaicToolView.edgeAnchors
         
         self.cropToolView.horizontalAnchors == self.horizontalAnchors
         self.cropToolView.bottomAnchor == self.editOptionsView.bottomAnchor + 15
@@ -130,6 +133,14 @@ final class EditorToolView: DDPicBaseView {
         view.isHidden = true
         return view
     }()
+    // 绘制矩形View
+    private(set) lazy var drawShapeToolView: EditorDrawShapeToolView = {
+        let view = EditorDrawShapeToolView(frame: .zero, options: options)
+        view.delegate = self
+        view.isHidden = true
+        return view
+    }()
+    
     private(set) lazy var doneButton: UIButton = {
         let view = UIButton(type: .custom)
         view.layer.cornerRadius = 2
@@ -179,6 +190,7 @@ extension EditorToolView: EditorEditOptionsViewDelegate {
             pasterToolView.isHidden = true
             picParameterToolView.isHidden = true
             mosaicToolView.isHidden = true
+            drawShapeToolView.isHidden = true
             waterMarkToolView.isHidden = true
             return true
         }
@@ -188,6 +200,7 @@ extension EditorToolView: EditorEditOptionsViewDelegate {
         pasterToolView.isHidden = option != .paster
         picParameterToolView.isHidden = option != .picParameter
         mosaicToolView.isHidden = option != .mosaic
+        drawShapeToolView.isHidden = option != .drawShape
         waterMarkToolView.isHidden = option != .waterMark
 
         switch option {
@@ -226,6 +239,18 @@ extension EditorToolView: EditorMosaicToolViewDelegate {
 
     func mosaicToolViewUndoButtonTapped(_ mosaicToolView: EditorMosaicToolView) {
         context.action(.mosaicUndo)
+    }
+}
+
+// MARK: - EditorMosaicToolViewDelegate
+extension EditorToolView: EditorDrawShapeToolViewDelegate {
+
+    func drawShapeToolView(_ drawShapeToolView: EditorDrawShapeToolView, shapeDidChange idx: Int) {
+        context.action(.shapeChange(idx))
+    }
+
+    func drawShapeToolViewUndoButtonTapped(_ drawShapeToolView: EditorDrawShapeToolView) {
+        context.action(.shapeUndo)
     }
 }
 
@@ -331,7 +356,7 @@ extension EditorToolView {
         if isHidden || !isUserInteractionEnabled || alpha < 0.01 {
             return nil
         }
-        let subViews = [editOptionsView, brushToolView, cropToolView, mosaicToolView, waterMarkToolView, picParameterToolView, pasterToolView, doneButton]
+        let subViews = [editOptionsView, brushToolView, cropToolView, mosaicToolView, waterMarkToolView, picParameterToolView, pasterToolView, drawShapeToolView, doneButton]
         for subView in subViews {
             if let hitView = subView.hitTest(subView.convert(point, from: self), with: event) {
                 return hitView

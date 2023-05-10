@@ -26,4 +26,35 @@ extension CGPoint {
     func reversed(_ flag: Bool = true) -> CGPoint {
         return flag ? CGPoint(x: y, y: x) : self
     }
+    
+    static func - (lhs: CGPoint, rhs: CGPoint) -> CGPoint {
+        return CGPoint(x: lhs.x - rhs.x, y: lhs.y - rhs.y)
+    }
+    
+    static func + (lhs: CGPoint, rhs: CGPoint) -> CGPoint {
+        return CGPoint(x: lhs.x + rhs.x, y: lhs.y + rhs.y)
+    }
+    
+    static func * (lhs: CGPoint, rhs: CGFloat) -> CGPoint {
+        return CGPoint(x: lhs.x * rhs, y: lhs.y * rhs)
+    }
+    
+    static func / (lhs: CGPoint, rhs: CGFloat) -> CGPoint {
+        return CGPoint(x: lhs.x / rhs, y: lhs.y / rhs)
+    }
+    
+    /// 向指定角度移动指定距离
+    /// - Parameters:
+    ///   - angle: 角度
+    ///   - distance: 距离
+    /// - Returns: 移动后的点
+    func move(angle: CGFloat, distance: CGFloat) -> CGPoint {
+        self + CGPoint(x: cos(angle) * distance, y: sin(angle) * distance)
+    }
+    
+    // 判断自己和otherPoint在X负方向上的夹角
+    func angle(to otherPoint: CGPoint) -> CGFloat {
+        let pointDelta = self - otherPoint
+        return atan2(pointDelta.y, pointDelta.x)
+    }
 }

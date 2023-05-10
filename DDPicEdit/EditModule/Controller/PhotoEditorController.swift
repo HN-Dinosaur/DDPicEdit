@@ -162,6 +162,7 @@ final class PhotoEditorController: DDPicBaseViewController {
         let view = EditorToolView(frame: self.view.bounds, context: context)
         view.brushToolView.undoButton.isEnabled = stack.edit.canvasCanUndo
         view.mosaicToolView.undoButton.isEnabled = stack.edit.mosaicCanUndo
+        view.drawShapeToolView.undoButton.isEnabled = stack.edit.drawShapeCanUndo
         view.cropToolView.currentOptionIdx = stack.edit.cropData.cropOptionIdx
         return view
     }()
@@ -242,6 +243,7 @@ extension PhotoEditorController {
         contentView.cropLayerLeave.isHidden = false
         contentView.canvas.isHidden = true
         contentView.mosaic?.isHidden = true
+        contentView.shapeCanvas.isHidden = true
         contentView.waterMarkLabel.isHidden = true
         contentView.hiddenAllTextView()
         contentView.imageView.image = image
@@ -251,6 +253,7 @@ extension PhotoEditorController {
     private func didEndCroping() {
         contentView.canvas.isHidden = false
         contentView.mosaic?.isHidden = false
+        contentView.shapeCanvas.isHidden = false
         contentView.waterMarkLabel.isHidden = false
         contentView.updateStickerFrameWhenCropEnd()
         contentView.imageView.image = contentView.image
@@ -338,7 +341,7 @@ extension PhotoEditorController {
             context.toolOption = option
             toolOptionsDidChanged(option: option)
         // MARK: -画笔
-        case .brushBeginDraw, .mosaicBeginDraw:
+        case .brushBeginDraw, .mosaicBeginDraw, .shapeBeginDraw:
             setTool(hidden: true)
         case .brushUndo:
             stack.canvasUndo()
@@ -415,6 +418,7 @@ extension PhotoEditorController {
         case .waterMark(let data):
             self.contentView.addWaterMarkIn(data: data)
             self.stack.setWaterMarkData(data)
+        // MARK: -调整图片参数
         case .picParameterChange(let data):
             self.contentView.picParameterChange(data: data)
             self.stack.setPicParameterData(data)
@@ -436,6 +440,18 @@ extension PhotoEditorController {
             self.trackObserver?.track(event: .editorPhotoPasterSelect, userInfo: [:])
             self.contentView.removeHiddenStickerView()
             self.stack.addStickerData(data)
+        // MARK: -绘制图形
+        case .shapeUndo:
+            self.stack.drawShapeUndo()
+            self.trackObserver?.track(event: .editorPhotoDrawShapeUndo, userInfo: [:])
+        case .shapeFinishDraw:
+            setTool(hidden: false)
+        case .shapeChange(let idx):
+            contentView.shapeCanvas.updateSelectShapeStype(index: idx)
+        case .shapeDidRemove(let data):
+            self.stack.drawShapeRemoveData(data: data)
+        case .shapeAddData(let data):
+            self.stack.addDrawShapeData(data)
         }
         return true
     }
@@ -443,6 +459,7 @@ extension PhotoEditorController {
     private func toolOptionsDidChanged(option: EditorPhotoToolOption?) {
         contentView.canvas.isUserInteractionEnabled = false
         contentView.mosaic?.isUserInteractionEnabled = false
+        contentView.shapeCanvas.isUserInteractionEnabled = false
         contentView.scrollView.isScrollEnabled = option == nil
         guard let option = option else { return }
         switch option {
@@ -473,6 +490,9 @@ extension PhotoEditorController {
             trackObserver?.track(event: .editorPhotoParameter, userInfo: [:])
         case .paster:
             trackObserver?.track(event: .editorPhotoPaster, userInfo: [:])
+        case .drawShape:
+            contentView.shapeCanvas.isUserInteractionEnabled = true
+            trackObserver?.track(event: .editorPhotoDrawShape, userInfo: [:])
         }
     }
 }
@@ -482,6 +502,7 @@ extension PhotoEditorController: PhotoEditingStackDelegate {
     func editingStack(_ stack: PhotoEditingStack, needUpdatePreview edit: PhotoEditingStack.Edit) {
         self.toolView.brushToolView.undoButton.isEnabled = edit.canvasCanUndo
         self.toolView.mosaicToolView.undoButton.isEnabled = edit.mosaicCanUndo
+        self.toolView.drawShapeToolView.undoButton.isEnabled = edit.drawShapeCanUndo
         self.contentView.updateView(with: edit)
     }
 }

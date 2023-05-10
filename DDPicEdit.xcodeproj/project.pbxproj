@@ -14,6 +14,10 @@
 		9D15DD692A066BF800871923 /* StickerBaseView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9D15DD682A066BF800871923 /* StickerBaseView.swift */; };
 		9D15DD6B2A0675E700871923 /* EditorStickerCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9D15DD6A2A0675E700871923 /* EditorStickerCell.swift */; };
 		9D15DD6E2A06A57700871923 /* StickerData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9D15DD6D2A06A57700871923 /* StickerData.swift */; };
+		9D15DD702A07519F00871923 /* EditorDrawShapeToolView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9D15DD6F2A07519F00871923 /* EditorDrawShapeToolView.swift */; };
+		9D15DD722A07523B00871923 /* EditorDrawShapeOption.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9D15DD712A07523B00871923 /* EditorDrawShapeOption.swift */; };
+		9D15DD762A07913D00871923 /* PhotoEditorContentView+DrawShape.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9D15DD752A07913D00871923 /* PhotoEditorContentView+DrawShape.swift */; };
+		9D18CD4E2A0A4A71007B75ED /* DrawShapeCanvas.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9D18CD4D2A0A4A71007B75ED /* DrawShapeCanvas.swift */; };
 		9D23ADAD29FFE91700ABC52C /* IndicatorAndSliderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9D23ADAC29FFE91700ABC52C /* IndicatorAndSliderView.swift */; };
 		9D23ADB029FFE93600ABC52C /* SlideRuler.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9D23ADAF29FFE93600ABC52C /* SlideRuler.swift */; };
 		9D23ADB229FFE94600ABC52C /* IndicatorView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9D23ADB129FFE94600ABC52C /* IndicatorView.swift */; };
@@ -21,6 +25,9 @@
 		9D23ADB82A02C22100ABC52C /* PicParameterData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9D23ADB72A02C22100ABC52C /* PicParameterData.swift */; };
 		9D23ADBA2A0351CC00ABC52C /* PhotoEditorContentView+PicParameterChange.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9D23ADB92A0351CC00ABC52C /* PhotoEditorContentView+PicParameterChange.swift */; };
 		9D23ADBC2A0358C800ABC52C /* EditPicParameterToolView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9D23ADBB2A0358C800ABC52C /* EditPicParameterToolView.swift */; };
+		9D377FC32A09FA5700161829 /* DrawShapeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9D377FC22A09FA5700161829 /* DrawShapeView.swift */; };
+		9D377FC52A09FD0800161829 /* ShapeMask.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9D377FC42A09FD0800161829 /* ShapeMask.swift */; };
+		9D377FC72A0A07CE00161829 /* DrawShapeData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9D377FC62A0A07CE00161829 /* DrawShapeData.swift */; };
 		9D48E33929F3CEAD003B178C /* EditWaterMarkToolView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9D48E33829F3CEAD003B178C /* EditWaterMarkToolView.swift */; };
 		9D4BADCF29D4520700CE3669 /* Extension+Thread.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9D4BADCE29D4520700CE3669 /* Extension+Thread.swift */; };
 		9D4BADD129D4526000CE3669 /* Constant.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9D4BADD029D4526000CE3669 /* Constant.swift */; };
@@ -188,6 +195,10 @@
 		9D15DD682A066BF800871923 /* StickerBaseView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StickerBaseView.swift; sourceTree = "<group>"; };
 		9D15DD6A2A0675E700871923 /* EditorStickerCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditorStickerCell.swift; sourceTree = "<group>"; };
 		9D15DD6D2A06A57700871923 /* StickerData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StickerData.swift; sourceTree = "<group>"; };
+		9D15DD6F2A07519F00871923 /* EditorDrawShapeToolView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditorDrawShapeToolView.swift; sourceTree = "<group>"; };
+		9D15DD712A07523B00871923 /* EditorDrawShapeOption.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditorDrawShapeOption.swift; sourceTree = "<group>"; };
+		9D15DD752A07913D00871923 /* PhotoEditorContentView+DrawShape.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "PhotoEditorContentView+DrawShape.swift"; sourceTree = "<group>"; };
+		9D18CD4D2A0A4A71007B75ED /* DrawShapeCanvas.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DrawShapeCanvas.swift; sourceTree = "<group>"; };
 		9D23ADAC29FFE91700ABC52C /* IndicatorAndSliderView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IndicatorAndSliderView.swift; sourceTree = "<group>"; };
 		9D23ADAF29FFE93600ABC52C /* SlideRuler.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SlideRuler.swift; sourceTree = "<group>"; };
 		9D23ADB129FFE94600ABC52C /* IndicatorView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IndicatorView.swift; sourceTree = "<group>"; };
@@ -196,6 +207,9 @@
 		9D23ADB92A0351CC00ABC52C /* PhotoEditorContentView+PicParameterChange.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "PhotoEditorContentView+PicParameterChange.swift"; sourceTree = "<group>"; };
 		9D23ADBB2A0358C800ABC52C /* EditPicParameterToolView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditPicParameterToolView.swift; sourceTree = "<group>"; };
 		9D281A844AE1E5C851466A0B /* Pods_DDPicEdit.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_DDPicEdit.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		9D377FC22A09FA5700161829 /* DrawShapeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DrawShapeView.swift; sourceTree = "<group>"; };
+		9D377FC42A09FD0800161829 /* ShapeMask.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShapeMask.swift; sourceTree = "<group>"; };
+		9D377FC62A0A07CE00161829 /* DrawShapeData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DrawShapeData.swift; sourceTree = "<group>"; };
 		9D48E33829F3CEAD003B178C /* EditWaterMarkToolView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditWaterMarkToolView.swift; sourceTree = "<group>"; };
 		9D4BADCE29D4520700CE3669 /* Extension+Thread.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Extension+Thread.swift"; sourceTree = "<group>"; };
 		9D4BADD029D4526000CE3669 /* Constant.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constant.swift; sourceTree = "<group>"; };
@@ -547,6 +561,7 @@
 				9D15DD682A066BF800871923 /* StickerBaseView.swift */,
 				9DD6FF6829EBB55A008EE747 /* TextTrashView.swift */,
 				9DD6FF6A29EBBB50008EE747 /* MirrorCropView.swift */,
+				9D377FC22A09FA5700161829 /* DrawShapeView.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -563,6 +578,7 @@
 				9D15DD612A0609EF00871923 /* EditorPasterToolView.swift */,
 				9D6D57F329E6C61E00132AAC /* EditorEditOptionsView.swift */,
 				9D6D57F529E6CD5900132AAC /* EditorTextToolView.swift */,
+				9D15DD6F2A07519F00871923 /* EditorDrawShapeToolView.swift */,
 			);
 			path = ToolBar;
 			sourceTree = "<group>";
@@ -595,6 +611,7 @@
 				9D6D580029E7BEE700132AAC /* Brush.swift */,
 				9D6D580629E7BF7A00132AAC /* DrawnPath.swift */,
 				9DD6FF5329EA9936008EE747 /* BlurredMask.swift */,
+				9D377FC42A09FD0800161829 /* ShapeMask.swift */,
 				9DD6FF5529EA9D6D008EE747 /* CanvasMask.swift */,
 				9DD6FF5729EA9D99008EE747 /* TextMask.swift */,
 			);
@@ -611,6 +628,7 @@
 				9D6D580E29E7ED8300132AAC /* MosaicData.swift */,
 				9D6D581029E7EDCA00132AAC /* RotateState.swift */,
 				9D6D581429E7FB2500132AAC /* CropData.swift */,
+				9D377FC62A0A07CE00161829 /* DrawShapeData.swift */,
 			);
 			path = Data;
 			sourceTree = "<group>";
@@ -812,6 +830,7 @@
 				9DC6046C29E11506000F90A8 /* EditorRotationDirection.swift */,
 				9DC6045D29E00A5A000F90A8 /* EditorPhotoOptionsInfo.swift */,
 				9DC6047029E11BC6000F90A8 /* EditorBrushColorOption.swift */,
+				9D15DD712A07523B00871923 /* EditorDrawShapeOption.swift */,
 				9DC6046E29E11A27000F90A8 /* EditorMosaicOption.swift */,
 				9DD6FF9429EF976B008EE747 /* EditorResult.swift */,
 			);
@@ -859,6 +878,7 @@
 			children = (
 				9DD6FF6C29ED017F008EE747 /* DryDrawingView.swift */,
 				9DD6FF7529ED78C2008EE747 /* Canvas.swift */,
+				9D18CD4D2A0A4A71007B75ED /* DrawShapeCanvas.swift */,
 				9DD6FF7729ED7917008EE747 /* MosaicContentView.swift */,
 				9DD6FF7929ED79AE008EE747 /* Mosaic.swift */,
 			);
@@ -890,6 +910,7 @@
 				9D23ADB92A0351CC00ABC52C /* PhotoEditorContentView+PicParameterChange.swift */,
 				9DD6FF7E29EE4C70008EE747 /* PhotoEditorContentView+Getter.swift */,
 				9DD6FF8029EE4C8D008EE747 /* PhotoEditorContentView+Brush.swift */,
+				9D15DD752A07913D00871923 /* PhotoEditorContentView+DrawShape.swift */,
 				9DD6FF8229EE4CF3008EE747 /* PhotoEditorContentView+Mosaic.swift */,
 				9DD6FF8629EE4DBA008EE747 /* PhotoEditorContentView+Crop.swift */,
 				9DD6FF8829EE4DDB008EE747 /* PhotoEditorContentView+Sticker.swift */,
@@ -1070,6 +1091,7 @@
 			files = (
 				9DD6FF6129EB9D07008EE747 /* CropGridView.swift in Sources */,
 				9D4BADDA29D45E8C00CE3669 /* ThemeConfigurable.swift in Sources */,
+				9D15DD722A07523B00871923 /* EditorDrawShapeOption.swift in Sources */,
 				9DD961DB29D81213005FC488 /* Permission+Camera.swift in Sources */,
 				9DD961EF29DABF53005FC488 /* CapturePreviewContentView.swift in Sources */,
 				9DD6FF6329EBA23B008EE747 /* Extension+CABasicAnimation.swift in Sources */,
@@ -1114,6 +1136,7 @@
 				9DD6FF9829EF9CFA008EE747 /* EditorResultViewController.swift in Sources */,
 				9D6D581929E8001A00132AAC /* Cacheable.swift in Sources */,
 				9DAE77DF29FD58BD00C1C811 /* PhotoEditorContentView+WaterMark.swift in Sources */,
+				9D377FC52A09FD0800161829 /* ShapeMask.swift in Sources */,
 				9DD6FF5429EA9936008EE747 /* BlurredMask.swift in Sources */,
 				9DD6FF5629EA9D6D008EE747 /* CanvasMask.swift in Sources */,
 				9D4BADE329D49F3700CE3669 /* CaptureAspectRatio.swift in Sources */,
@@ -1145,6 +1168,7 @@
 				9DC6045629DFC1FB000F90A8 /* Extension+UIViewController.swift in Sources */,
 				9DD6FF7829ED7917008EE747 /* MosaicContentView.swift in Sources */,
 				9DD6FF8729EE4DBA008EE747 /* PhotoEditorContentView+Crop.swift in Sources */,
+				9D15DD762A07913D00871923 /* PhotoEditorContentView+DrawShape.swift in Sources */,
 				9DD961F929DC1CB9005FC488 /* DDPicBaseUIControl.swift in Sources */,
 				9DC3A21329C858DB009EBFB0 /* Extension+UILabel.swift in Sources */,
 				9D6D581129E7EDCA00132AAC /* RotateState.swift in Sources */,
@@ -1187,12 +1211,15 @@
 				9DD961F529DBDE15005FC488 /* CaptureCircleView.swift in Sources */,
 				9DD6FF7429ED346F008EE747 /* Editor+AnyImageEvent.swift in Sources */,
 				9DC6045429DFB29B000F90A8 /* ScreenHelper.swift in Sources */,
+				9D15DD702A07519F00871923 /* EditorDrawShapeToolView.swift in Sources */,
 				9D15DD5C2A03ED5C00871923 /* EditorPicParameterOption.swift in Sources */,
+				9D377FC32A09FA5700161829 /* DrawShapeView.swift in Sources */,
 				9DD961D929D80859005FC488 /* Permission+Photos.swift in Sources */,
 				9DD961FD29DC3651005FC488 /* Extension+UIButton.swift in Sources */,
 				9D6D580F29E7ED8300132AAC /* MosaicData.swift in Sources */,
 				9D6D580129E7BEE700132AAC /* Brush.swift in Sources */,
 				9D4BAE0729D7E04B00CE3669 /* Permission.swift in Sources */,
+				9D18CD4E2A0A4A71007B75ED /* DrawShapeCanvas.swift in Sources */,
 				9DD6FF7629ED78C2008EE747 /* Canvas.swift in Sources */,
 				9DC4F87329C6CFC400EAFDB5 /* DDPicEditViewController.swift in Sources */,
 				9D4BADED29D58A5600CE3669 /* MediaType.swift in Sources */,
@@ -1222,6 +1249,7 @@
 				9D6D581329E7F85400132AAC /* CropCornerView.swift in Sources */,
 				9D6D57EC29E67A8500132AAC /* DDPicBaseCollectionViewCell.swift in Sources */,
 				9DD6FF5829EA9D99008EE747 /* TextMask.swift in Sources */,
+				9D377FC72A0A07CE00161829 /* DrawShapeData.swift in Sources */,
 				9DD6FF5029EA6DA0008EE747 /* Extension+CGRect.swift in Sources */,
 				9DD961EB29D9AF7E005FC488 /* Extension+Array.swift in Sources */,
 				9DC6046229E02F14000F90A8 /* EditorTheme.swift in Sources */,

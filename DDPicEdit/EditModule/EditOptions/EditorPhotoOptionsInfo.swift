@@ -92,6 +92,11 @@ public struct EditorPhotoOptionsInfo {
     
     // default is all
     public var picParameterChangeOption: [EditorPicParameterOption] = EditorPicParameterOption.allCases
+    // default is all, incluing arrow, circle, rectangle
+    public var drawShapeOptions: [EditorDrawShapeOption] = EditorDrawShapeOption.allCases
+    
+    // default shape select is 0
+    public var defaultShapeIndex: Int = 0
     
 }
 
