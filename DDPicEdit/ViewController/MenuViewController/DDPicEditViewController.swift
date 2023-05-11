@@ -62,7 +62,7 @@ class DDPicEditViewController: DDPicBaseTableViewController {
         var defaultValue: String {
             switch self {
             case .editOptions:
-                return "Pen+Text+Crop+Mosaic"
+                return "All"
             case .penWidth:
                 return "5.0"
             case .mosaicOptions:
@@ -150,7 +150,7 @@ class DDPicEditViewController: DDPicBaseTableViewController {
     }
     
     private func editOptionsTapped(_ indexPath: IndexPath) {
-        let action1 = UIAlertAction(title: "Brush+Text+Crop+Mosaic", style: .default) {
+        let action1 = UIAlertAction(title: "All", style: .default) {
             [weak self] (action) in
             self?.afterClickCellBlock(indexPath: indexPath, action: action) {
                 self?.options.toolOptions = EditorPhotoToolOption.allCases

@@ -48,8 +48,8 @@ public struct EditorPhotoOptionsInfo {
     ///
     /// true: The background color is main color, and the text color is sub color.
     ///
-    // default: true
-    public var isTextSelected: Bool = true
+    // default: false
+    public var isTextSelected: Bool = false
     
     /// Calculate text last line mask width when input text.
     ///

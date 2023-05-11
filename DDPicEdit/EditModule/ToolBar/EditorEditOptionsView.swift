@@ -87,7 +87,7 @@ extension EditorEditOptionsView {
     
     public func selectFirstItemIfNeeded() {
         if currentOption == nil && options.toolOptions.count == 1 && options.toolOptions.first! != .text {
-            self.collectionView.selectItem(at: IndexPath(item: 0, section: 0), animated: true, scrollPosition: .left)
+            collectionView.delegate?.collectionView?(collectionView, didSelectItemAt: IndexPath(item: 0, section: 0))
         }
     }
     

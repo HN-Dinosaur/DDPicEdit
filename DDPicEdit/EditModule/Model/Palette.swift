@@ -53,11 +53,11 @@ public struct Palette {
     
     public static var textColors: [EditorTextColor] {
         return [.init(color: Palette.white,  subColor: Palette.black, shadow: Shadow(color: .black, alpha: 0.25, x: 0, y: 1, blur: 0.5, spread: 0)),
-                .init(color: Palette.black,  subColor: UIColor.white),
-                .init(color: Palette.red,    subColor: UIColor.white),
-                .init(color: Palette.yellow, subColor: UIColor.white),
-                .init(color: Palette.green,  subColor: UIColor.white),
-                .init(color: Palette.blue,   subColor: UIColor.white),
-                .init(color: Palette.purple, subColor: UIColor.white)]
+                .init(color: Palette.black,  subColor: UIColor.white, shadow: Shadow(color: .black, alpha: 0.25, x: 5, y: 5, blur: 0.5, spread: 8)),
+                .init(color: Palette.red,    subColor: UIColor.white, shadow: Shadow(color: .black, alpha: 0.25, x: 5, y: 5, blur: 0.5, spread: 8)),
+                .init(color: Palette.yellow, subColor: UIColor.white, shadow: Shadow(color: .black, alpha: 0.25, x: 5, y: 5, blur: 0.5, spread: 8)),
+                .init(color: Palette.green,  subColor: UIColor.white, shadow: Shadow(color: .black, alpha: 0.25, x: 5, y: 5, blur: 0.5, spread: 8)),
+                .init(color: Palette.blue,   subColor: UIColor.white, shadow: Shadow(color: .black, alpha: 0.25, x: 5, y: 5, blur: 0.5, spread: 8)),
+                .init(color: Palette.purple, subColor: UIColor.white, shadow: Shadow(color: .black, alpha: 0.25, x: 5, y: 5, blur: 0.5, spread: 8))]
     }
 }
