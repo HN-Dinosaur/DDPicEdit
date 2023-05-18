@@ -82,7 +82,7 @@ open class ImageEditorController: DDPicBaseNaviController {
 
 extension ImageEditorController {
     
-    open func update(photo resource: EditorPhotoResource, options: EditorPhotoOptionsInfo) {
+    public func update(photo resource: EditorPhotoResource, options: EditorPhotoOptionsInfo) {
         guard viewControllers.isEmpty || enableForceUpdate else {
             return
         }

@@ -285,7 +285,7 @@ extension PhotoEditorController {
         return contentView.screenshot().gaussianImage(blur: 8)
     }
     
-    /// 准备开始输入文本
+    /// 进入编辑文字贴纸视图控制器的UI改变
     private func willBeginInput() {
         backButton.isHidden = true
         toolView.topCoverView.isHidden = true
@@ -295,7 +295,7 @@ extension PhotoEditorController {
         contentView.deactivateAllTextView()
     }
     
-    /// 已经结束输入文本
+    /// 结束编辑文字贴纸视图控制器的UI改变
     private func didEndInputing() {
         backButton.isHidden = false
         toolView.topCoverView.isHidden = false
