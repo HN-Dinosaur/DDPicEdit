@@ -245,7 +245,7 @@ extension PhotoEditingStack {
     
     private func processWaterMark(_ image: UIImage) -> UIImage? {
         let attributes: [NSAttributedString.Key: Any] = [
-            .font: UIFont.PingFang(size: edit.waterMarkData.fontSize),
+            .font: UIFont.PingFang(size: edit.waterMarkData.fontSize + 20),
             .foregroundColor: UIColor.white
         ]
         let attr = NSAttributedString(string: edit.waterMarkData.waterMarkContent, attributes: attributes)
@@ -268,8 +268,8 @@ extension PhotoEditingStack {
         prepareOutout()
         guard let cgImage = getCGImage(originImage), let ciImage = CIImage(image: originImage) else { return nil }
         let canvasSize = ciImage.extent.size
-        
-        let image = UIGraphicsImageRenderer.init(size: canvasSize, format: getImageRendererFormat()).image { rendererContext in
+        let renderer = UIGraphicsImageRenderer.init(size: canvasSize, format: getImageRendererFormat())
+        let image = renderer.image { rendererContext in
             let context = rendererContext.cgContext
             
             // 绘制原图

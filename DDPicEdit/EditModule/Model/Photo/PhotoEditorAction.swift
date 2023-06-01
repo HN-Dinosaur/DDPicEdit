@@ -30,14 +30,14 @@ enum PhotoEditorAction {
     case cropDone
     case cropFinish(CropData)
 
-    case textWillBeginEdit(StickerData)
+    case stickerWillBeginEdit(StickerData)
     case stickerBringToFront(StickerData)
     case stickerWillBeginMove
     case stickerDidFinishMove(data: StickerData, delete: Bool)
-    case textCancel
-    case textDone(StickerData)
+    case stickerCancel
+    case stickerDone(StickerData)
     
-    case waterMark(WaterMarkData)
+    case waterMarkChange(WaterMarkData)
     
     case picParameterChange(PicParameterData)
     case picParameterCancel

@@ -14,7 +14,7 @@ extension UIImage {
     /// 在 DEBUG 模式下耗时 1-3 秒左右，RELEASE 模式下耗时 0.02 秒左右
     /// - Parameter level: 一个点转为多少 level*level 的正方形
     func mosaicImage(level: Int) -> UIImage? {
-        // 获取 BitmapData
+        // 首先，创建一个 CGContext 对象，用于获取 UIImage 的 BitmapData（位图数据）。这里需要指定位图的宽度、高度、颜色通道数等参数，并将 UIImage 的数据绘制到 CGContext 中。
         let pixelChannelCount = 4
         let bitsPerComponent = 8
         let colorSpace = CGColorSpaceCreateDeviceRGB()
@@ -35,8 +35,8 @@ extension UIImage {
         var pixel: [UInt8] = Array(repeating: 0, count: pixelChannelCount)
         var index = 0
         var preIndex = 0
-        for i in 0..<height-1 {
-            for j in 0..<width-1 {
+        for i in 0..<height - 1 {
+            for j in 0..<width - 1 {
                 index = i * width + j
                 if i % level == 0 {
                     if j % level == 0 {

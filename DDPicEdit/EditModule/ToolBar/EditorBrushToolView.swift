@@ -101,6 +101,7 @@ extension EditorBrushToolView {
             currentIdx = sender.tag
             layoutSubviews()
         }
+        UserDefaults.brushColorIdx = currentIdx
         delegate?.brushToolView(self, colorDidChange: colorOptions[currentIdx].color)
     }
 }

@@ -136,11 +136,19 @@ class DDPicEditViewController: DDPicBaseTableViewController {
     }
     
     @objc private func openEditorTapped() {
-        options.enableDebugLog = true
-        let image = UIImage(named: "EditorTestImage")!
-        let controller = ImageEditorController(photo: image, options: options, delegate: self)
-        controller.trackDelegate = self
-        present(controller, animated: true, completion: nil)
+        let albumAction = UIAlertAction(title: "相册", style: .default) { [weak self] _ in
+            guard let self = self else { return }
+            let picker = UIImagePickerController()
+            picker.delegate = self
+            picker.sourceType = .photoLibrary
+            picker.modalPresentationStyle = .fullScreen
+            self.present(picker, animated: true)
+        }
+        
+        let alert = UIAlertController(title: "请选择图片上传方式", message: nil, preferredStyle: .actionSheet)
+        alert.addAction(albumAction)
+        alert.addAction(UIAlertAction(title: "取消", style: .cancel))
+        self.present(alert, animated: true)
     }
     
     private func afterClickCellBlock(indexPath: IndexPath, action: UIAlertAction, _ completion: Block) {
@@ -381,4 +389,18 @@ extension DDPicEditViewController: UITextFieldDelegate {
             textField.text = String(text[text.startIndex..<endIndex])
         }
     }
+}
+
+extension DDPicEditViewController: UIImagePickerControllerDelegate & UINavigationControllerDelegate  {
+    public func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [UIImagePickerController.InfoKey : Any]) {
+        picker.dismiss(animated: true, completion: nil)
+        if let image = info[.originalImage] as? UIImage{
+            self.options.enableDebugLog = true
+            self.options.defaultBrushIndex = UserDefaults.brushColorIdx
+            self.options.defaultMosaicIndex = UserDefaults.mosaicIdx
+            let controller = ImageEditorController(photo: image, options: options, delegate: self)
+            controller.trackDelegate = self
+            present(controller, animated: true)
+        }
+      }
 }

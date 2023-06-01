@@ -231,7 +231,7 @@ final class InputTextViewController: DDPicBaseViewController {
 extension InputTextViewController {
     
     @objc private func cancelButtonTapped(_ sender: UIButton) {
-        context.action(.textCancel)
+        context.action(.stickerCancel)
         dismiss(animated: true, completion: nil)
     }
     
@@ -241,7 +241,7 @@ extension InputTextViewController {
         data.frame = .zero
         data.text = textView.text
         data.imageData = textCoverView.screenshot().pngData() ?? Data()
-        context.action(.textDone(data))
+        context.action(.stickerDone(data))
         dismiss(animated: true, completion: nil)
     }
 }

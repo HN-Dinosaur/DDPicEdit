@@ -44,7 +44,7 @@ public class StickerBaseView: DDPicBaseView {
     
     public override func hitTest(_ point: CGPoint, with event: UIEvent?) -> UIView? {
         let extensionRect = self.imageView.frame.inset(by: UIEdgeInsets(edge: -50))
-        if extensionRect.contains(point) {
+        if extensionRect.contains(point) && self.isUserInteractionEnabled {
             return self
         }
         return super.hitTest(point, with: event)

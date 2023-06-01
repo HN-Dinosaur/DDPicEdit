@@ -129,6 +129,7 @@ extension EditorMosaicToolView {
             self.currentIdx = sender.tag
             self.layoutSubviews()
         }
+        UserDefaults.mosaicIdx = currentIdx
         self.delegate?.mosaicToolView(self, mosaicDidChange: currentIdx)
         self.updateState()
     }

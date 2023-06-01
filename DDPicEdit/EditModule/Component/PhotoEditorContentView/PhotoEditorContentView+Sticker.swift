@@ -101,6 +101,12 @@ extension PhotoEditorContentView {
         }
     }
     
+    func disableAllStickerView(interactionEnabled: Bool) {
+        stickerImageViews.forEach {
+            $0.isUserInteractionEnabled = interactionEnabled
+        }
+    }
+    
     /// 删除隐藏的Sticker
     func removeHiddenStickerView() {
         var newStickerImageViews = [StickerBaseView]()
@@ -281,7 +287,7 @@ extension PhotoEditorContentView {
             stickerView.isHidden = true
             // 是文字不是贴纸
             if !stickerView.data.text.isEmpty {
-                context.action(.textWillBeginEdit(stickerView.data))
+                context.action(.stickerWillBeginEdit(stickerView.data))
             }
         }
     }

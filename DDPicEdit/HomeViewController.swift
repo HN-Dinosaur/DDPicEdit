@@ -7,7 +7,7 @@
 
 import UIKit
 
-class HomeViewController: UITableViewController {
+class HomeViewController: DDPicBaseTableViewController {
     
     enum HomeMenu: CaseIterable, HomeMenuProtocol {
         case edit

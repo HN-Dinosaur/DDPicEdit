@@ -84,6 +84,7 @@
 		9D6D581929E8001A00132AAC /* Cacheable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9D6D581829E8001A00132AAC /* Cacheable.swift */; };
 		9D6D581B29E830A800132AAC /* PhotoEditingStack.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9D6D581A29E830A800132AAC /* PhotoEditingStack.swift */; };
 		9D6D581D29E830C900132AAC /* CodableCacheTool.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9D6D581C29E830C900132AAC /* CodableCacheTool.swift */; };
+		9D8E3A532A24FF310078E34E /* Extension+UserDefault.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9D8E3A522A24FF310078E34E /* Extension+UserDefault.swift */; };
 		9D928FAE29DD1ADE0008BBCE /* CaptureWhiteBalance.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9D928FAD29DD1ADE0008BBCE /* CaptureWhiteBalance.swift */; };
 		9D928FB029DD336D0008BBCE /* Capture+AVCaptureDevice.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9D928FAF29DD336D0008BBCE /* Capture+AVCaptureDevice.swift */; };
 		9D928FB229DD5F6D0008BBCE /* Capture+CMVideoFormatDescription.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9D928FB129DD5F6D0008BBCE /* Capture+CMVideoFormatDescription.swift */; };
@@ -266,6 +267,7 @@
 		9D6D581829E8001A00132AAC /* Cacheable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Cacheable.swift; sourceTree = "<group>"; };
 		9D6D581A29E830A800132AAC /* PhotoEditingStack.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhotoEditingStack.swift; sourceTree = "<group>"; };
 		9D6D581C29E830C900132AAC /* CodableCacheTool.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CodableCacheTool.swift; sourceTree = "<group>"; };
+		9D8E3A522A24FF310078E34E /* Extension+UserDefault.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Extension+UserDefault.swift"; sourceTree = "<group>"; };
 		9D928FAD29DD1ADE0008BBCE /* CaptureWhiteBalance.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CaptureWhiteBalance.swift; sourceTree = "<group>"; };
 		9D928FAF29DD336D0008BBCE /* Capture+AVCaptureDevice.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Capture+AVCaptureDevice.swift"; sourceTree = "<group>"; };
 		9D928FB129DD5F6D0008BBCE /* Capture+CMVideoFormatDescription.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Capture+CMVideoFormatDescription.swift"; sourceTree = "<group>"; };
@@ -587,7 +589,7 @@
 			isa = PBXGroup;
 			children = (
 				9D6D57DC29E57CE300132AAC /* View */,
-				9DD6FF7D29EE4B29008EE747 /* Photo */,
+				9DD6FF7D29EE4B29008EE747 /* PhotoEditorContentView */,
 			);
 			path = Component;
 			sourceTree = "<group>";
@@ -800,6 +802,7 @@
 				9DD6FF8429EE4D8C008EE747 /* Extension+UIImage.swift */,
 				9DD6FF8E29EF81A0008EE747 /* Extension+UITextView.swift */,
 				9DD6FF9029EF8B10008EE747 /* Extension+CALayer.swift */,
+				9D8E3A522A24FF310078E34E /* Extension+UserDefault.swift */,
 			);
 			path = Extension;
 			sourceTree = "<group>";
@@ -902,7 +905,7 @@
 			path = DataTrack;
 			sourceTree = "<group>";
 		};
-		9DD6FF7D29EE4B29008EE747 /* Photo */ = {
+		9DD6FF7D29EE4B29008EE747 /* PhotoEditorContentView */ = {
 			isa = PBXGroup;
 			children = (
 				9DD6FF7B29EE4B25008EE747 /* PhotoEditorContentView.swift */,
@@ -915,7 +918,7 @@
 				9DD6FF8629EE4DBA008EE747 /* PhotoEditorContentView+Crop.swift */,
 				9DD6FF8829EE4DDB008EE747 /* PhotoEditorContentView+Sticker.swift */,
 			);
-			path = Photo;
+			path = PhotoEditorContentView;
 			sourceTree = "<group>";
 		};
 		9DD6FF9629EF9CEE008EE747 /* MenuViewController */ = {
@@ -1254,6 +1257,7 @@
 				9DD961EB29D9AF7E005FC488 /* Extension+Array.swift in Sources */,
 				9DC6046229E02F14000F90A8 /* EditorTheme.swift in Sources */,
 				9D15DD6B2A0675E700871923 /* EditorStickerCell.swift in Sources */,
+				9D8E3A532A24FF310078E34E /* Extension+UserDefault.swift in Sources */,
 				9DD6FF8D29EE9B99008EE747 /* InputTextViewController.swift in Sources */,
 				9D4BADF829D5CAEF00CE3669 /* AnyImagePage.swift in Sources */,
 				9D15DD692A066BF800871923 /* StickerBaseView.swift in Sources */,

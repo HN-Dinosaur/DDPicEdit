@@ -14,7 +14,7 @@ public class DDPicNineGridViewController: DDPicBaseViewController {
         didSet {
             self.displayPicCollectionView.reloadData()
             self.tipsLabel.isHidden = resultPics.count > 0
-            self.bottomButton.setTitle(resultPics.count > 0 ? "切换照片" : "添加照片", for: .normal)
+            self.bottomButton.setTitle(resultPics.count > 0 ? "Switch Picture" : "Add Picture", for: .normal)
             if #available(iOS 16.0, *) {
                 self.rightBarButton.isHidden = !(resultPics.count > 0)
             } else {
@@ -59,11 +59,9 @@ public class DDPicNineGridViewController: DDPicBaseViewController {
             guard let self = self else { return }
             UIImageWriteToSavedPhotosAlbum($0, self, nil, nil)
         }
-        let alert = UIAlertController.show(title: "保存成功" ,actions: [])
+        let alert = UIAlertController.show(title: "Success Save" ,actions: [])
         self.present(alert, animated: true)
     }
-    
-    
     
     private func processPhoto(_ image: UIImage) {
         var processImage: UIImage
@@ -96,14 +94,14 @@ public class DDPicNineGridViewController: DDPicBaseViewController {
     @objc func tapBottomButton() {
         var options = CaptureOptionsInfo()
         options.photoAspectRatio = .ratio1x1
-        let captureAction = UIAlertAction(title: "相机", style: .default) { [weak self] _ in
+        let captureAction = UIAlertAction(title: "Camera", style: .default) { [weak self] _ in
             guard let self = self else { return }
             options.enableDebugLog = true
             let controller = ImageCaptureController(options: options, delegate: self)
             controller.trackDelegate = self
             self.present(controller, animated: true, completion: nil)
         }
-        let albumAction = UIAlertAction(title: "相册", style: .default) { [weak self] _ in
+        let albumAction = UIAlertAction(title: "Album", style: .default) { [weak self] _ in
             guard let self = self else { return }
             let picker = UIImagePickerController()
             picker.delegate = self
@@ -114,10 +112,10 @@ public class DDPicNineGridViewController: DDPicBaseViewController {
             self.present(picker, animated: true)
         }
         
-        let alert = UIAlertController(title: "请选择图片上传方式", message: nil, preferredStyle: .actionSheet)
+        let alert = UIAlertController(title: "Please select picture uploading mode", message: nil, preferredStyle: .actionSheet)
         alert.addAction(captureAction)
         alert.addAction(albumAction)
-        alert.addAction(UIAlertAction(title: "取消", style: .cancel))
+        alert.addAction(UIAlertAction(title: "Cancel", style: .cancel))
         self.present(alert, animated: true)
     }
 
@@ -138,12 +136,12 @@ public class DDPicNineGridViewController: DDPicBaseViewController {
         return collectionView
     }()
     
-    private lazy var rightBarButton = UIBarButtonItem(title: "全部保存", style: .plain, target: self, action: #selector(storePhoto))
+    private lazy var rightBarButton = UIBarButtonItem(title: "Save", style: .plain, target: self, action: #selector(storePhoto))
     
-    private lazy var tipsLabel = UILabel(text: "请添加图片", color: .darkGray, textFont: .PingFangMedium(size: 20))
+    private lazy var tipsLabel = UILabel(text: "Please add picture", color: .darkGray, textFont: .PingFangMedium(size: 20))
     
     private lazy var bottomButton: UIButton = {
-        let button = UIButton(title: "添加照片", font: .PingFangMedium(size: 20), edgeInset: .zero)
+        let button = UIButton(title: "Add Picture", font: .PingFangMedium(size: 20), edgeInset: .zero)
         button.backgroundColor = .black
         button.tintColor = .white
         button.layer.cornerRadius = 10

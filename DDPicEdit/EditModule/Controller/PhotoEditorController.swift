@@ -107,7 +107,10 @@ final class PhotoEditorController: DDPicBaseViewController {
                 self.contentView.mosaic?.isUserInteractionEnabled = true
             }
             self.contentView.updateView(with: self.stack.edit) { [weak self] in
-                self?.toolView.mosaicToolView.setMosaicIdx(self?.stack.edit.mosaicData.last?.idx ?? 0)
+//                if let self = self, let lastMosaicData = self.stack.edit.mosaicData.last {
+//                    self.toolView.mosaicToolView.setMosaicIdx(lastMosaicData.idx)
+//                }
+                self?.toolView.mosaicToolView.setMosaicIdx(self?.options.defaultMosaicIndex ?? 0)
                 let delay = (self?.stack.edit.mosaicData.isEmpty ?? true) ? 0.0 : 0.25
                 DispatchQueue.main.asyncAfter(deadline: .now() + delay) { [weak self] in
                     // 这里稍微延迟一下，给马赛克图层创建留点时间
@@ -393,7 +396,7 @@ extension PhotoEditorController {
         case .cropFinish(let data):
             stack.setCropData(data)
         // MARK: -文字编辑
-        case .textWillBeginEdit(let data):
+        case .stickerWillBeginEdit(let data):
             openInputController(data)
         case .stickerBringToFront(let data):
             stack.moveStickerDataToTop(data)
@@ -405,24 +408,23 @@ extension PhotoEditorController {
             if delete {
                 stack.removeStickerData(data)
             }
-        case .textCancel:
+        case .stickerCancel:
             didEndInputing()
             contentView.restoreHiddenTextView()
-        case .textDone(let data):
+        case .stickerDone(let data):
             didEndInputing()
             contentView.removeHiddenStickerView()
             if !data.text.isEmpty {
                 stack.addStickerData(data)
             }
         // MARK: -水印
-        case .waterMark(let data):
+        case .waterMarkChange(let data):
             self.contentView.addWaterMarkIn(data: data)
             self.stack.setWaterMarkData(data)
         // MARK: -调整图片参数
         case .picParameterChange(let data):
             self.contentView.picParameterChange(data: data)
             self.stack.setPicParameterData(data)
-            self.trackObserver?.track(event: .editorPhotoParameterChange, userInfo: [:])
         case .picParameterCancel:
             trackObserver?.track(event: .editorPhotoParameterCancel, userInfo: [:])
             backButton.isHidden = false
@@ -430,6 +432,7 @@ extension PhotoEditorController {
             self.stack.originImage = self.image
             trackObserver?.track(event: .editorPhotoParameterDone, userInfo: [:])
             backButton.isHidden = false
+        // MARK: - 图片贴纸
         case .pasterCancel:
             trackObserver?.track(event: .editorPhotoPasterCancel, userInfo: [:])
             backButton.isHidden = false
@@ -461,11 +464,13 @@ extension PhotoEditorController {
         contentView.mosaic?.isUserInteractionEnabled = false
         contentView.shapeCanvas.isUserInteractionEnabled = false
         contentView.scrollView.isScrollEnabled = option == nil
+        contentView.disableAllStickerView(interactionEnabled: true)
         guard let option = option else { return }
         switch option {
         case .brush:
             contentView.canvas.isUserInteractionEnabled = true
             trackObserver?.track(event: .editorPhotoBrush, userInfo: [:])
+            contentView.disableAllStickerView(interactionEnabled: false)
         case .text:
             openInputController()
             trackObserver?.track(event: .editorPhotoText, userInfo: [:])
@@ -483,6 +488,7 @@ extension PhotoEditorController {
                 self.view.showHudWaiting()
             }
             contentView.mosaic?.isUserInteractionEnabled = true
+            contentView.disableAllStickerView(interactionEnabled: false)
             trackObserver?.track(event: .editorPhotoMosaic, userInfo: [:])
         case .waterMark:
             trackObserver?.track(event: .editorPhotoWaterMark, userInfo: [:])
@@ -492,6 +498,7 @@ extension PhotoEditorController {
             trackObserver?.track(event: .editorPhotoPaster, userInfo: [:])
         case .drawShape:
             contentView.shapeCanvas.isUserInteractionEnabled = true
+            contentView.disableAllStickerView(interactionEnabled: false)
             trackObserver?.track(event: .editorPhotoDrawShape, userInfo: [:])
         }
     }

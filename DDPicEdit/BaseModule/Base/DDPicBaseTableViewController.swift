@@ -13,4 +13,13 @@ public class DDPicBaseTableViewController: UITableViewController {
         super.viewDidLoad()
     }
     
+    public override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+    }
+    
+    public override func viewDidDisappear(_ animated: Bool) {
+        super.viewDidDisappear(animated)
+        
+    }
+    
 }

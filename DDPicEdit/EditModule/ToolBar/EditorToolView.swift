@@ -299,7 +299,7 @@ extension EditorToolView: EditorCropToolViewDelegate {
 // MARK: - EditWaterMarkToolViewDelegate
 extension EditorToolView: EditWaterMarkToolViewDelegate {
     func selectWaterMarkToolLocation(_ waterMarkView: EditWaterMarkToolView, _ data: WaterMarkData) {
-        context.action(.waterMark(data))
+        context.action(.waterMarkChange(data))
     }
 }
 

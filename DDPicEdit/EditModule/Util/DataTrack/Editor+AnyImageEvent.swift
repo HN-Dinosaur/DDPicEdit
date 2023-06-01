@@ -52,8 +52,6 @@ extension AnyImageEvent {
     
     public static let editorPhotoDrawShape: AnyImageEvent = "DDPICEDIT_EVENT_EDITOR_PHOTO_DRAW_SHAPE"
     
-    public static let editorPhotoParameterChange: AnyImageEvent = "DDPICEDIT_EVENT_EDITOR_PHOTO_PARAMETER_CHANGE"
-    
     public static let editorPhotoParameterCancel: AnyImageEvent = "DDPICEDIT_EVENT_EDITOR_PHOTO_PARAMETER_CANCEL"
     
     public static let editorPhotoParameterDone: AnyImageEvent = "DDPICEDIT_EVENT_EDITOR_PHOTO_PARAMETER_DONE"

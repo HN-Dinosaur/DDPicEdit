@@ -67,6 +67,7 @@ final class MosaicContentView: DryDrawingView {
     private lazy var imageView: UIImageView = {
         let view = UIImageView(frame: .zero)
         view.contentMode = .scaleAspectFill
+        // 这里使用mask来实现马赛克
         view.layer.mask = maskLayer
         return view
     }()
